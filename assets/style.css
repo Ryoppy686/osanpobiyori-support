@@ -42,6 +42,11 @@
   --sky-deep:   #1CA5EE;  /* bg_sunny_day の空 */
   --grass:      #A4CC2D;  /* bg_sunny_day の芝 */
   --sun:        #F9D353;  /* AppIcon の太陽。強調はこの1色に限る */
+  /* プレミアムの印(王冠)。アプリ側 PremiumTheme.gold(#CC991A)を紙の地に載るまで
+     暗くした値。--sun では埋もれて王冠に見えず、アプリの金そのままだと紙(#F5F3ED)に
+     対して 2.33:1 しか出ない(この値なら 3.07:1 でアイコンの下限3:1を満たす)。
+     **文字色には使わない** — 本文に必要な 4.5:1 には届かないため */
+  --gold:       #B5820F;
 
   /* 見出し。Zen Kurenaido は**ウェイトが1種類しかない**ので、太字を指定してはいけない
      (ブラウザが偽の太字を合成し、手書きの線が潰れる)。階層はサイズでつける */
@@ -411,6 +416,80 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 
 .breeds__band { margin-top: clamp(24px, 5vw, 44px); }
 
+/* --- プレミアム紹介 -------------------------------------------- */
+
+.premium { text-align: center; }
+.premium h2 { font-size: min(clamp(1.45rem, 4.4vw, 2.1rem), var(--fit-h2)); margin-bottom: .7em; }
+.premium__lead { color: var(--ink-soft); }
+
+/* 4機能。1列に4つ並べると1枚257pxまで縮んで画面の文字が読めなくなるため、
+   広い画面でも2列で止める(534pxあれば通知の文面や地図の地名が読める) */
+.premium__grid {
+  list-style: none;
+  margin: clamp(28px, 5vw, 44px) 0 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(32px, 5vw, 52px);
+  text-align: left;
+}
+.premium__grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* 角丸と影は機能紹介のスクショと同じ値。別物に見えないようにする */
+  border-radius: 20px;
+  box-shadow: 0 12px 30px -12px rgba(58,54,48,.30), 0 2px 6px rgba(58,54,48,.08);
+}
+/* 王冠+機能名。アプリのペイウォールで各機能に付いている見出しと同じ並びにしてある。
+   見た目は下の見出しコピーより小さいが、構造としてはこちらが見出し(コピーは説明) */
+.premium__grid h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  /* 文字は墨色。金にすると紙の地と色が近く、この大きさでは読みづらい */
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+/* 金は王冠だけに使う(SVGは fill="currentColor" なのでこの color を拾う)。
+   flex: none は、名前が折り返しても王冠を縮ませないため */
+.premium__crown { flex: none; color: var(--gold); }
+
+/* 説明文はサイズを指定せず本文(17px)のまま。無料の機能紹介(.feature__body p)と
+   同じ大きさに揃えるため。**この一般規則を見出しコピーより先に書くこと** —
+   後ろに置くと `.premium__grid p`(クラス2つ)が詳細度で勝ち、コピーの色と
+   字送りが説明文のものに上書きされる */
+.premium__grid p { margin: 0; color: var(--ink-soft); }
+.premium__grid .premium__copy {
+  font-family: var(--display);
+  /* 無料の機能紹介の見出し(1.25〜1.6rem)より一段小さい。2列に並ぶぶん、
+     同じ大きさだと1行に収まらず折り返しが増える */
+  font-size: clamp(1.15rem, 3vw, 1.35rem);
+  color: var(--ink);
+  margin: .8em 0 .3em;
+}
+
+.premium__price {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  margin-top: clamp(28px, 5vw, 40px);
+}
+.premium__price-note {
+  display: block;
+  font-family: var(--sans);
+  font-size: .92rem;
+  color: var(--ink-soft);
+  margin-top: .5em;
+}
+.premium .badges { margin-top: 20px; }
+.premium__note {
+  font-size: .85rem;
+  color: var(--ink-soft);
+  text-align: left;
+  margin-top: clamp(24px, 4vw, 34px);
+}
+
 /* --- 安心材料 ------------------------------------------------- */
 
 .trust h2 { font-size: min(clamp(1.45rem, 4.4vw, 2.1rem), var(--fit-h2)); margin-bottom: 1em; text-align: center; }
@@ -438,12 +517,28 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 
 .faq__item { border-bottom: 1px solid rgba(107,99,85,.18); padding-block: 20px; }
 .faq__item:first-of-type { border-top: 1px solid rgba(107,99,85,.18); }
+/* 問いと答えは Q./A. をぶら下げるぶんだけ字下げする。**rem** で指定しているのは、
+   両者で文字サイズが違っても(1.05 と .96)ラベルの縦線を揃えるため */
+.faq__q, .faq__a { position: relative; padding-left: 1.75rem; }
 .faq__q {
   font-family: var(--display);
   font-size: 1.05rem;
   margin-bottom: .45em;
 }
 .faq__a { margin: 0; color: var(--ink-soft); font-size: .96rem; }
+
+/* どちらが問いでどちらが答えか、ひと目で分かるようにする。色はパレットの墨色2段だけ
+   を使う(空色や芝色は紙の地に対して 2.6:1・1.9:1 しか出ず、この字の大きさでは読めない)。
+   なお lp-fonts.py が拾うのは**HTMLに出てくる文字だけ**で、ここの content は見ていない。
+   別の文字に変えるときは、その字が同スクリプトの ALWAYS(予備文字)にあるか確かめること */
+.faq__q::before, .faq__a::before {
+  position: absolute;
+  left: 0;
+  font-family: var(--display);
+  font-size: 1.05rem;   /* 答え側も問いに揃える(ラベルだけ大きさが違うと目が滑る) */
+}
+.faq__q::before { content: "Q."; color: var(--ink); }
+.faq__a::before { content: "A."; color: var(--ink-soft); }
 
 .faq__more { text-align: center; margin-top: 32px; }
 
@@ -566,6 +661,7 @@ section { padding-block: clamp(56px, 9vw, 104px); }
   .feature__body { max-width: 30em; }
   .trust__list { columns: 2; column-gap: 40px; }
   .trust__list li { break-inside: avoid; }
+  .premium__grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* --- 動きを減らす設定を尊重する ------------------------------- */
