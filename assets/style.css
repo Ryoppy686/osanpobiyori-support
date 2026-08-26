@@ -246,6 +246,24 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 .badge { display: inline-flex; line-height: 0; }
 .badges img { height: clamp(44px, 13vw, 54px); width: auto; }
 
+/* Android版リリースまでの非活性バッジ(薄くして「近日公開」を重ねる) */
+.badge--soon { position: relative; cursor: default; }
+.badge--soon img { filter: grayscale(1); opacity: .4; }
+.badge--soon__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: clamp(12px, 3.2vw, 14px);
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  background: rgba(74, 60, 48, .55);
+  border-radius: 8px;
+}
+
 /* --- 区切りのにじみ -------------------------------------------
    罫線を使わない。3箇所それぞれ別の色の帯を当てている(同じ絵を3回出すと単調)。
 
