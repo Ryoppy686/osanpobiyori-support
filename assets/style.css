@@ -289,7 +289,10 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 .h2-blob--sky::before   { background-image: url("blob-sky.webp"); }
 .h2-blob--grass::before { background-image: url("blob-grass.webp"); }
 
-/* --- 動画 ---------------------------------------------------- */
+/* --- 動画 ----------------------------------------------------
+   ⚠️ いまは使われていない。動画が未制作のため `index.html` 側の
+   `<section class="video">` をコメントにしてある(2026-08-26)。
+   **消さないこと** — 動画ができたらHTMLのコメントを外すだけで戻せる */
 
 .video__frame {
   position: relative;
@@ -327,7 +330,7 @@ section { padding-block: clamp(56px, 9vw, 104px); }
    目立つため(「おさんぽびより/は、」が実際に起きた)。見出しは中央揃えのまま */
 .problem p  { color: var(--ink-soft); max-width: 30em; margin-inline: auto; text-align: left; }
 
-/* 気温23℃ / 路面50℃ の比較。画像でなく文字で組む(拡大でボケず、検索にも拾われる) */
+/* 気温26℃ / 路面50℃ の比較。画像でなく文字で組む(拡大でボケず、検索にも拾われる) */
 .compare {
   display: flex;
   align-items: stretch;
@@ -422,8 +425,10 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 .premium h2 { font-size: min(clamp(1.45rem, 4.4vw, 2.1rem), var(--fit-h2)); margin-bottom: .7em; }
 .premium__lead { color: var(--ink-soft); }
 
-/* 4機能。1列に4つ並べると1枚257pxまで縮んで画面の文字が読めなくなるため、
-   広い画面でも2列で止める(534pxあれば通知の文面や地図の地名が読める) */
+/* 5機能。狭い順に 1列 → 2列(769px〜) → 3列(1100px〜)。
+   1枚は2列で534px・3列で316px。3列は通知の文面やカレンダーの凡例が小さくなるので、
+   幅が伸びきる1100pxまでは2列のままにする。
+   5つはどちらの列数でも割り切れないので、余った枚を中央に寄せる(下の各ブロック) */
 .premium__grid {
   list-style: none;
   margin: clamp(28px, 5vw, 44px) 0 0;
@@ -634,7 +639,7 @@ section { padding-block: clamp(56px, 9vw, 104px); }
   .hero__band img { aspect-ratio: 1100 / 950; }
   .breeds__band img { aspect-ratio: 1100 / 700; }
 
-  /* 気温23℃ / 路面50℃ の比較。
+  /* 気温26℃ / 路面50℃ の比較。
      3列(値・つなぎ・値)のままだと390dpで1列118px、注釈が入る幅は94pxしかなく、
      「私たちが見て/いる」と語の途中で割れた。
      **つなぎの「その足元は」を落として2列にする** — すぐ上の見出しが
@@ -661,7 +666,21 @@ section { padding-block: clamp(56px, 9vw, 104px); }
   .feature__body { max-width: 30em; }
   .trust__list { columns: 2; column-gap: 40px; }
   .trust__list li { break-inside: avoid; }
-  .premium__grid { grid-template-columns: 1fr 1fr; }
+  /* 2列(2+2+1)。5枚目は中央に置く。列を4つ用意して1枚を2列ぶん占めさせると、
+     半列ぶんずらして中央に寄せられる(2列指定のままだと最後の1枚が左に残る) */
+  .premium__grid { grid-template-columns: repeat(4, 1fr); }
+  .premium__grid > li { grid-column: span 2; }
+  .premium__grid > li:nth-child(5) { grid-column: 2 / span 2; }
+}
+
+/* 3列(3+2)。同じ理屈で列を6つ。
+   切り替えは **1100px 以上** — `.wide` が上限(1100px)まで伸びきってから。
+   これより狭いところで3列にすると1枚が290pxまで痩せて、カレンダーの凡例
+   (ワクチン・お薬…)が潰れ、見出しコピーの折り返しも増える */
+@media (min-width: 1100px) {
+  .premium__grid { grid-template-columns: repeat(6, 1fr); }
+  .premium__grid > li:nth-child(4) { grid-column: 2 / span 2; }
+  .premium__grid > li:nth-child(5) { grid-column: 4 / span 2; }
 }
 
 /* --- 動きを減らす設定を尊重する ------------------------------- */

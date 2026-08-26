@@ -3,23 +3,351 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>おさんぽびより</title>
-<link rel="stylesheet" href="style.css">
+<title>おさんぽびより — 犬のための天気アプリ</title>
+<meta name="description" content="気温だけじゃわからない、わんこ目線の天気予報。路面温度・熱中症リスク・湿度まで、犬種と年齢に合わせて「今、散歩していい?」がわかる犬専用の天気アプリ。基本の機能は無料・広告なし。">
+<link rel="canonical" href="https://osanpobiyori.app/">
+<link rel="icon" href="assets/icon-192.webp" type="image/webp">
+<link rel="apple-touch-icon" href="assets/icon-192.webp">
+<link rel="stylesheet" href="assets/style.css">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="おさんぽびより — 犬のための天気アプリ">
+<meta property="og:description" content="気温だけじゃわからない、わんこ目線の天気予報。基本の機能は無料・広告なし。">
+<meta property="og:url" content="https://osanpobiyori.app/">
+<meta property="og:image" content="https://osanpobiyori.app/assets/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="おさんぽびより — 気温だけじゃわからない、わんこ目線の天気予報。草原に並ぶ6匹の犬のイラスト">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-<header>
-  <div class="paw">🐾</div>
-  <h1>おさんぽびより</h1>
+
+
+<header class="site-head site-head--overlay">
+  <a class="site-head__brand" href="./">
+    <img src="assets/icon-192.webp" width="34" height="34" alt="">
+    おさんぽびより
+  </a>
+  <nav class="site-head__nav">
+    <a href="./support.html">サポート</a>
+    <a href="./privacy-policy.html">プライバシーポリシー</a>
+  </nav>
 </header>
-<nav><a href="./support.html">サポート</a> | <a href="./privacy-policy.html">プライバシーポリシー</a></nav>
+
 <main>
-  <h2>犬のための天気アプリ</h2>
-  <p>「今、散歩していい?」に一目で答える、犬の飼い主専用の天気アプリです。気温だけでなく、アスファルトの熱さ・湿度・熱中症リスクまで、わんこ目線でチェックできます。</p>
-  <ul>
-    <li><a href="./support.html">サポート・よくある質問</a></li>
-    <li><a href="./privacy-policy.html">プライバシーポリシー</a></li>
-  </ul>
+
+  <!-- ヒーロー ------------------------------------------------ -->
+  <section class="hero">
+    <div class="measure">
+      <h1><span class="nb">今日のお散歩、</span><span class="nb">いつ出かけよう?</span></h1>
+      <p class="hero__lead"><span class="nb">気温だけじゃわからない、</span><span class="nb">わんこ目線の天気予報。</span></p>
+
+      <p class="hero__name">おさんぽびより</p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/jp/app/id6789016064">
+          <img src="assets/badge-appstore.svg" width="109" height="40" alt="App Storeからダウンロード">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho">
+          <img src="assets/badge-googleplay.png" width="270" height="80" alt="Google Play で手に入れよう">
+        </a>
+      </div>
+
+      <p class="hero__note">基本の機能は無料・広告なし</p>
+    </div>
+
+    <!-- 640px以下は3匹の版に差し替える。6匹のままだと顔が潰れる -->
+    <div class="hero__band">
+      <picture>
+        <source media="(max-width: 640px)" srcset="assets/hero-band-mobile.webp">
+        <img src="assets/hero-band-wide.webp" width="2048" height="560"
+             alt="草原に並ぶトイプードル・コーギー・柴犬・ノーフォークテリア・チワワ・ゴールデンレトリバーのイラスト">
+      </picture>
+    </div>
+  </section>
+
+  <!-- PR動画 ---------------------------------------------------
+       動画が未制作のため、初回公開では**出さない**(2026-08-26)。
+       中身は消さずコメントにしてある。差し替えるときは
+       このコメントを外し、`.video__frame` の中身をポスター画像+mp4に置き換える。
+       CSS(`style.css` の「--- 動画 ---」)も残してあるのでそのまま使える。
+       ⚠️ 戻したら `lp-fonts.py` も再実行すること — サブセットフォントは
+       コメント内の文字を集めないので、この節の文字がいまは入っていない。
+  <section class="video">
+    <div class="measure">
+      <div class="video__frame">
+        <button class="video__play" type="button" aria-label="紹介動画を再生する">
+          <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true">
+            <path d="M2 2.6 20 13 2 23.4Z" fill="#3A3630"></path>
+          </svg>
+        </button>
+        紹介動画がここに入ります
+      </div>
+    </div>
+  </section>
+  -->
+
+  <img class="wash" src="assets/divider-wash.webp" alt="" aria-hidden="true"
+       width="840" height="163" loading="lazy" decoding="async">
+
+  <!-- 課題提起 -------------------------------------------------- -->
+  <section class="problem">
+    <div class="measure">
+      <h2><span class="nb">人には気持ちいい陽気でも、</span><span class="nb">その足元は熱いかもしれない。</span></h2>
+
+      <div class="compare">
+        <div class="compare__item compare__item--air">
+          <span class="compare__label">気温</span>
+          <span class="compare__value">26℃</span>
+          <span class="compare__caption"><span class="nb">私たちが見ている</span><br><span class="nb">天気予報の数字</span></span>
+        </div>
+        <div class="compare__vs">その足元は</div>
+        <div class="compare__item compare__item--road">
+          <span class="compare__label">アスファルト</span>
+          <span class="compare__value">50℃</span>
+          <span class="compare__caption"><span class="nb">わんこが素足で</span><br><span class="nb">歩くときの熱さ</span></span>
+        </div>
+      </div>
+
+      <p><span class="nb">おさんぽびより</span>は、気温のうしろに隠れているものまで見にいきます。路面の熱さ、湿度、風、紫外線。それらをまとめて「今、出て大丈夫?」のひと言に変えて、毎朝お届けします。</p>
+    </div>
+  </section>
+
+  <img class="wash" src="assets/divider-sky.webp" alt="" aria-hidden="true"
+       width="840" height="177" loading="lazy" decoding="async">
+
+  <!-- 機能 ------------------------------------------------------ -->
+  <section class="features">
+    <div class="wide">
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>今日のお散歩指数</h3>
+          <p>気温・湿度・雨・風・路面温度から、今日の散歩しやすさを0〜100でお答えします。1時間ごとの指数と「おすすめのお散歩時間」つき。朝いちばんに開けば、今日の予定が決まります。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="assets/shot-home.webp" width="720" height="1440" loading="lazy"
+               alt="ホーム画面。今日のお散歩指数とマスコットの吹き出しが表示されている">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>なぜその点数なのか、全部見せます</h3>
+          <p>暑さ・路面・雨・寒さ・風・紫外線・乾燥の7つの要素に分けて、点数の内訳をいつでも確認できます。判断の根拠と出典もアプリの中に載せているので、鵜呑みにせず自分で確かめられます。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="assets/shot-breakdown.webp" width="720" height="1440" loading="lazy"
+               alt="スコアの内訳画面。7つの要素ごとの評価が並んでいる">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>路面の熱さと、熱中症のリスク</h3>
+          <p>太陽の高さや雲・雨のようすからアスファルトの熱さを推定し、肉球のやけどが心配な時間帯をお知らせします。熱中症は環境省の暑さ指数(WBGT)の区分に沿って判定。短頭種・子犬・シニアの子は、より慎重に見ます。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="assets/shot-heat.webp" width="720" height="1440" loading="lazy"
+               alt="猛暑日のホーム画面。散歩を控えるようすすめる表示とバテた表情のマスコット">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>雨雲レーダー</h3>
+          <p>気象庁の高解像度降水ナウキャストで、雨雲の動きを地図で確認できます。「今から出て、降られないか」をおでかけ前にさっとチェック。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="assets/shot-radar.webp" width="720" height="1440" loading="lazy"
+               alt="雨雲レーダー画面。地図上に雨雲が重ねて表示されている">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>うちの子に合わせて</h3>
+          <p>犬種・年齢・体型を登録すると、判定がその子に合わせて変わります。110種以上の犬種に対応。多頭飼いのおうちは、何頭でも登録できます。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="assets/shot-dogs.webp" width="720" height="950" loading="lazy"
+               alt="マイわんこの一覧画面。登録した犬が並んでいる">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 犬種で変わる ---------------------------------------------- -->
+  <section class="breeds">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--grass"><span class="nb">同じ天気でも、</span><span class="nb">この子たちの答えは違う。</span></h2>
+      <p>短いマズルの子は熱がうまく逃がせません。地面に近い小型犬は、路面の照り返しをまともに受けます。厚いダブルコートの子と、寒さに弱い短毛の子でも、快適な一日は違います。<span class="nb">おさんぽびより</span>は、その差をちゃんと計算に入れます。</p>
+    </div>
+    <!-- ヒーローと同じ絵は使い回さない。本文で挙げている差(短頭種・地面に近い小型犬・
+         厚いダブルコート・寒さに弱い短毛)に実際に当てはまる犬種を並べた別の帯 -->
+    <div class="breeds__band">
+      <picture>
+        <source media="(max-width: 640px)" srcset="assets/breeds-band-narrow.webp">
+        <img src="assets/breeds-band-wide.webp" width="2048" height="560" loading="lazy"
+             alt="ペキニーズ・ミニチュアダックスフンド・チャウチャウ・チワワ・ボストンテリア・ボーダーコリーが並んでいるイラスト">
+      </picture>
+    </div>
+  </section>
+
+  <!-- プレミアム ------------------------------------------------ -->
+  <!-- 見出しコピー5本はアプリのペイウォールと同じ文言にしてある。
+       LPとアプリで言うことが違うと、入ってから「思っていたのと違う」になるため。
+       並び順もペイウォールと同じ(カレンダーが先頭) -->
+  <section class="premium">
+    <div class="measure">
+      <h2>おさんぽびよりプレミアム</h2>
+      <p class="premium__lead"><span class="nb">基本の機能は無料のまま。</span><span class="nb">もう少し手を貸してほしい方へ、</span><span class="nb">次の5つが加わります。</span></p>
+    </div>
+
+    <!-- 5枚の絵はiOS版のペイウォールと同じもの。縦横比は 1206×854 に切り揃えてある
+         (揃えないと、横に並べたとき隣とテキストの開始位置がずれる) -->
+    <div class="wide">
+      <ul class="premium__grid">
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>カレンダー</h3>
+          <img src="assets/shot-premium-calendar.webp" width="1068" height="756" loading="lazy"
+               alt="カレンダー画面。8月の月表示に、ワクチン・お薬・トリミング・通院などの予定が色の点で並んでいる">
+          <p class="premium__copy"><span class="nb">うちの子の予定を、</span><span class="nb">思いどおりにカレンダーへ</span></p>
+          <p>トリミング・通院・フィラリア予防など、うちの子に必要な予定を自由に追加できます。仕上がりや体重は、写真とメモで記録に。無料でもワクチン・ノミダニ予防の予定は使えます。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>リアルタイムアラート</h3>
+          <img src="assets/shot-premium-alerts.webp" width="1068" height="756" loading="lazy"
+               alt="ホーム画面の上に「暑さに気をつけて」のリアルタイム通知が届いているようす">
+          <p class="premium__copy"><span class="nb">急な暑さ・雨・雷を、</span><span class="nb">リアルタイムでお知らせ</span></p>
+          <p>アプリを閉じていても、観測データの変化を見てお知らせします。無料の通知は予報から前の晩に作るので、急な変わり方には追いつけません。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>おもいでマップ</h3>
+          <img src="assets/shot-premium-memories.webp" width="1068" height="756" loading="lazy"
+               alt="おもいでマップ。地図の上に、思い出を登録した場所のピンが立っている">
+          <p class="premium__copy"><span class="nb">お散歩の思い出を、</span><span class="nb">写真つきで地図に残せる</span></p>
+          <p>行った場所に、写真とひとことを。ピンが増えるほど、わんことの思い出が地図になっていきます。無料でも3件まで試せます。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>レーダー強化</h3>
+          <img src="assets/shot-premium-radar.webp" width="1068" height="756" loading="lazy"
+               alt="雨雲レーダーの15時間予想。19時の雨雲の広がりが地図に重ねて表示されている">
+          <p class="premium__copy"><span class="nb">雨の予想は15時間先まで。</span><span class="nb">雷レーダーも</span></p>
+          <p>無料の雨雲レーダーは1時間先まで。「夕方なら降られない」が前の晩にわかります。雷レーダーは、いま雷が鳴っている場所を映します。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>日替わり背景</h3>
+          <img src="assets/shot-premium-background.webp" width="1068" height="756" loading="lazy"
+               alt="草原に集まったゴールデンレトリバー・チワワ・ポメラニアン・ボーダーコリー・柴犬・トイプードル・ノーフォークテリア・コーギーのイラスト">
+          <p class="premium__copy"><span class="nb">写真10枚といろんなわんこが、</span><span class="nb">日替わりでホームに</span></p>
+          <p>無料は写真1枚を固定で表示します。今日はどの子かな、が毎朝のたのしみに。</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="measure">
+      <p class="premium__price">月額350円(税込)<span class="premium__price-note">現在はiOS版のみのご提供です</span></p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/jp/app/id6789016064">
+          <img src="assets/badge-appstore.svg" width="109" height="40" alt="App Storeからダウンロード">
+        </a>
+      </div>
+
+      <p class="premium__note">リアルタイムアラートと雨の予想・雷レーダーは、日本国内の地点のみに対応しています。日替わりで登場するのは、イラストをご用意できている犬種です。お支払い・解約の条件は<a href="./tokushoho.html">特定商取引法に基づく表記</a>をご覧ください。</p>
+    </div>
+  </section>
+
+  <!-- 安心材料 -------------------------------------------------- -->
+  <section class="trust">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--sky">安心してお使いいただけます</h2>
+      <ul class="trust__list">
+        <li>広告は表示しません</li>
+        <li>基本の機能は無料。追加機能は任意の有料プランです</li>
+        <li>アカウント登録は不要です</li>
+        <li>わんこの情報も登録地点も、端末の中だけに保存されます(リアルタイムアラートの利用時を除く。詳しくは<a href="./privacy-policy.html">プライバシーポリシー</a>)</li>
+        <li>位置情報は天気の取得だけに使います</li>
+        <li>位置情報を許可しなくても、地点を登録すればすべての機能が使えます</li>
+        <li>それぞれの指標の根拠と出典を、アプリの中で公開しています</li>
+      </ul>
+    </div>
+  </section>
+
+  <img class="wash" src="assets/divider-grass.webp" alt="" aria-hidden="true"
+       width="840" height="178" loading="lazy" decoding="async">
+
+  <!-- FAQ ------------------------------------------------------- -->
+  <section class="faq">
+    <div class="measure">
+      <h2>よくある質問</h2>
+
+      <div class="faq__item">
+        <h3 class="faq__q">位置情報を許可しなくても使えますか?</h3>
+        <p class="faq__a">はい。ホーム画面の地点メニューから地点を登録すれば、すべての機能をご利用いただけます。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">表示される路面温度は実測値ですか?</h3>
+        <p class="faq__a">いいえ。太陽の高さと雲量から推定した目安です。お出かけ前に、地面に5秒手を当てて確かめる「5秒チェック」を併用してください。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">散歩指数や熱中症リスクの根拠は?</h3>
+        <p class="faq__a">アプリ内の「設定 &gt; 指標のしくみと根拠」に、閾値と出典(環境省の暑さ指数指針・獣医師監修の公開資料など)を掲載しています。</p>
+      </div>
+
+      <div class="faq__item">
+        <h3 class="faq__q">無料のままでも使えますか?</h3>
+        <p class="faq__a">はい。お散歩指数・熱中症や路面温度の判定・雨雲レーダー(1時間先まで)・週間予報など、基本の機能は無料でお使いいただけます。iOS版のカレンダーも、<span class="nb">ワクチンや</span><span class="nb">ノミダニ予防などの</span><span class="nb">予定は無料で</span><span class="nb">お使いいただけます</span>。<span class="nb">おさんぽびよりプレミアム</span>は、そこに機能を足す任意のプランです。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q"><span class="nb">おさんぽびよりプレミアムは、</span><span class="nb">Android版でも使えますか?</span></h3>
+        <p class="faq__a">いまのところiOS版のみのご提供です。Android版への導入は準備を進めています。なお基本の機能は、iOS版・Android版のどちらも無料でお使いいただけます。</p>
+      </div>
+
+      <p class="faq__more"><a href="./support.html"><span class="nb">すべての質問と</span><span class="nb">お問い合わせ先を見る</span></a></p>
+    </div>
+  </section>
+
+  <!-- 締め ------------------------------------------------------ -->
+  <section class="cta" id="download">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--sun"><span class="nb">今日のお散歩、</span><span class="nb">いつ出かけましょうか。</span></h2>
+      <p>まずはアプリを開いて、今日のお散歩指数をのぞいてみてください。</p>
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/jp/app/id6789016064">
+          <img src="assets/badge-appstore.svg" width="109" height="40" alt="App Storeからダウンロード">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho">
+          <img src="assets/badge-googleplay.png" width="270" height="80" alt="Google Play で手に入れよう">
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
-<footer>© 2026 おさんぽびより</footer>
+
+<footer class="site-foot">
+  <div class="wide">
+    <nav>
+      <a href="./support.html">サポート・よくある質問</a>
+      <a href="./privacy-policy.html">プライバシーポリシー</a>
+      <a href="./tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="mailto:osanpobiyori.app@gmail.com">お問い合わせ</a>
+    </nav>
+    <div class="site-foot__legal">
+      <p>天気データ: Apple Weather / 雨雲レーダー: 気象庁提供</p>
+      <p>路面温度は推定した目安であり、実測値ではありません。本アプリは獣医学的診断を行うものではありません。</p>
+    </div>
+    <p class="site-foot__copy">© 2026 おさんぽびより</p>
+  </div>
+</footer>
+
 </body>
 </html>
