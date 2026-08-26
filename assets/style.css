@@ -570,6 +570,9 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 .cta { text-align: center; }
 .cta h2 { font-size: min(clamp(1.5rem, 4.6vw, 2.2rem), var(--fit-h2)); margin-bottom: .5em; }
 .cta p  { color: var(--ink-soft); margin-bottom: 2em; }
+/* 見出し裏の水彩(h2-blob--sun・最大330px)が下へ広がってバッジに掛かるため、
+   このセクションのバッジだけ下げて滲みの外へ出す(p の margin と相殺されるので実測+38px) */
+.cta .badges { margin-top: 72px; }
 
 /* --- フッター ------------------------------------------------- */
 
