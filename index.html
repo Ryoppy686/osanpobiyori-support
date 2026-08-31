@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://osanpobiyori.app/">
 <link rel="icon" href="assets/icon-192.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/icon-192.webp">
-<link rel="stylesheet" href="assets/style.css?v=20260826b">
+<link rel="stylesheet" href="assets/style.css?v=20260831">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="おさんぽびより — 犬のための天気アプリ">
@@ -29,12 +29,15 @@
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   "name": "おさんぽびより",
-  "operatingSystem": "iOS",
+  "operatingSystem": "iOS, Android",
   "applicationCategory": "WeatherApplication",
   "description": "気温だけじゃわからない、わんこ目線の天気予報。路面温度・熱中症リスク・湿度まで、犬種と年齢に合わせて「今、散歩していい?」がわかる犬専用の天気アプリ。基本の機能は無料・広告なし。",
   "url": "https://osanpobiyori.app/",
   "image": "https://osanpobiyori.app/assets/ogp.jpg",
-  "installUrl": "https://apps.apple.com/jp/app/id6789016064",
+  "installUrl": [
+    "https://apps.apple.com/jp/app/id6789016064",
+    "https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho"
+  ],
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
 }
 </script>
@@ -100,11 +103,9 @@
         <a class="badge" href="https://apps.apple.com/jp/app/id6789016064">
           <img src="assets/badge-appstore.svg" width="109" height="40" alt="App Storeからダウンロード">
         </a>
-        <!-- Android版は未リリース。バッジは出したまま非活性+「近日公開」(リリース時にaタグへ戻す) -->
-        <span class="badge badge--soon" aria-label="Google Play版は近日公開">
-          <img src="assets/badge-googleplay.png" width="270" height="80" alt="">
-          <span class="badge--soon__label">近日公開</span>
-        </span>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho">
+          <img src="assets/badge-googleplay.png" width="270" height="80" alt="Google Play で手に入れよう">
+        </a>
       </div>
 
       <p class="hero__note">基本の機能は無料・広告なし</p>
@@ -378,11 +379,9 @@
         <a class="badge" href="https://apps.apple.com/jp/app/id6789016064">
           <img src="assets/badge-appstore.svg" width="109" height="40" alt="App Storeからダウンロード">
         </a>
-        <!-- Android版は未リリース。バッジは出したまま非活性+「近日公開」(リリース時にaタグへ戻す) -->
-        <span class="badge badge--soon" aria-label="Google Play版は近日公開">
-          <img src="assets/badge-googleplay.png" width="270" height="80" alt="">
-          <span class="badge--soon__label">近日公開</span>
-        </span>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho">
+          <img src="assets/badge-googleplay.png" width="270" height="80" alt="Google Play で手に入れよう">
+        </a>
       </div>
     </div>
   </section>
