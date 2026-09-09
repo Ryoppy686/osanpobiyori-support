@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隐私政策 — 散步日和</title>
+<meta name="description" content="散步日和的隐私政策。本应用不收集可识别用户身份的个人信息。">
+<link rel="canonical" href="https://osanpobiyori.app/zh/privacy-policy">
+<link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/privacy-policy">
+<link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/privacy-policy">
+<link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy">
+<link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/privacy-policy">
+<link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/privacy-policy">
+<link rel="icon" href="../assets/icon-192.webp" type="image/webp">
+<link rel="apple-touch-icon" href="../assets/icon-192.webp">
+<link rel="stylesheet" href="../assets/style.css?v=20260909">
+</head>
+<body>
+
+<header class="site-head">
+  <a class="site-head__brand" href="../">
+    <img src="../assets/icon-192.webp" width="34" height="34" alt="">
+    散步日和
+  </a>
+  <nav class="site-head__nav">
+    <a href="./support.html">支持</a>
+  </nav>
+</header>
+
+<main class="doc measure">
+  <h1>隐私政策</h1>
+  <p class="doc__updated">制定日期：2026年7月4日 / 最后修订日期：2026年9月7日</p>
+
+  <p>散步日和(以下称"本应用")尊重用户的隐私，并致力于保护个人信息。</p>
+
+  <h2>收集的信息</h2>
+  <p><strong>本应用不收集可识别用户身份的个人信息。</strong>无需注册账号，也不会获取姓名、电子邮箱、设备 ID、广告 ID 等信息。仅按下述方式使用获取天气所必需的地点坐标。此外，只有在开启高级版的"实时提醒"时，才会将投送所需的最少信息(包含推送通知的目标标识符)发送至开发者的服务器(详见"<a href="#realtime-alert">实时提醒处理的信息</a>")。</p>
+  <ul>
+    <li><strong>位置信息</strong>：仅用于获取天气数据。iOS 版由设备直接发送给 Apple。Android 版在获取天气时，<strong>仅将所选地点的坐标</strong>经由开发者管理的中转服务器(用于获取天气数据)发送给 Apple。坐标在离开设备前会<strong>模糊到约 1 公里见方</strong>，中转服务器也会把收到的数值再次按相同精度模糊后才发送给 Apple。中转服务器不会将坐标记入访问日志，只会将取得的天气数据短暂保留(约 10 分钟)，绝不发送或保存可识别用户身份的信息(设备 ID、广告 ID、账号信息等)。即使不允许使用位置信息，也可以通过登记地点使用全部功能。</li>
+    <li><strong>狗狗的资料</strong>(名字、犬种、年龄，以及您登记的体重记录、常去的动物医院、芯片号码、过敏或旧疾的备注、疫苗证明等照片)：全部仅保存在设备内，不会发送到外部(仅在开启实时提醒时，会发送判定所用的部分体质信息；名字、照片、健康记录不会发送。详见下文)。</li>
+    <li><strong>照片</strong>：设为背景的照片，以及保存在回忆地图中的照片、地点、备注，全部仅保存在设备内，不会发送到外部。</li>
+  </ul>
+
+  <h2>关于天气数据</h2>
+  <p>天气数据使用 Apple 的 WeatherKit 获取。获取天气时，所选地点的坐标会发送给 Apple(Android 版经由上述中转服务器)。雨云雷达的图像是日本气象厅提供的瓦片图像，由设备直接获取(不经过中转服务器)。当前气温使用日本气象厅 AMeDAS 的实测值，同样由设备直接访问气象厅的服务器获取(不经过中转服务器。发送的仅为最近观测点的识别编号，不会发送坐标本身)。气象警报、注意报(仅在以日语使用本应用时显示)也由设备直接访问气象厅的服务器获取(不经过中转服务器。获取的是按发布机构汇总的文件，不会发送坐标或市区町村本身，判断属于哪个市区町村的处理在设备内完成)。关于 Apple 的隐私处理方式，请参阅 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple 的隐私政策</a>。</p>
+  <p>数据来源详情：<a href="https://developer.apple.com/weatherkit/data-source-attribution/" target="_blank" rel="noopener">Apple Weather 数据来源</a></p>
+
+  <h2 id="realtime-alert">实时提醒处理的信息(付费方案)</h2>
+  <p>高级版的"实时提醒"为了在应用关闭时也能提示危险天气，会使用开发者管理的投送服务器。<strong>仅在开启此功能时</strong>，以下信息会被发送并保存至服务器。</p>
+  <ul>
+    <li><strong>提醒地点的坐标</strong>：用户选择的守护地点的坐标。由于在离开设备前已<strong>模糊到约 1 公里见方</strong>，服务器上不会留下准确的住址。而且发送的只有所选地点，<strong>不会追踪设备的当前位置</strong>。</li>
+    <li><strong>推送通知的目标标识符</strong>：将通知送达您设备所必需的标识符。iOS 版使用 Apple 推送通知服务(APNs)的设备令牌，Android 版使用 Google Firebase Cloud Messaging(FCM)的注册令牌。两者都不与姓名等个人信息关联。</li>
+    <li><strong>提醒的设置</strong>：中暑、气压、暴雨、雷电各项的开启/关闭状态。</li>
+    <li><strong>狗狗的体质信息</strong>：用于个性化判定的体型、是否为短鼻犬种、被毛、年龄区间等区分值。不会发送名字、照片、生日。</li>
+    <li><strong>通知的投送计划</strong>：应用在设备上已安排的通知种类与时刻。仅用于避免相同内容的通知重复送达。</li>
+    <li><strong>订阅的交易信息</strong>：iOS 版为 Apple 签发的带签名交易数据，Android 版为 Google Play 签发的购买令牌。仅用于确认高级版的订阅状态，不含姓名与付款信息。</li>
+  </ul>
+  <p>这些信息<strong>仅用于投送提醒与确认订阅状态</strong>，绝不提供给第三方，也不用于广告目的。服务器上的天气判定使用日本气象厅公开的数据。已保存的信息在<strong>关闭实时提醒时会被删除</strong>；高级版到期时，也会在经过一定期间(30 天)后自动删除。</p>
+  <p>通知的投送在 iOS 版使用 Apple 推送通知服务(APNs)，在 Android 版使用 Google 的 Firebase Cloud Messaging。投送过程中通知的内容(有关天气的文字)会经由这些公司的服务，但通知中不会包含位置信息或狗狗的信息。关于 Google 的隐私处理方式，请参阅 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 的隐私政策</a>。</p>
+
+  <h2>关于付费方案(散步日和 高级版)</h2>
+  <p>高级版的付款在 iOS 版通过 Apple(App Store)处理，在 Android 版通过 Google(Google Play)处理。开发者不会收到姓名、信用卡信息等与付款有关的个人信息。若不使用实时提醒，订阅状态的确认在设备内即可完成，不会向开发者的服务器发送任何内容。</p>
+
+  <h2>数据的保存与删除</h2>
+  <p>本应用保存的数据(狗狗的资料、登记的地点、通知与显示的设置、设为背景的照片、回忆地图的记录)<strong>全部仅保存在您的设备内</strong>。开发者不会取得这些数据，也不会保管在外部服务器上(例外仅限开启实时提醒的情形，所处理的信息与删除条件如上所述)。</p>
+  <p><strong>关于导出备份</strong>：为更换机型等情况做准备，可将回忆地图的记录、护理日历的计划、狗狗的信息(包含体重记录、常去的动物医院、芯片号码、过敏备注、已登记的照片)汇总导出为一个文件。导出文件的保存位置(iCloud Drive、设备内、其他应用等)<strong>由您当场自行选择</strong>，不会发送至开发者的服务器。由于其中包含健康与联系方式相关的信息，请注意保存位置的共享设置。</p>
+  <p><strong>从设备卸载本应用后，这些数据将全部删除。</strong>若在开启实时提醒的状态下卸载，服务器上的登记信息会在高级版到期后经过一定期间(30 天)自动删除(如需立即删除，请在卸载前关闭实时提醒)。已登记的狗狗与地点，可随时在应用内单独删除。设为背景的照片，可通过更换为其他照片，或将背景改回"自动(跟随天气)"来停止使用。</p>
+  <p>Android 版使用的中转服务器(用于获取天气数据)不保存任何可识别用户身份的信息。虽然会将取得的天气数据临时保留约 10 分钟，但那是与模糊坐标对应的天气数值，无法确定个人身份，并会随时间自动清除。因此，我们并未持有需要您申请删除的个人数据。如有疑问，请通过<a href="./support.html">支持页面</a>与我们联系。</p>
+
+  <h2>关于跟踪与分析</h2>
+  <p>本应用完全不使用广告、跟踪或第三方分析 SDK。Android 版使用 Firebase Cloud Messaging 投送实时提醒的通知，但未加入分析(Google Analytics 等)功能。</p>
+
+  <h2>免责声明</h2>
+  <p>本应用显示的散步指数、中暑风险、路面温度等各项指标，是基于气象数据的一般参考，并非兽医学诊断。若对狗狗的身体状况有所担心，请咨询兽医。</p>
+
+  <h2>联系我们</h2>
+  <p>关于本政策的咨询，请通过<a href="./support.html">支持页面</a>与我们联系。</p>
+
+  <h2>关于修订</h2>
+  <p>本政策如有修订，将在本页面公告。</p>
+</main>
+
+<footer class="site-foot">
+  <div class="wide">
+    <nav class="lang-switch" aria-label="语言">
+      <a href="../privacy-policy.html" lang="ja" hreflang="ja">日本語</a>
+      <a href="../en/privacy-policy.html" lang="en" hreflang="en">English</a>
+      <span aria-current="page">简体中文</span>
+      <a href="../ko/privacy-policy.html" lang="ko" hreflang="ko">한국어</a>
+    </nav>
+    <nav>
+      <a href="../">首页</a>
+      <a href="./support.html">支持・常见问题</a>
+      <a href="../tokushoho.html" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
+      <a href="mailto:osanpobiyori.app@gmail.com">联系我们</a>
+    </nav>
+    <p class="site-foot__copy">© 2026 散步日和</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Osanpo Biyori</title>
+<meta name="description" content="Privacy policy for Osanpo Biyori. The app collects no personally identifiable information.">
+<link rel="canonical" href="https://osanpobiyori.app/en/privacy-policy">
+<link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/privacy-policy">
+<link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/privacy-policy">
+<link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy">
+<link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/privacy-policy">
+<link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/privacy-policy">
+<link rel="icon" href="../assets/icon-192.webp" type="image/webp">
+<link rel="apple-touch-icon" href="../assets/icon-192.webp">
+<link rel="stylesheet" href="../assets/style.css?v=20260909">
+</head>
+<body>
+
+<header class="site-head">
+  <a class="site-head__brand" href="../">
+    <img src="../assets/icon-192.webp" width="34" height="34" alt="">
+    Osanpo Biyori
+  </a>
+  <nav class="site-head__nav">
+    <a href="./support.html">Support</a>
+  </nav>
+</header>
+
+<main class="doc measure">
+  <h1>Privacy Policy</h1>
+  <p class="doc__updated">Effective: July 4, 2026 / Last updated: September 7, 2026</p>
+
+  <p>Osanpo Biyori (the "app") respects your privacy and is committed to protecting personal information.</p>
+
+  <h2>Information we collect</h2>
+  <p><strong>The app does not collect any information that identifies you personally.</strong> No account is required, and we never obtain your name, email address, device ID, or advertising ID. We use only the coordinates of a location, as needed to fetch the weather, in the ways described below. Only when you turn on Real-time alerts (part of the paid plan) does the app send the minimum information needed for delivery — including a push notification token — to the developer's server (see "<a href="#realtime-alert">Information handled by real-time alerts</a>").</p>
+  <ul>
+    <li><strong>Location</strong>: Used solely to fetch weather data. On iOS, it is sent from your device directly to Apple. On Android, when the weather is fetched, <strong>only the coordinates of the selected location</strong> are sent to Apple through a relay server operated by the developer (used for fetching weather data). The coordinates are <strong>rounded to roughly a 1 km square</strong> before they leave the device, and the relay server rounds the value it receives to the same precision again before sending it to Apple. The relay server does not record coordinates in its access logs. It only holds the weather data it retrieves for a short time (about 10 minutes), and never sends or stores anything that identifies you (device ID, advertising ID, account information, and so on). You can use every feature of the app without granting location access, by registering locations yourself.</li>
+    <li><strong>Your dog's profile</strong> (name, breed, and age, plus weight records, primary veterinary clinic, microchip number, notes on allergies or medical conditions, and photos such as vaccination certificates, if you enter them): All of this is stored only on your device. It is never sent anywhere else (the sole exception is Real-time alerts, which, when turned on, sends some of the physical traits used for the assessment; names, photos, and health records are not sent — see below).</li>
+    <li><strong>Photos</strong>: Photos you set as a background, and the photos, places, and notes you save in Memory Map, are all stored only on your device. They are never sent anywhere else.</li>
+  </ul>
+
+  <h2>About the weather data</h2>
+  <p>Weather data is provided by Apple's WeatherKit. When the weather is fetched, the coordinates of the selected location are sent to Apple (on Android, through the relay server described above). Rain radar images are tiles provided by the Japan Meteorological Agency (JMA) and are fetched by your device directly (not through the relay server). Current temperature uses observed values from the JMA's AMeDAS network, also fetched by your device directly from the JMA's servers (not through the relay server; only the identifier of the nearest observation station is sent, never the coordinates themselves). Weather warnings and advisories (shown only when the app is used in Japanese) are likewise fetched by your device directly from the JMA's servers (not through the relay server; the files retrieved are grouped by the issuing office, so neither coordinates nor a municipality is sent — selecting which municipality the announcement applies to happens on your device). For Apple's privacy practices, please see the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</p>
+  <p>Details of the data sources: <a href="https://developer.apple.com/weatherkit/data-source-attribution/" target="_blank" rel="noopener">Apple Weather data sources</a></p>
+
+  <h2 id="realtime-alert">Information handled by real-time alerts (paid plan)</h2>
+  <p>The real-time alerts feature, part of the paid plan, uses a delivery server operated by the developer so that it can tell you about risky weather even when the app is closed. <strong>Only when you turn this feature on</strong> is the following information sent to and stored on that server.</p>
+  <ul>
+    <li><strong>Coordinates of the alert location</strong>: The coordinates of the location you chose to watch. They are <strong>rounded to roughly a 1 km square</strong> before they leave the device, so no precise address is ever held on the server. Only the location you chose is sent — <strong>your device's current position is not tracked</strong>.</li>
+    <li><strong>Push notification token</strong>: The identifier needed to deliver notifications to your device. On iOS this is a device token for Apple Push Notification service (APNs); on Android it is a registration token for Google's Firebase Cloud Messaging (FCM). Neither is linked to your name or any other personal information.</li>
+    <li><strong>Alert settings</strong>: Whether each alert — heatstroke, air pressure, heavy rain, and thunder — is on or off.</li>
+    <li><strong>Your dog's physical traits</strong>: Category values used to personalize the assessment, such as body size, whether the breed is brachycephalic, coat type, and age group. Name, photos, and date of birth are not sent.</li>
+    <li><strong>The notification schedule</strong>: The type and time of the notifications your app has scheduled on the device. This is used only to keep the same notification from arriving twice.</li>
+    <li><strong>Subscription transaction information</strong>: On iOS, the signed transaction data issued by Apple; on Android, the purchase token issued by Google Play. It is used only to confirm your subscription status and contains no name or payment details.</li>
+  </ul>
+  <p>This information is used <strong>only to deliver alerts and to confirm subscription status</strong>. It is never provided to third parties or used for advertising. The weather assessment on the server uses data published by the Japan Meteorological Agency. Stored information is <strong>deleted when you turn Real-time alerts off</strong>, and is also deleted automatically once a set period (30 days) has passed after a paid plan expires.</p>
+  <p>Notifications are delivered through Apple Push Notification service (APNs) on iOS and through Google's Firebase Cloud Messaging on Android. The content of a notification (wording about the weather) passes through those services in the course of delivery, but notifications never contain location data or information about your dog. For Google's privacy practices, please see the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+
+  <h2>About the paid plan (Osanpo Biyori Premium)</h2>
+  <p>Payment for the paid plan is processed by Apple (the App Store) on iOS and by Google (Google Play) on Android. The developer never receives personal information related to payment, such as your name or credit card details. If you do not use Real-time alerts, your subscription status is confirmed entirely on your device and nothing is sent to the developer's server.</p>
+
+  <h2>Storing and deleting data</h2>
+  <p>The data the app saves — your dogs' profiles, the locations you register, your notification and display settings, the photo you set as a background, and your Memory Map records — is <strong>stored only on your device</strong>. The developer never obtains it and never keeps it on an external server (the sole exception is when Real-time alerts is on; what is handled and when it is deleted are described above).</p>
+  <p><strong>About exporting a backup</strong>: In preparation for changing devices, you can export your Memory Map records, care calendar plans, and your dogs' information (including weight records, primary veterinary clinic, microchip number, allergy notes, and photos you registered) into a single file. <strong>You choose where that file is saved</strong> at that moment (iCloud Drive, your device, another app, and so on); it is never sent to the developer's server. Because the file contains health and contact information, please take care with the sharing settings of wherever you save it.</p>
+  <p><strong>Uninstalling the app from your device deletes all of this data.</strong> If you uninstall while Real-time alerts is still on, the registration held on the server is deleted automatically once a set period (30 days) has passed after your paid plan expires (if you would like it deleted right away, turn Real-time alerts off before uninstalling). Dogs and locations you have registered can be deleted individually from within the app at any time. You can stop using a photo set as a background by choosing a different photo or by setting the background back to "Automatic (follows the weather)".</p>
+  <p>The relay server used on Android (for fetching weather data) stores nothing that identifies you. It holds retrieved weather data for only about 10 minutes; those are weather values for a rounded coordinate, cannot identify an individual, and are erased automatically as time passes. We therefore hold no personal data for which you would need to request deletion. If you have any questions, please contact us through the <a href="./support.html">support page</a>.</p>
+
+  <h2>Tracking and analytics</h2>
+  <p>The app uses no advertising, tracking, or third-party analytics SDKs. The Android version uses Firebase Cloud Messaging to deliver real-time alert notifications, but no analytics features (such as Google Analytics) are included.</p>
+
+  <h2>Disclaimer</h2>
+  <p>The Walk Index, heatstroke risk, pavement temperature, and other measures shown in the app are general guides based on weather data; they are not a veterinary diagnosis. If you have any concerns about your dog's condition, please consult a veterinarian.</p>
+
+  <h2>Contact</h2>
+  <p>For questions about this policy, please get in touch through the <a href="./support.html">support page</a>.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy is revised, we will announce it on this page.</p>
+</main>
+
+<footer class="site-foot">
+  <div class="wide">
+    <nav class="lang-switch" aria-label="Language">
+      <a href="../privacy-policy.html" lang="ja" hreflang="ja">日本語</a>
+      <span aria-current="page">English</span>
+      <a href="../zh/privacy-policy.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      <a href="../ko/privacy-policy.html" lang="ko" hreflang="ko">한국어</a>
+    </nav>
+    <nav>
+      <a href="../">Home</a>
+      <a href="./support.html">Support &amp; FAQ</a>
+      <a href="../tokushoho.html" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
+      <a href="mailto:osanpobiyori.app@gmail.com">Contact</a>
+    </nav>
+    <p class="site-foot__copy">© 2026 Osanpo Biyori</p>
+  </div>
+</footer>
+
+</body>
+</html>

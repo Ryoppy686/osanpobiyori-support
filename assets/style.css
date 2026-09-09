@@ -569,6 +569,42 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 .site-foot__legal p { margin: 0 0 .5em; line-height: 1.75; }
 .site-foot__copy { margin-top: 22px; }
 
+/* --- 多言語ページ(en / zh-Hans / ko) ----------------------------
+   プライバシーポリシーとサポートだけ3言語版を site/en・zh・ko に置く
+   (アプリの仕様書 §11)。トップと特商法は日本語のみ。
+
+   **中韓のページでは同梱フォントを使わない。** Zen Kurenaido / Zen Kaku Gothic New は
+   日本語の字形しか持たず、ハングルは1字も無い(簡体字も一部だけ)。サブセットで
+   足りない字は豆腐(□)になるので、システムフォントへ切り替える
+   — アプリ側で中韓を丸ゴシックからシステムフォントに切り替えたのと同じ判断。
+   英語は同梱フォントがラテン文字を持つので、日本語ページと同じ見た目で通す。 */
+html[lang="zh-Hans"] {
+  --display: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --sans:    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+html[lang="ko"] {
+  --display: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --sans:    "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+}
+/* 見出しの weight 400 は Zen Kurenaido が1ウェイトしか無いための指定なので、
+   システムフォントで描く中韓では太字に戻して見出しらしくする */
+html[lang="zh-Hans"] :is(h1, h2, h3),
+html[lang="ko"] :is(h1, h2, h3) { font-weight: 600; }
+/* 韓国語は単語の途中で折り返さない(分かち書きの言語なので語の途中で切ると読みにくい)。
+   メールアドレスなど長い1語だけは anywhere で逃がす */
+html[lang="ko"] body { word-break: keep-all; overflow-wrap: anywhere; }
+
+/* 言語の切り替え。**同梱フォントを当てない** — 「简体中文」「한국어」の字が
+   サブセットに入っておらず、日本語ページでも豆腐になるため
+   (`スクリプト/lp-fonts.py` はこの nav を数えない) */
+.lang-switch {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .86rem;
+  margin-bottom: 22px;
+}
+.lang-switch [aria-current="page"] { color: var(--ink); font-weight: 700; text-decoration: none; }
+
 /* --- 下層ページ(サポート・プライバシーポリシー) ------------------ */
 
 .doc { padding-block: clamp(32px, 6vw, 56px) clamp(56px, 9vw, 96px); }
