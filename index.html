@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://osanpobiyori.app/">
 <link rel="icon" href="assets/icon-192.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/icon-192.webp">
-<link rel="stylesheet" href="assets/style.css?v=20260909">
+<link rel="stylesheet" href="assets/style.css?v=20260925">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="おさんぽびより — 犬のための天気アプリ">
@@ -70,6 +70,11 @@
       "@type": "Question",
       "name": "おさんぽびよりプレミアムは、Android版でも使えますか?",
       "acceptedAnswer": { "@type": "Answer", "text": "はい。iOS版・Android版のどちらでもご加入いただけます。なお基本の機能は、どちらも無料でお使いいただけます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "家族と共有するには、家族全員の加入が必要ですか?",
+      "acceptedAnswer": { "@type": "Answer", "text": "いいえ。おさんぽびよりプレミアムへの加入は、家族共有を始める1台だけで大丈夫です。招待コードで参加する家族(最大5台)は無料で、iPhoneとAndroidのあいだでも共有できます。" }
     }
   ]
 }
@@ -256,19 +261,26 @@
   </section>
 
   <!-- プレミアム ------------------------------------------------ -->
-  <!-- 見出しコピー5本はアプリのペイウォールと同じ文言にしてある。
+  <!-- 見出しコピー6本はアプリのペイウォールと同じ文言にしてある。
        LPとアプリで言うことが違うと、入ってから「思っていたのと違う」になるため。
-       並び順もペイウォールと同じ(カレンダーが先頭) -->
+       並び順もペイウォールと同じ(1.11.0から家族共有が先頭・次がカレンダー) -->
   <section class="premium">
     <div class="measure">
       <h2>おさんぽびよりプレミアム</h2>
-      <p class="premium__lead"><span class="nb">基本の機能は無料のまま。</span><span class="nb">もう少し手を貸してほしい方へ、</span><span class="nb">次の5つが加わります。</span></p>
+      <p class="premium__lead"><span class="nb">基本の機能は無料のまま。</span><span class="nb">もう少し手を貸してほしい方へ、</span><span class="nb">次の6つが加わります。</span></p>
     </div>
 
-    <!-- 5枚の絵はiOS版のペイウォールと同じもの。縦横比は 1206×854 に切り揃えてある
+    <!-- 6枚の絵はiOS版のペイウォールと同じもの。縦横比は 1206×854 に切り揃えてある
          (揃えないと、横に並べたとき隣とテキストの開始位置がずれる) -->
     <div class="wide">
       <ul class="premium__grid">
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>家族共有</h3>
+          <img src="assets/shot-premium-family.webp" width="1068" height="756" loading="lazy"
+               alt="家族共有の画面。ママのiPhoneとパパのAndroidがメンバーに並び、その下に「家族を招待」のボタンがある">
+          <p class="premium__copy"><span class="nb">家族みんなで、</span><span class="nb">うちの子の記録をひとつに</span></p>
+          <p>体重・お世話の記録・おもいでマップを、家族の端末と同期します。招待コードを送るだけで、iPhoneとAndroidのあいだでも共有できます。加入は1台だけで、招待された家族(最大5台)は無料でカレンダーとおもいでマップも使えます。</p>
+        </li>
         <li>
           <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>カレンダー</h3>
           <img src="assets/shot-premium-calendar.webp" width="1068" height="756" loading="lazy"
@@ -319,7 +331,7 @@
         </a>
       </div>
 
-      <p class="premium__note">リアルタイムアラートと雨の予想・雷レーダーは、日本国内の地点のみに対応しています。日替わりで登場するのは、イラストをご用意できている犬種です。お支払い・解約の条件は<a href="./tokushoho.html">特定商取引法に基づく表記</a>をご覧ください。</p>
+      <p class="premium__note">家族がカレンダーとおもいでマップを使えるのは、ホスト端末(家族共有を始めた端末)がプレミアムに加入している間です。リアルタイムアラートと雨の予想・雷レーダーは、日本国内の地点のみに対応しています。日替わりで登場するのは、イラストをご用意できている犬種です。お支払い・解約の条件は<a href="./tokushoho.html">特定商取引法に基づく表記</a>をご覧ください。</p>
     </div>
   </section>
 
@@ -331,7 +343,7 @@
         <li>広告は表示しません</li>
         <li>基本の機能は無料。追加機能は任意の有料プランです</li>
         <li>アカウント登録は不要です</li>
-        <li>わんこの情報も登録地点も、端末の中だけに保存されます(リアルタイムアラートの利用時を除く。詳しくは<a href="./privacy-policy.html">プライバシーポリシー</a>)</li>
+        <li>わんこの情報も登録地点も、端末の中だけに保存されます(家族共有とリアルタイムアラートの利用時を除く。詳しくは<a href="./privacy-policy.html">プライバシーポリシー</a>)</li>
         <li>位置情報は天気の取得だけに使います</li>
         <li>位置情報を許可しなくても、地点を登録すればすべての機能が使えます</li>
         <li>それぞれの指標の根拠と出典を、アプリの中で公開しています</li>
@@ -367,6 +379,10 @@
       <div class="faq__item">
         <h3 class="faq__q"><span class="nb">おさんぽびよりプレミアムは、</span><span class="nb">Android版でも使えますか?</span></h3>
         <p class="faq__a">はい。iOS版・Android版のどちらでもご加入いただけます。なお基本の機能は、どちらも無料でお使いいただけます。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q"><span class="nb">家族と共有するには、</span><span class="nb">家族全員の加入が必要ですか?</span></h3>
+        <p class="faq__a">いいえ。おさんぽびよりプレミアムへの加入は、家族共有を始める1台だけで大丈夫です。招待コードで参加する家族(最大5台)は無料で、iPhoneとAndroidのあいだでも共有できます。</p>
       </div>
 
       <p class="faq__more"><a href="./support.html"><span class="nb">すべての質問と</span><span class="nb">お問い合わせ先を見る</span></a></p>
