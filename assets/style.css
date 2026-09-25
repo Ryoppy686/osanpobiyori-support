@@ -365,6 +365,9 @@ section { padding-block: clamp(56px, 9vw, 104px); }
   margin-block: .04em .1em;
 }
 .compare__item--road .compare__value { color: #C9861B; }
+/* 海外向けトップだけ: 気温の下に添えるもう一方の単位(26℃ の下の 79℉)。
+   ブラウザが en-US のときはページ内のJSが摂氏と華氏を入れ替える */
+.compare__alt { display: block; font-size: .9rem; color: var(--ink-soft); margin: -.1em 0 .3em; }
 .compare__caption { font-size: .84rem; color: var(--ink-soft); line-height: 1.65; }
 
 .compare__vs {
@@ -716,6 +719,8 @@ html[lang="ko"] body { word-break: keep-all; overflow-wrap: anywhere; }
    (ワクチン・お薬…)が潰れ、見出しコピーの折り返しも増える */
 @media (min-width: 1100px) {
   .premium__grid { grid-template-columns: repeat(3, 1fr); }
+  /* 海外向けトップは日本域外で使える4つだけなので、3列だと最後の1枚が取り残される。2列×2段のままにする */
+  .premium__grid--four { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* --- 動きを減らす設定を尊重する ------------------------------- */

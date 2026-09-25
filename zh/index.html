@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>散步日和 — 狗狗视角的天气应用</title>
+<meta name="description" content="狗狗视角的天气预报。结合犬种和年龄，综合路面温度、中暑风险和湿度，告诉你“现在可以去散步吗？”。没有广告，基本功能免费。">
+<link rel="canonical" href="https://osanpobiyori.app/zh/">
+<link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/">
+<link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/">
+<link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/">
+<link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/">
+<link rel="icon" href="../assets/icon-192.webp" type="image/webp">
+<link rel="apple-touch-icon" href="../assets/icon-192.webp">
+<link rel="stylesheet" href="../assets/style.css?v=20260925c">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="散步日和 — 狗狗视角的天气应用">
+<meta property="og:description" content="狗狗视角的天气预报。没有广告，基本功能免费。">
+<meta property="og:url" content="https://osanpobiyori.app/zh/">
+<meta property="og:image" content="https://osanpobiyori.app/assets/ogp-zh.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="散步日和 — 狗狗视角的天气预报。草地上并排的 6 只狗狗插画">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- モバイルSafariでApp Storeへの誘導バナーを出す -->
+<meta name="apple-itunes-app" content="app-id=6789016064">
+
+<!-- 海外向けトップ(簡体字中国語)。英語版と同じ骨組み(docs/海外向けトップページ構成案.md)。
+     気温は摂氏のみ。Google Play は中国本土で使えないので、バッジの下に断り書きを添える。
+     検索エンジン向けの構造化データ(アプリ情報+FAQ)。FAQの文面は本文と一字一句揃えること -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "散步日和",
+  "alternateName": "Osanpo Biyori",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "WeatherApplication",
+  "description": "狗狗视角的天气预报。结合犬种和年龄，综合路面温度、中暑风险和湿度，告诉你“现在可以去散步吗？”。没有广告，基本功能免费。",
+  "url": "https://osanpobiyori.app/zh/",
+  "image": "https://osanpobiyori.app/assets/ogp-zh.jpg",
+  "inLanguage": "zh-Hans",
+  "installUrl": [
+    "https://apps.apple.com/app/id6789016064",
+    "https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho"
+  ],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "不允许使用位置信息也能用吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "可以。在首页的地点菜单中登记地点后，全部功能都能使用。" }
+    },
+    {
+      "@type": "Question",
+      "name": "显示的路面温度是实测值吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不是。那是根据太阳高度与云量估算的参考值。出门前请一并做\"5 秒检查\"：把手放在地面上停留 5 秒。" }
+    },
+    {
+      "@type": "Question",
+      "name": "在日本以外也能用吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "可以。除了雨云雷达、实时提醒、气象警报和实测的当前气温以外，所有功能在任何地方都能使用。这几项使用日本气象厅的数据，仅覆盖日本国内的地点。" }
+    },
+    {
+      "@type": "Question",
+      "name": "一直用免费版可以吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "可以。散步指数、中暑与路面温度的判定、一周预报等基本功能都可免费使用。护理日历中疫苗、驱虫等计划也可免费使用。散步日和 高级版是在此之上增加功能的可选方案。" }
+    },
+    {
+      "@type": "Question",
+      "name": "散步日和 高级版在 Android 版也能用吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "可以。iOS 版与 Android 版都能订阅。基本功能在两个平台上也都可免费使用。" }
+    },
+    {
+      "@type": "Question",
+      "name": "家人共享需要全家人都订阅吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不需要。只需开始家人共享的那 1 台设备订阅散步日和 高级版即可。使用邀请码加入的家人(最多 5 台设备)可免费加入，iPhone 和 Android 之间也能共享。" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-head site-head--overlay">
+  <a class="site-head__brand" href="./">
+    <img src="../assets/icon-192.webp" width="34" height="34" alt="">
+    散步日和
+  </a>
+  <nav class="site-head__nav">
+    <a href="./support.html">支持</a>
+    <a href="./privacy-policy.html">隐私政策</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ヒーロー ------------------------------------------------ -->
+  <section class="hero">
+    <div class="measure">
+      <h1><span class="nb">今天的散步，</span><span class="nb">什么时候出发？</span></h1>
+      <p class="hero__lead">狗狗视角的天气预报。</p>
+
+      <p class="hero__name">散步日和</p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064">
+          <img src="../assets/badge-appstore-zh.svg" width="109" height="40" alt="在 App Store 下载">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=zh-CN">
+          <img src="../assets/badge-googleplay-zh.png" width="269" height="80" alt="去 Google Play 下载">
+        </a>
+      </div>
+
+      <p class="hero__note">没有广告，基本功能免费。<br>Google Play 仅在中国大陆以外的地区提供。</p>
+    </div>
+
+    <!-- 640px以下は3匹の版に差し替える。6匹のままだと顔が潰れる -->
+    <div class="hero__band">
+      <picture>
+        <source media="(max-width: 640px)" srcset="../assets/hero-band-mobile.webp">
+        <img src="../assets/hero-band-wide.webp" width="2048" height="560"
+             alt="草地上并排的玩具贵宾犬、柯基、柴犬、诺福克梗、吉娃娃和金毛寻回犬的插画">
+      </picture>
+    </div>
+  </section>
+
+  <img class="wash" src="../assets/divider-wash.webp" alt="" aria-hidden="true"
+       width="840" height="163" loading="lazy" decoding="async">
+
+  <!-- 課題提起 -------------------------------------------------- -->
+  <section class="problem">
+    <div class="measure">
+      <h2><span class="nb">对人来说是舒服的好天气，</span><span class="nb">脚下却可能很烫。</span></h2>
+
+      <div class="compare">
+        <div class="compare__item compare__item--air">
+          <span class="compare__label">气温</span>
+          <span class="compare__value">26℃</span>
+          <span class="compare__caption"><span class="nb">我们看到的</span><br><span class="nb">天气预报数字</span></span>
+        </div>
+        <div class="compare__vs">脚下</div>
+        <div class="compare__item compare__item--road">
+          <span class="compare__label">柏油路面</span>
+          <span class="compare__value">50℃</span>
+          <span class="compare__caption"><span class="nb">狗狗赤脚</span><br><span class="nb">走路时的温度</span></span>
+        </div>
+      </div>
+
+      <p><span class="nb">散步日和</span>会看到藏在气温背后的东西：路面的热度、湿度、风和紫外线。把这些汇总成一句“现在出门没问题吗？”，每天早上告诉你。</p>
+    </div>
+  </section>
+
+  <img class="wash" src="../assets/divider-sky.webp" alt="" aria-hidden="true"
+       width="840" height="177" loading="lazy" decoding="async">
+
+  <!-- 機能 ------------------------------------------------------ -->
+  <section class="features">
+    <div class="wide">
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>今天的散步指数</h3>
+          <p>综合气温、湿度、雨、风和路面温度，用 0～100 告诉你今天适不适合散步。还附带每小时的指数和“推荐的散步时间”。早上打开看一眼，今天的安排就定了。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-home-zh.webp" width="720" height="1558" loading="lazy"
+               alt="首页。显示今天的散步指数和吉祥物的对话框">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>为什么是这个分数，全都给你看</h3>
+          <p>分成炎热、路面、雨、寒冷、风、紫外线、干燥 7 个要素，随时查看分数明细。判断的依据和出处也都放在应用里，你可以自己确认，不必只听我们说。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-breakdown-zh.webp" width="720" height="1558" loading="lazy"
+               alt="分数明细页面。7 个要素各自的评价排成一列">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>路面的热度和中暑风险</h3>
+          <p>根据太阳高度和云、雨的情况估算柏油路面的热度，提示可能烫伤肉垫的时段。中暑风险依据日本环境省的暑热指数分级判断，短鼻犬种、幼犬和老龄犬会判断得更谨慎。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-heat-zh.webp" width="720" height="1558" loading="lazy"
+               alt="酷暑天的首页。建议暂停散步，吉祥物一副热坏了的样子">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>未来一周，一目了然</h3>
+          <p>未来 7 天的最高、最低气温、降水概率和风一目了然，可以提前安排散步和出行。把狗狗运动场或旅行目的地登记为地点，也能查看那里的狗狗视角天气。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-weekly-zh.webp" width="720" height="1558" loading="lazy"
+               alt="一周预报页面。列出未来 7 天的天气、气温和降水概率">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>贴合你家的狗狗</h3>
+          <p>登记犬种、年龄和体型后，所有判断都会随之调整。支持 120 个犬种，多只饲养也可以全部登记。</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-breeds-zh.webp" width="720" height="1028" loading="lazy"
+               alt="选择犬种的页面。列出玩具贵宾犬、吉娃娃、柴犬等犬种">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 犬種で変わる ---------------------------------------------- -->
+  <section class="breeds">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--grass"><span class="nb">同样的天气，</span><span class="nb">每只狗狗的答案都不一样。</span></h2>
+      <p>短鼻子的狗狗不容易散热。贴近地面的小型犬，会直接受到路面的热气。厚厚的双层毛和怕冷的短毛，舒服的一天也完全不同。<span class="nb">散步日和</span>会把这些差别都算进去。</p>
+    </div>
+    <div class="breeds__band">
+      <picture>
+        <source media="(max-width: 640px)" srcset="../assets/breeds-band-narrow.webp">
+        <img src="../assets/breeds-band-wide.webp" width="2048" height="560" loading="lazy"
+             alt="并排的北京犬、迷你腊肠犬、松狮犬、吉娃娃、波士顿梗和边境牧羊犬的插画">
+      </picture>
+    </div>
+  </section>
+
+  <!-- プレミアム(日本域外で出る4つ・見出しコピーはアプリのペイウォールの中国語訳と同じ) -->
+  <section class="premium">
+    <div class="measure">
+      <h2>散步日和 高级版</h2>
+      <p class="premium__lead"><span class="nb">基本功能保持免费。</span><span class="nb">想要多一点帮助时，</span><span class="nb">高级版会加上这 4 项。</span></p>
+    </div>
+
+    <div class="wide">
+      <ul class="premium__grid premium__grid--four">
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>家人共享</h3>
+          <img src="../assets/shot-premium-family-zh.webp" width="1068" height="756" loading="lazy"
+               alt="家人共享页面。成员中有妈妈的 iPhone 和爸爸的 Android，下面是“邀请家人”按钮">
+          <p class="premium__copy"><span class="nb">全家人一起，</span><span class="nb">把狗狗的记录合而为一</span></p>
+          <p>体重、护理记录和回忆地图可与家人的设备同步。只要发送邀请码，iPhone 和 Android 之间也能共享。只需 1 台设备订阅，受邀家人(最多 5 台设备)免费加入，还能使用日历和回忆地图。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>日历</h3>
+          <img src="../assets/shot-premium-calendar-zh.webp" width="1068" height="756" loading="lazy"
+               alt="日历页面。9 月的月视图中，疫苗、用药、美容等安排以彩色圆点标出">
+          <p class="premium__copy"><span class="nb">自家狗狗的日程，</span><span class="nb">随心记进日历</span></p>
+          <p>美容、就诊、心丝虫预防等，自由添加狗狗需要的安排，并用照片和备注记录下来。疫苗和驱虫的安排，不订阅也能使用。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>回忆地图</h3>
+          <img src="../assets/shot-premium-memories-zh.webp" width="1068" height="756" loading="lazy"
+               alt="上海的回忆地图。留下回忆的公园上立着图钉">
+          <p class="premium__copy"><span class="nb">把散步的回忆，</span><span class="nb">连照片一起留在地图上</span></p>
+          <p>在一起走过的地方留下照片和一句话。图钉越多，和狗狗的回忆就越会变成一张地图。免费也能试用 3 条。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>每日背景</h3>
+          <img src="../assets/shot-premium-background.webp" width="1068" height="756" loading="lazy"
+               alt="草地上聚在一起的金毛寻回犬、吉娃娃、博美犬、边境牧羊犬、柴犬、玩具贵宾犬、诺福克梗和柯基的插画">
+          <p class="premium__copy"><span class="nb">10 张照片和各种狗狗，</span><span class="nb">每天轮流出现在首页</span></p>
+          <p>免费版一直显示同一张照片。订阅后，“今天是哪只狗狗呢？”会成为每天早上的小期待。</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="measure">
+      <p class="premium__price">中国大陆每月 15 元<span class="premium__price-note">价格因国家或地区而异，购买前会显示。iOS 版和 Android 版都能订阅。</span></p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064">
+          <img src="../assets/badge-appstore-zh.svg" width="109" height="40" alt="在 App Store 下载">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=zh-CN">
+          <img src="../assets/badge-googleplay-zh.png" width="269" height="80" alt="去 Google Play 下载">
+        </a>
+      </div>
+
+      <p class="premium__note">仅在开始共享的设备订阅高级版期间，家人才能使用日历和回忆地图。在日本国内，高级版还包括实时提醒，以及可看到 15 小时后的降雨预测和雷电雷达。每日背景中出现的是已有插画的犬种。付款和取消的条件，请见<a href="../tokushoho.html" lang="ja" hreflang="ja">《基于日本特定商业交易法的标示》</a>(日语)。</p>
+    </div>
+  </section>
+
+  <!-- 安心材料 -------------------------------------------------- -->
+  <section class="trust">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--sky">可以放心使用</h2>
+      <ul class="trust__list">
+        <li>没有广告</li>
+        <li>基本功能免费，高级版是可选的</li>
+        <li>不需要注册账号</li>
+        <li>狗狗的信息和登记的地点都保存在你的手机里(使用家人共享或实时提醒时除外。详见<a href="./privacy-policy.html">隐私政策</a>)</li>
+        <li>位置信息只用于获取天气</li>
+        <li>即使不允许使用位置信息，登记地点后也能使用全部功能</li>
+        <li>每个指标的依据和出处，都在应用里公开</li>
+      </ul>
+    </div>
+  </section>
+
+  <img class="wash" src="../assets/divider-grass.webp" alt="" aria-hidden="true"
+       width="840" height="178" loading="lazy" decoding="async">
+
+  <!-- FAQ ------------------------------------------------------- -->
+  <section class="faq">
+    <div class="measure">
+      <h2>常见问题</h2>
+
+      <div class="faq__item">
+        <h3 class="faq__q">不允许使用位置信息也能用吗？</h3>
+        <p class="faq__a">可以。在首页的地点菜单中登记地点后，全部功能都能使用。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">显示的路面温度是实测值吗？</h3>
+        <p class="faq__a">不是。那是根据太阳高度与云量估算的参考值。出门前请一并做"5 秒检查"：把手放在地面上停留 5 秒。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">在日本以外也能用吗？</h3>
+        <p class="faq__a">可以。除了雨云雷达、实时提醒、气象警报和实测的当前气温以外，所有功能在任何地方都能使用。这几项使用日本气象厅的数据，仅覆盖日本国内的地点。</p>
+      </div>
+
+      <div class="faq__item">
+        <h3 class="faq__q">一直用免费版可以吗？</h3>
+        <p class="faq__a">可以。散步指数、中暑与路面温度的判定、一周预报等基本功能都可免费使用。护理日历中疫苗、驱虫等计划也可免费使用。散步日和 高级版是在此之上增加功能的可选方案。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">散步日和 高级版在 Android 版也能用吗？</h3>
+        <p class="faq__a">可以。iOS 版与 Android 版都能订阅。基本功能在两个平台上也都可免费使用。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">家人共享需要全家人都订阅吗？</h3>
+        <p class="faq__a">不需要。只需开始家人共享的那 1 台设备订阅散步日和 高级版即可。使用邀请码加入的家人(最多 5 台设备)可免费加入，iPhone 和 Android 之间也能共享。</p>
+      </div>
+
+      <p class="faq__more"><a href="./support.html"><span class="nb">查看所有问题</span><span class="nb">和联系方式</span></a></p>
+    </div>
+  </section>
+
+  <!-- 締め ------------------------------------------------------ -->
+  <section class="cta" id="download">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--sun"><span class="nb">今天的散步，</span><span class="nb">什么时候出发好呢？</span></h2>
+      <p>先打开应用，看一眼今天的散步指数吧。</p>
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064">
+          <img src="../assets/badge-appstore-zh.svg" width="109" height="40" alt="在 App Store 下载">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=zh-CN">
+          <img src="../assets/badge-googleplay-zh.png" width="269" height="80" alt="去 Google Play 下载">
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wide">
+    <nav class="lang-switch" aria-label="语言">
+      <a href="../" lang="ja" hreflang="ja">日本語</a>
+      <a href="../en/" lang="en" hreflang="en">English</a>
+      <span aria-current="page">简体中文</span>
+      <a href="../ko/" lang="ko" hreflang="ko">한국어</a>
+    </nav>
+    <nav>
+      <a href="./support.html">支持与常见问题</a>
+      <a href="./privacy-policy.html">隐私政策</a>
+      <a href="../tokushoho.html" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
+      <a href="mailto:osanpobiyori.app@gmail.com">联系我们</a>
+    </nav>
+    <div class="site-foot__legal">
+      <p>天气数据：Apple Weather / 雨云雷达：日本气象厅</p>
+      <p>路面温度是估算的参考值，并非实测值。本应用不进行兽医学诊断。</p>
+      <p>Apple 和 Apple 标志是 Apple Inc. 在美国和其他国家和地区注册的商标。App Store 是 Apple Inc. 的服务商标。Google Play 和 Google Play 徽标是 Google LLC 的商标。</p>
+    </div>
+    <p class="site-foot__copy">© 2026 散步日和</p>
+  </div>
+</footer>
+
+</body>
+</html>

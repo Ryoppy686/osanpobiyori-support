@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osanpo Biyori — Dog Weather App</title>
+<meta name="description" content="The forecast from your dog's point of view. Pavement heat, heatstroke risk and humidity, tuned to your dog's breed and age, answer one question: is now a good time for a walk? No ads. Core features are free.">
+<link rel="canonical" href="https://osanpobiyori.app/en/">
+<link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/">
+<link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/">
+<link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/">
+<link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/">
+<link rel="icon" href="../assets/icon-192.webp" type="image/webp">
+<link rel="apple-touch-icon" href="../assets/icon-192.webp">
+<link rel="stylesheet" href="../assets/style.css?v=20260925c">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Osanpo Biyori — Dog Weather App">
+<meta property="og:description" content="The forecast from your dog's point of view. No ads. Core features are free.">
+<meta property="og:url" content="https://osanpobiyori.app/en/">
+<meta property="og:image" content="https://osanpobiyori.app/assets/ogp-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Osanpo Biyori — The forecast from your dog's point of view. Six dogs lined up on a grassy hill">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- モバイルSafariでApp Storeへの誘導バナーを出す -->
+<meta name="apple-itunes-app" content="app-id=6789016064">
+
+<!-- 海外向けトップ(英語)。日本語トップの翻訳ではなく、日本の外でも使える機能を柱に組み直したもの。
+     構成と決定事項は docs/海外向けトップページ構成案.md。
+     検索エンジン向けの構造化データ(アプリ情報+FAQ)。FAQの文面は本文と一字一句揃えること -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Osanpo Biyori",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "WeatherApplication",
+  "description": "The forecast from your dog's point of view. Pavement heat, heatstroke risk and humidity, tuned to your dog's breed and age, answer one question: is now a good time for a walk? No ads. Core features are free.",
+  "url": "https://osanpobiyori.app/en/",
+  "image": "https://osanpobiyori.app/assets/ogp-en.jpg",
+  "inLanguage": "en",
+  "installUrl": [
+    "https://apps.apple.com/app/id6789016064",
+    "https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho"
+  ],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I use the app without allowing location access?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Register a location from the location menu on the Home screen and you can use every feature." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the pavement temperature an actual measurement?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It's an estimated guide based on the height of the sun and the cloud cover. Before you head out, use it together with the 5-second check: place your hand on the ground for five seconds." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work outside Japan?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Everything works wherever you are, except the rain radar, real-time alerts, weather warnings and observed current temperature. Those use data from the Japan Meteorological Agency and cover locations in Japan only." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I keep using the app for free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Walk Index, heatstroke and pavement temperature ratings, the weekly forecast and more are free. The care calendar is free too for plans such as vaccinations and flea and tick prevention. Osanpo Biyori Premium is an optional plan that adds to all of this." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Osanpo Biyori Premium available on Android too?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can subscribe on either iOS or Android. The core features are free on both." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does everyone in the family need to subscribe to share?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Only the one device that starts Family sharing needs Osanpo Biyori Premium. Family members who join with an invite code (up to 5 devices) join for free, and you can share between iPhone and Android, too." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-head site-head--overlay">
+  <a class="site-head__brand" href="./">
+    <img src="../assets/icon-192.webp" width="34" height="34" alt="">
+    Osanpo Biyori
+  </a>
+  <nav class="site-head__nav">
+    <a href="./support.html">Support</a>
+    <a href="./privacy-policy.html">Privacy Policy</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ヒーロー ------------------------------------------------ -->
+  <section class="hero">
+    <div class="measure">
+      <h1><span class="nb">When should we head out</span> <span class="nb">for a walk today?</span></h1>
+      <p class="hero__lead"><span class="nb">The forecast from</span> <span class="nb">your dog's point of view.</span></p>
+
+      <p class="hero__name">Osanpo Biyori</p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064">
+          <img src="../assets/badge-appstore-en.svg" width="120" height="40" alt="Download on the App Store">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en">
+          <img src="../assets/badge-googleplay-en.png" width="269" height="80" alt="Get it on Google Play">
+        </a>
+      </div>
+
+      <p class="hero__note">No ads. Core features are free.</p>
+    </div>
+
+    <!-- 640px以下は3匹の版に差し替える。6匹のままだと顔が潰れる -->
+    <div class="hero__band">
+      <picture>
+        <source media="(max-width: 640px)" srcset="../assets/hero-band-mobile.webp">
+        <img src="../assets/hero-band-wide.webp" width="2048" height="560"
+             alt="Illustration of a Toy Poodle, Corgi, Shiba Inu, Norfolk Terrier, Chihuahua and Golden Retriever on a grassy hill">
+      </picture>
+    </div>
+  </section>
+
+  <img class="wash" src="../assets/divider-wash.webp" alt="" aria-hidden="true"
+       width="840" height="163" loading="lazy" decoding="async">
+
+  <!-- 課題提起 --------------------------------------------------
+       気温は摂氏を主に華氏を添える(華氏を日常的に使うのは米国とごく一部だけ)。
+       ブラウザが en-US のときだけ、下のJSが大きい数字と小さい数字を入れ替える -->
+  <section class="problem">
+    <div class="measure">
+      <h2><span class="nb">A lovely day for you.</span> <span class="nb">A hot one underfoot for them.</span></h2>
+
+      <div class="compare">
+        <div class="compare__item compare__item--air">
+          <span class="compare__label">Air temperature</span>
+          <span class="compare__value" data-c="26℃" data-f="79℉">26℃</span>
+          <span class="compare__alt" data-c="26℃" data-f="79℉">79℉</span>
+          <span class="compare__caption"><span class="nb">The number</span> <span class="nb">in our forecast</span></span>
+        </div>
+        <div class="compare__vs">underfoot</div>
+        <div class="compare__item compare__item--road">
+          <span class="compare__label">Asphalt</span>
+          <span class="compare__value" data-c="50℃" data-f="122℉">50℃</span>
+          <span class="compare__alt" data-c="50℃" data-f="122℉">122℉</span>
+          <span class="compare__caption"><span class="nb">How hot it is</span> <span class="nb">for bare paws</span></span>
+        </div>
+      </div>
+
+      <p><span class="nb">Osanpo Biyori</span> looks past the temperature. Pavement heat, humidity, wind and UV all go into one answer to “Is it okay to go out now?”, ready for you every morning.</p>
+    </div>
+  </section>
+
+  <script>
+    // en-US のブラウザでは華氏を大きく出す。JSが動かなくても摂氏と華氏の両方が読める
+    (function () {
+      if (!/^en-US$/i.test(navigator.language || "")) return;
+      document.querySelectorAll(".compare__value").forEach(function (el) { el.textContent = el.dataset.f; });
+      document.querySelectorAll(".compare__alt").forEach(function (el) { el.textContent = el.dataset.c; });
+    })();
+  </script>
+
+  <img class="wash" src="../assets/divider-sky.webp" alt="" aria-hidden="true"
+       width="840" height="177" loading="lazy" decoding="async">
+
+  <!-- 機能 ------------------------------------------------------
+       日本語トップの「雨雲レーダー」(日本国内のみ)は、週間の指数に差し替えた。
+       スクショはストア用(6.5インチ・米国設定)を流用しているので華氏で写っている -->
+  <section class="features">
+    <div class="wide">
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>Today's Walk Index</h3>
+          <p>Temperature, humidity, rain, wind and pavement heat add up to one score from 0 to 100 for how good a walk would be right now. You also get an hourly index and a suggested walk time, so one look in the morning is enough to plan the day. Temperatures show in ℃ or ℉, following your phone's settings.</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-home-en.webp" width="720" height="1558" loading="lazy"
+               alt="Home screen showing today's Walk Index and the mascot's speech bubble">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>Why that score? We show our work</h3>
+          <p>See the score broken down into seven factors: heat, pavement, rain, cold, wind, UV and dryness. The reasoning and the sources are in the app too, so you can check them for yourself instead of taking our word for it.</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-breakdown-en.webp" width="720" height="1558" loading="lazy"
+               alt="Score breakdown screen listing a rating for each of the seven factors">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>Hot pavement and heatstroke risk</h3>
+          <p>Osanpo Biyori estimates how hot the asphalt gets from the height of the sun, the clouds and the rain, and tells you which hours may be hard on paw pads. Heatstroke risk follows the heat index bands of Japan's Ministry of the Environment, and flat-faced breeds, puppies and seniors are judged more cautiously.</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-heat-en.webp" width="720" height="1558" loading="lazy"
+               alt="Home screen on a very hot day, suggesting a break from walks, with a tired-looking mascot">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>The week ahead, at a glance</h3>
+          <p>See the next seven days with highs and lows, the chance of rain and the wind, so you can plan walks and days out ahead of time. Save a dog park or a trip destination as a place, and check its weather from your dog's point of view too.</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-weekly-en.webp" width="720" height="1558" loading="lazy"
+               alt="Weekly screen listing the weather, temperatures and chance of rain for the next seven days">
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>Tuned to your dog</h3>
+          <p>Register your dog's breed, age and build, and every rating adjusts to them. 120 breeds are supported, and you can add as many dogs as you have.</p>
+        </div>
+        <div class="feature__shot">
+          <img src="../assets/shot-breeds-en.webp" width="720" height="1028" loading="lazy"
+               alt="Breed picker listing Toy Poodle, Chihuahua, Shiba Inu and more">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 犬種で変わる ---------------------------------------------- -->
+  <section class="breeds">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--grass"><span class="nb">Same weather,</span> <span class="nb">a different answer for each dog.</span></h2>
+      <p>Dogs with short muzzles can't shed heat easily. Small dogs close to the ground take the full heat coming off the pavement. A thick double coat and a short coat that feels the cold make for very different comfortable days. <span class="nb">Osanpo Biyori</span> builds those differences into every answer.</p>
+    </div>
+    <div class="breeds__band">
+      <picture>
+        <source media="(max-width: 640px)" srcset="../assets/breeds-band-narrow.webp">
+        <img src="../assets/breeds-band-wide.webp" width="2048" height="560" loading="lazy"
+             alt="Illustration of a Pekingese, Miniature Dachshund, Chow Chow, Chihuahua, Boston Terrier and Border Collie">
+      </picture>
+    </div>
+  </section>
+
+  <!-- プレミアム ------------------------------------------------
+       日本の外でペイウォールに出る4つだけを載せる(レーダー強化・リアルタイムアラートは
+       日本国内の地点のみのため注記へ)。見出しコピーはアプリのペイウォールの英訳と同じ -->
+  <section class="premium">
+    <div class="measure">
+      <h2>Osanpo Biyori Premium</h2>
+      <p class="premium__lead"><span class="nb">The core features stay free.</span> <span class="nb">For a little more help,</span> <span class="nb">Premium adds these four.</span></p>
+    </div>
+
+    <div class="wide">
+      <ul class="premium__grid premium__grid--four">
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>Family sharing</h3>
+          <img src="../assets/shot-premium-family-en.webp" width="1068" height="756" loading="lazy"
+               alt="Family sharing screen with Mom's iPhone and Dad's Android listed as members, and an Invite family button below">
+          <p class="premium__copy"><span class="nb">Keep your pup's records</span> <span class="nb">in one place for the whole family</span></p>
+          <p>Sync weight, care logs and the Memory Map with your family's devices. Just send an invite code, iPhone or Android. One subscription is enough: invited family members (up to 5 devices) join free and can use Calendar and Memory Map too.</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>Calendar</h3>
+          <img src="../assets/shot-premium-calendar-en.webp" width="1068" height="756" loading="lazy"
+               alt="Calendar screen for September with care plans such as vaccines, medicine and grooming marked as colored dots">
+          <p class="premium__copy"><span class="nb">Your pup's plans,</span> <span class="nb">on the calendar your way</span></p>
+          <p>Add whatever your dog needs, from grooming and vet visits to heartworm prevention, and keep a record of each with photos and notes. Vaccination and flea and tick plans are free even without Premium.</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>Memory Map</h3>
+          <img src="../assets/shot-premium-memories-en.webp" width="1068" height="756" loading="lazy"
+               alt="Memory Map of Manhattan with a pin on Central Park where memories were saved">
+          <p class="premium__copy"><span class="nb">Keep walk memories</span> <span class="nb">on the map, with photos</span></p>
+          <p>Pin a photo and a note to the places you've walked together. The more pins you add, the more your time together turns into a map. You can try up to 3 for free.</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>Daily backgrounds</h3>
+          <img src="../assets/shot-premium-background.webp" width="1068" height="756" loading="lazy"
+               alt="Illustration of a Golden Retriever, Chihuahua, Pomeranian, Border Collie, Shiba Inu, Toy Poodle, Norfolk Terrier and Corgi gathered on a grassy field">
+          <p class="premium__copy"><span class="nb">Ten photos and many pups,</span> <span class="nb">taking turns on Home</span></p>
+          <p>The free version always shows the same photo. With Premium, finding out who's on Home today becomes a little treat every morning.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="measure">
+      <p class="premium__price">US$1.99/month in the U.S.<span class="premium__price-note">Prices vary by country or region and are shown before you buy. Available on iOS and Android.</span></p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064">
+          <img src="../assets/badge-appstore-en.svg" width="120" height="40" alt="Download on the App Store">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en">
+          <img src="../assets/badge-googleplay-en.png" width="269" height="80" alt="Get it on Google Play">
+        </a>
+      </div>
+
+      <p class="premium__note">Family members can use Calendar and Memory Map while the device that started sharing is subscribed to Premium. In Japan, Premium also includes real-time alerts and a 15-hour rain forecast with thunder radar. Daily backgrounds feature the breeds we have illustrations for. For payment and cancellation terms, see the <a href="../tokushoho.html" lang="ja" hreflang="ja">Japanese Act on Specified Commercial Transactions notice</a> (in Japanese).</p>
+    </div>
+  </section>
+
+  <!-- 安心材料 -------------------------------------------------- -->
+  <section class="trust">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--sky">Easy to trust</h2>
+      <ul class="trust__list">
+        <li>No ads</li>
+        <li>The core features are free. Premium is optional</li>
+        <li>No account needed</li>
+        <li>Your dogs' info and saved places stay on your phone (except when you use Family sharing or real-time alerts. See the <a href="./privacy-policy.html">Privacy Policy</a>)</li>
+        <li>Location is used only to get the weather</li>
+        <li>Every feature works without location access, once you save a place</li>
+        <li>The reasoning and sources behind every index are in the app</li>
+      </ul>
+    </div>
+  </section>
+
+  <img class="wash" src="../assets/divider-grass.webp" alt="" aria-hidden="true"
+       width="840" height="178" loading="lazy" decoding="async">
+
+  <!-- FAQ ------------------------------------------------------- -->
+  <section class="faq">
+    <div class="measure">
+      <h2>Frequently asked questions</h2>
+
+      <div class="faq__item">
+        <h3 class="faq__q">Can I use the app without allowing location access?</h3>
+        <p class="faq__a">Yes. Register a location from the location menu on the Home screen and you can use every feature.</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">Is the pavement temperature an actual measurement?</h3>
+        <p class="faq__a">No. It's an estimated guide based on the height of the sun and the cloud cover. Before you head out, use it together with the 5-second check: place your hand on the ground for five seconds.</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">Does it work outside Japan?</h3>
+        <p class="faq__a">Yes. Everything works wherever you are, except the rain radar, real-time alerts, weather warnings and observed current temperature. Those use data from the Japan Meteorological Agency and cover locations in Japan only.</p>
+      </div>
+
+      <div class="faq__item">
+        <h3 class="faq__q">Can I keep using the app for free?</h3>
+        <p class="faq__a">Yes. The Walk Index, heatstroke and pavement temperature ratings, the weekly forecast and more are free. The care calendar is free too for plans such as vaccinations and flea and tick prevention. Osanpo Biyori Premium is an optional plan that adds to all of this.</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">Is Osanpo Biyori Premium available on Android too?</h3>
+        <p class="faq__a">Yes. You can subscribe on either iOS or Android. The core features are free on both.</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">Does everyone in the family need to subscribe to share?</h3>
+        <p class="faq__a">No. Only the one device that starts Family sharing needs Osanpo Biyori Premium. Family members who join with an invite code (up to 5 devices) join for free, and you can share between iPhone and Android, too.</p>
+      </div>
+
+      <p class="faq__more"><a href="./support.html">See all questions and how to contact us</a></p>
+    </div>
+  </section>
+
+  <!-- 締め ------------------------------------------------------ -->
+  <section class="cta" id="download">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--sun"><span class="nb">So, when will you two</span> <span class="nb">head out today?</span></h2>
+      <p>Open the app and take a look at today's Walk Index.</p>
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064">
+          <img src="../assets/badge-appstore-en.svg" width="120" height="40" alt="Download on the App Store">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en">
+          <img src="../assets/badge-googleplay-en.png" width="269" height="80" alt="Get it on Google Play">
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wide">
+    <nav class="lang-switch" aria-label="Language">
+      <a href="../" lang="ja" hreflang="ja">日本語</a>
+      <span aria-current="page">English</span>
+      <a href="../zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      <a href="../ko/" lang="ko" hreflang="ko">한국어</a>
+    </nav>
+    <nav>
+      <a href="./support.html">Support &amp; FAQ</a>
+      <a href="./privacy-policy.html">Privacy Policy</a>
+      <a href="../tokushoho.html" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
+      <a href="mailto:osanpobiyori.app@gmail.com">Contact</a>
+    </nav>
+    <div class="site-foot__legal">
+      <p>Weather data: Apple Weather / Rain radar: Japan Meteorological Agency</p>
+      <p>Pavement temperature is an estimated guide, not a measurement. This app does not provide veterinary diagnosis.</p>
+      <p>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+    </div>
+    <p class="site-foot__copy">© 2026 Osanpo Biyori</p>
+  </div>
+</footer>
+
+</body>
+</html>
