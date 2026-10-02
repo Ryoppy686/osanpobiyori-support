@@ -13,7 +13,8 @@
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/">
 <link rel="icon" href="../assets/icon-192.webp" type="image/webp">
 <link rel="apple-touch-icon" href="../assets/icon-192.webp">
-<link rel="stylesheet" href="../assets/style.css?v=20261002a">
+<meta name="theme-color" content="#F5F3ED">
+<link rel="stylesheet" href="../assets/style.css?v=8f1ea18f">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_CN">
@@ -59,38 +60,58 @@
     {
       "@type": "Question",
       "name": "不允许使用位置信息也能用吗？",
-      "acceptedAnswer": { "@type": "Answer", "text": "可以。在首页的地点菜单中登记地点后，全部功能都能使用。" }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。在首页的地点菜单中登记地点后，全部功能都能使用。"
+      }
     },
     {
       "@type": "Question",
       "name": "显示的路面温度是实测值吗？",
-      "acceptedAnswer": { "@type": "Answer", "text": "不是。那是根据太阳高度与云量估算的参考值。出门前请一并做\"5 秒检查\"：把手放在地面上停留 5 秒。" }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是。那是根据太阳高度与云量估算的参考值。出门前请一并做\"5 秒检查\"：把手放在地面上停留 5 秒。"
+      }
     },
     {
       "@type": "Question",
       "name": "在日本以外也能用吗？",
-      "acceptedAnswer": { "@type": "Answer", "text": "可以。除了雨云雷达、实时提醒、气象警报和实测的当前气温以外，所有功能在任何地方都能使用。这几项使用日本气象厅的数据，仅覆盖日本国内的地点。" }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。除了雨云雷达、实时提醒、气象警报和实测的当前气温以外，所有功能在任何地方都能使用。这几项使用日本气象厅的数据，仅覆盖日本国内的地点。"
+      }
     },
     {
       "@type": "Question",
       "name": "一直用免费版可以吗？",
-      "acceptedAnswer": { "@type": "Answer", "text": "可以。散步指数、中暑与路面温度的判定、一周预报等基本功能都可免费使用。护理日历中疫苗、驱虫等计划也可免费使用。散步日和 高级版是在此之上增加功能的可选方案。" }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。散步指数、中暑与路面温度的判定、一周预报等基本功能都可免费使用。护理日历中疫苗、驱虫等计划也可免费使用。散步日和 高级版是在此之上增加功能的可选方案。"
+      }
     },
     {
       "@type": "Question",
       "name": "散步日和 高级版在 Android 版也能用吗？",
-      "acceptedAnswer": { "@type": "Answer", "text": "可以。iOS 版与 Android 版都能订阅。基本功能在两个平台上也都可免费使用。" }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。iOS 版与 Android 版都能订阅。基本功能在两个平台上也都可免费使用。"
+      }
     },
     {
       "@type": "Question",
       "name": "家人共享需要全家人都订阅吗？",
-      "acceptedAnswer": { "@type": "Answer", "text": "不需要。只需开始家人共享的那 1 台设备订阅散步日和 高级版即可。使用邀请码加入的家人(最多 5 台设备)可免费加入，iPhone 和 Android 之间也能共享。" }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不需要。只需开始家人共享的那 1 台设备订阅散步日和 高级版即可。使用邀请码加入的家人(最多 5 台设备)可免费加入，iPhone 和 Android 之间也能共享。"
+      }
     }
   ]
 }
 </script>
 </head>
 <body>
+<!-- 王冠の形は1回だけ定義し、各見出しの <svg> は <use> で参照する(プレミアム紹介) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="crown-shape" viewBox="0 0 24 18"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></symbol></svg>
 
 <header class="site-head site-head--overlay">
   <a class="site-head__brand" href="./">
@@ -174,9 +195,21 @@
           <h3>今天的散步指数</h3>
           <p>综合气温、湿度、雨、风和路面温度，用 0～100 告诉你今天适不适合散步。还附带每小时的指数和“推荐的散步时间”。早上打开看一眼，今天的安排就定了。</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-home-zh.webp" width="720" height="1558" loading="lazy"
-               alt="首页。显示今天的散步指数和吉祥物的对话框">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="散步指数的页面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-home-zh.webp" width="720" height="1565" loading="lazy" alt="首页。散步指数 100 分，吉祥物说“散步的绝佳时间!”">
+              <figcaption>首页的指数和狗狗的一句话</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-home-hourly-zh.webp" width="720" height="1565" loading="lazy" alt="每小时的散步指数，从 11 点到 15 点，下方是中暑、路面温度、气压、干燥、紫外线、换毛期的指标卡片">
+              <figcaption>每小时的指数和各项指标卡片</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -186,9 +219,21 @@
           <h3>为什么是这个分数，全都给你看</h3>
           <p>分成炎热、路面、雨、寒冷、风、紫外线、干燥 7 个要素，随时查看分数明细。判断的依据和出处也都放在应用里，你可以自己确认，不必只听我们说。</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-breakdown-zh.webp" width="720" height="1558" loading="lazy"
-               alt="分数明细页面。7 个要素各自的评价排成一列">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="分数明细的页面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breakdown-zh.webp" width="720" height="1565" loading="lazy" alt="分数明细页面。100 分，最适合散步，7 个要素都是良好">
+              <figcaption>100 分那天的明细</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breakdown-hot-zh.webp" width="720" height="1565" loading="lazy" alt="分数明细页面。10 分，建议先别出门，炎热与闷热被标为红色的主要因素">
+              <figcaption>10 分那天的明细，主要因素标为红色</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -198,9 +243,27 @@
           <h3>路面的热度和中暑风险</h3>
           <p>根据太阳高度和云、雨的情况估算柏油路面的热度，提示可能烫伤肉垫的时段。中暑风险依据日本环境省的暑热指数分级判断，短鼻犬种、幼犬和老龄犬会判断得更谨慎。</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-heat-zh.webp" width="720" height="1558" loading="lazy"
-               alt="酷暑天的首页。建议暂停散步，吉祥物一副热坏了的样子">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="路面热度和中暑的页面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-heat-zh.webp" width="720" height="1565" loading="lazy" alt="酷暑天的首页。33℃、指数 10 分，吉祥物趴着说要去就走阴凉处、短一些">
+              <figcaption>酷暑天的首页</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-heat-info-zh.webp" width="720" height="1565" loading="lazy" alt="“得出这个判定的原因”页面。用分级条显示仅天气的判定和加上狗狗体质后的最终判定">
+              <figcaption>中暑判定的原因</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-road-info-zh.webp" width="720" height="1565" loading="lazy" alt="“路面温度与肉垫”页面。按温度段说明对肉垫的影响">
+              <figcaption>路面温度与肉垫，按温度段说明</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -210,9 +273,27 @@
           <h3>未来一周，一目了然</h3>
           <p>未来 7 天的最高、最低气温、降水概率和风一目了然，可以提前安排散步和出行。把狗狗运动场或旅行目的地登记为地点，也能查看那里的狗狗视角天气。</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-weekly-zh.webp" width="720" height="1558" loading="lazy"
-               alt="一周预报页面。列出未来 7 天的天气、气温和降水概率">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="一周预报和出行天气的页面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-weekly-zh.webp" width="720" height="1565" loading="lazy" alt="一周预报页面。列出未来 7 天的天气、气温、降水概率和每天的散步指数条">
+              <figcaption>一周预报</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-day-detail-zh.webp" width="720" height="1565" loading="lazy" alt="某一天的详情页面。推荐的散步时间条、每小时的散步指数和狗狗建议">
+              <figcaption>点开某一天，查看推荐的散步时间和每小时指数</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-outing-zh.webp" width="720" height="1565" loading="lazy" alt="出行天气页面。列出世纪公园、复兴公园、佘山三个地点的天气和散步指数">
+              <figcaption>登记的地点一起查看</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -220,11 +301,29 @@
         <div class="feature__body">
           <span class="feature__mark"></span>
           <h3>贴合你家的狗狗</h3>
-          <p>登记犬种、年龄和体型后，所有判断都会随之调整。支持 120 个犬种，多只饲养也可以全部登记。</p>
+          <p>登记犬种、年龄和体型后，所有判断都会随之调整。支持 121 个犬种，多只饲养也可以全部登记。</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-breeds-zh.webp" width="720" height="1028" loading="lazy"
-               alt="选择犬种的页面。列出玩具贵宾犬、吉娃娃、柴犬等犬种">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="我的狗狗的页面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breeds-zh.webp" width="720" height="1565" loading="lazy" alt="选择犬种的页面。玩具贵宾犬、吉娃娃、柴犬等犬种配着吉祥物插画排成一列">
+              <figcaption>从 121 个犬种中选择</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-dog-detail-zh.webp" width="720" height="1565" loading="lazy" alt="狗狗的详情页面。6.2 kg 的体重图表、证明与文件、档案">
+              <figcaption>体重记录和档案</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-dogs-zh.webp" width="720" height="1565" loading="lazy" alt="我的狗狗列表。主要狗狗摩卡(诺福克梗)和帕格(巴哥犬)">
+              <figcaption>多只狗狗，各有各的判断</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -256,31 +355,31 @@
     <div class="wide">
       <ul class="premium__grid premium__grid--four">
         <li>
-          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>家人共享</h3>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>家人共享</h3>
+          <p class="premium__copy"><span class="nb">全家人一起，</span><span class="nb">把狗狗的记录合而为一</span></p>
           <img src="../assets/shot-premium-family-zh.webp" width="1068" height="756" loading="lazy"
                alt="家人共享页面。成员中有妈妈的 iPhone 和爸爸的 Android，下面是“邀请家人”按钮">
-          <p class="premium__copy"><span class="nb">全家人一起，</span><span class="nb">把狗狗的记录合而为一</span></p>
           <p>体重、护理记录和回忆地图可与家人的设备同步。只要发送邀请码，iPhone 和 Android 之间也能共享。只需 1 台设备订阅，受邀家人(最多 5 台设备)免费加入，还能使用日历和回忆地图。</p>
         </li>
         <li>
-          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>日历</h3>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>日历</h3>
+          <p class="premium__copy"><span class="nb">自家狗狗的日程，</span><span class="nb">随心记进日历</span></p>
           <img src="../assets/shot-premium-calendar-zh.webp" width="1068" height="756" loading="lazy"
                alt="日历页面。9 月的月视图中，疫苗、用药、美容等安排以彩色圆点标出">
-          <p class="premium__copy"><span class="nb">自家狗狗的日程，</span><span class="nb">随心记进日历</span></p>
           <p>美容、就诊、心丝虫预防等，自由添加狗狗需要的安排，并用照片和备注记录下来。疫苗和驱虫的安排，不订阅也能使用。</p>
         </li>
         <li>
-          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>回忆地图</h3>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>回忆地图</h3>
+          <p class="premium__copy"><span class="nb">把散步的回忆，</span><span class="nb">连照片一起留在地图上</span></p>
           <img src="../assets/shot-premium-memories-zh.webp" width="1068" height="756" loading="lazy"
                alt="上海的回忆地图。留下回忆的公园上立着图钉">
-          <p class="premium__copy"><span class="nb">把散步的回忆，</span><span class="nb">连照片一起留在地图上</span></p>
           <p>在一起走过的地方留下照片和一句话。图钉越多，和狗狗的回忆就越会变成一张地图。免费也能试用 3 条。</p>
         </li>
         <li>
-          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>每日背景</h3>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>每日背景</h3>
+          <p class="premium__copy"><span class="nb">10 张照片和各种狗狗，</span><span class="nb">每天轮流出现在首页</span></p>
           <img src="../assets/shot-premium-background.webp" width="1068" height="756" loading="lazy"
                alt="草地上聚在一起的金毛寻回犬、吉娃娃、博美犬、边境牧羊犬、柴犬、玩具贵宾犬、诺福克梗和柯基的插画">
-          <p class="premium__copy"><span class="nb">10 张照片和各种狗狗，</span><span class="nb">每天轮流出现在首页</span></p>
           <p>免费版一直显示同一张照片。订阅后，“今天是哪只狗狗呢？”会成为每天早上的小期待。</p>
         </li>
       </ul>
@@ -397,5 +496,6 @@
   </div>
 </footer>
 
+<script src="../assets/lp.js?v=a619f32d" defer></script>
 </body>
 </html>

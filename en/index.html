@@ -13,7 +13,11 @@
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/">
 <link rel="icon" href="../assets/icon-192.webp" type="image/webp">
 <link rel="apple-touch-icon" href="../assets/icon-192.webp">
-<link rel="stylesheet" href="../assets/style.css?v=20261002a">
+<meta name="theme-color" content="#F5F3ED">
+<link rel="stylesheet" href="../assets/style.css?v=8f1ea18f">
+<!-- 同梱フォント(日本語・英語のページだけ)。CSSを読んでから取りに行くと見出しが一瞬システム書体で出るので先に取り始める -->
+<link rel="preload" href="../assets/fonts/kurenaido-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/zenkaku-regular-subset.woff2" as="font" type="font/woff2" crossorigin>
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -58,38 +62,58 @@
     {
       "@type": "Question",
       "name": "Can I use the app without allowing location access?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Register a location from the location menu on the Home screen and you can use every feature." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Register a location from the location menu on the Home screen and you can use every feature."
+      }
     },
     {
       "@type": "Question",
       "name": "Is the pavement temperature an actual measurement?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. It's an estimated guide based on the height of the sun and the cloud cover. Before you head out, use it together with the 5-second check: place your hand on the ground for five seconds." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It's an estimated guide based on the height of the sun and the cloud cover. Before you head out, use it together with the 5-second check: place your hand on the ground for five seconds."
+      }
     },
     {
       "@type": "Question",
       "name": "Does it work outside Japan?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Everything works wherever you are, except the rain radar, real-time alerts, weather warnings and observed current temperature. Those use data from the Japan Meteorological Agency and cover locations in Japan only." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everything works wherever you are, except the rain radar, real-time alerts, weather warnings and observed current temperature. Those use data from the Japan Meteorological Agency and cover locations in Japan only."
+      }
     },
     {
       "@type": "Question",
       "name": "Can I keep using the app for free?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Walk Index, heatstroke and pavement temperature ratings, the weekly forecast and more are free. The care calendar is free too for plans such as vaccinations and flea and tick prevention. Osanpo Biyori Premium is an optional plan that adds to all of this." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Walk Index, heatstroke and pavement temperature ratings, the weekly forecast and more are free. The care calendar is free too for plans such as vaccinations and flea and tick prevention. Osanpo Biyori Premium is an optional plan that adds to all of this."
+      }
     },
     {
       "@type": "Question",
       "name": "Is Osanpo Biyori Premium available on Android too?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can subscribe on either iOS or Android. The core features are free on both." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can subscribe on either iOS or Android. The core features are free on both."
+      }
     },
     {
       "@type": "Question",
       "name": "Does everyone in the family need to subscribe to share?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Only the one device that starts Family sharing needs Osanpo Biyori Premium. Family members who join with an invite code (up to 5 devices) join for free, and you can share between iPhone and Android, too." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Only the one device that starts Family sharing needs Osanpo Biyori Premium. Family members who join with an invite code (up to 5 devices) join for free, and you can share between iPhone and Android, too."
+      }
     }
   ]
 }
 </script>
 </head>
 <body>
+<!-- 王冠の形は1回だけ定義し、各見出しの <svg> は <use> で参照する(プレミアム紹介) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="crown-shape" viewBox="0 0 24 18"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></symbol></svg>
 
 <header class="site-head site-head--overlay">
   <a class="site-head__brand" href="./">
@@ -164,21 +188,13 @@
     </div>
   </section>
 
-  <script>
-    // en-US のブラウザでは華氏を大きく出す。JSが動かなくても摂氏と華氏の両方が読める
-    (function () {
-      if (!/^en-US$/i.test(navigator.language || "")) return;
-      document.querySelectorAll(".compare__value").forEach(function (el) { el.textContent = el.dataset.f; });
-      document.querySelectorAll(".compare__alt").forEach(function (el) { el.textContent = el.dataset.c; });
-    })();
-  </script>
 
   <img class="wash" src="../assets/divider-sky.webp" alt="" aria-hidden="true"
        width="840" height="177" loading="lazy" decoding="async">
 
   <!-- 機能 ------------------------------------------------------
        日本語トップの「雨雲レーダー」(日本国内のみ)は、週間の指数に差し替えた。
-       スクショはストア用(6.5インチ・米国設定)を流用しているので華氏で写っている -->
+       絵は日本語トップと同じ手順(スクリプト/lp-shoot-ios.sh)で iOS 版を撮ったもの。米国設定なので華氏で写っている -->
   <section class="features">
     <div class="wide">
 
@@ -188,9 +204,21 @@
           <h3>Today's Walk Index</h3>
           <p>Temperature, humidity, rain, wind and pavement heat add up to one score from 0 to 100 for how good a walk would be right now. You also get an hourly index and a suggested walk time, so one look in the morning is enough to plan the day. Temperatures show in ℃ or ℉, following your phone's settings.</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-home-en.webp" width="720" height="1558" loading="lazy"
-               alt="Home screen showing today's Walk Index and the mascot's speech bubble">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="Walk Index screens">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-home-en.webp" width="720" height="1565" loading="lazy" alt="Home screen showing a Walk Index of 100 and the mascot saying “The perfect time for a walk!”">
+              <figcaption>Today's index and a word from your pup</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-home-hourly-en.webp" width="720" height="1565" loading="lazy" alt="Walk Index by hour from 11:00 to 15:00, with cards for heatstroke, pavement temperature, air pressure, dryness, UV and shedding season below">
+              <figcaption>Hourly index and the indicator cards</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -200,9 +228,21 @@
           <h3>Why that score? We show our work</h3>
           <p>See the score broken down into seven factors: heat, pavement, rain, cold, wind, UV and dryness. The reasoning and the sources are in the app too, so you can check them for yourself instead of taking our word for it.</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-breakdown-en.webp" width="720" height="1558" loading="lazy"
-               alt="Score breakdown screen listing a rating for each of the seven factors">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="Score breakdown screens">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breakdown-en.webp" width="720" height="1565" loading="lazy" alt="Score breakdown screen: 100, perfect for a walk, with all seven factors rated good">
+              <figcaption>A 100-point day</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breakdown-hot-en.webp" width="720" height="1565" loading="lazy" alt="Score breakdown screen: 10, best to stay in, with heat and humidity marked in red as the main factor">
+              <figcaption>A 10-point day, with the main factor in red</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -212,9 +252,27 @@
           <h3>Hot pavement and heatstroke risk</h3>
           <p>Osanpo Biyori estimates how hot the asphalt gets from the height of the sun, the clouds and the rain, and tells you which hours may be hard on paw pads. Heatstroke risk follows the heat index bands of Japan's Ministry of the Environment, and flat-faced breeds, puppies and seniors are judged more cautiously.</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-heat-en.webp" width="720" height="1558" loading="lazy"
-               alt="Home screen on a very hot day, suggesting a break from walks, with a tired-looking mascot">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="Pavement heat and heatstroke screens">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-heat-en.webp" width="720" height="1565" loading="lazy" alt="Home screen on a very hot day: a Walk Index of 10, the mascot lying down and saying to stay in the shade and keep it short">
+              <figcaption>Home on a very hot day</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-heat-info-en.webp" width="720" height="1565" loading="lazy" alt="“Why this rating” sheet showing the weather-only rating and the final rating with the dog's traits added, on a bar of levels">
+              <figcaption>Why the heatstroke rating came out this way</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-road-info-en.webp" width="720" height="1565" loading="lazy" alt="“Pavement temperature and paw pads” sheet listing what each temperature band means for paw pads">
+              <figcaption>Pavement temperature and paw pads, band by band</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -224,9 +282,27 @@
           <h3>The week ahead, at a glance</h3>
           <p>See the next seven days with highs and lows, the chance of rain and the wind, so you can plan walks and days out ahead of time. Save a dog park or a trip destination as a place, and check its weather from your dog's point of view too.</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-weekly-en.webp" width="720" height="1558" loading="lazy"
-               alt="Weekly screen listing the weather, temperatures and chance of rain for the next seven days">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="Weekly forecast and Places screens">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-weekly-en.webp" width="720" height="1565" loading="lazy" alt="Weekly screen listing the weather, temperatures, chance of rain and a Walk Index bar for each of the next seven days">
+              <figcaption>The weekly forecast</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-day-detail-en.webp" width="720" height="1565" loading="lazy" alt="Day detail screen with a bar of the best times to walk, the Walk Index by hour and advice for your pup">
+              <figcaption>Tap a day for the best walk times and hourly index</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-outing-en.webp" width="720" height="1565" loading="lazy" alt="Places screen listing Central Park, Prospect Park and Bear Mountain with their weather and Walk Index">
+              <figcaption>Check your saved places together</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -234,11 +310,29 @@
         <div class="feature__body">
           <span class="feature__mark"></span>
           <h3>Tuned to your dog</h3>
-          <p>Register your dog's breed, age and build, and every rating adjusts to them. 120 breeds are supported, and you can add as many dogs as you have.</p>
+          <p>Register your dog's breed, age and build, and every rating adjusts to them. 121 breeds are supported, and you can add as many dogs as you have.</p>
         </div>
-        <div class="feature__shot">
-          <img src="../assets/shot-breeds-en.webp" width="720" height="1028" loading="lazy"
-               alt="Breed picker listing Toy Poodle, Chihuahua, Shiba Inu and more">
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="My Dogs screens">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breeds-en.webp" width="720" height="1565" loading="lazy" alt="Breed picker listing Toy Poodle, Chihuahua, Shiba Inu and more, each with a mascot illustration">
+              <figcaption>Choose from 121 breeds</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-dog-detail-en.webp" width="720" height="1565" loading="lazy" alt="Dog detail screen with a weight chart at 6.2 kg, certificates and papers, and a profile">
+              <figcaption>Weight records and profile</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-dogs-en.webp" width="720" height="1565" loading="lazy" alt="My Dogs list with Moko the Norfolk Terrier as the main dog and Pugsley the Pug">
+              <figcaption>Each dog gets its own ratings</figcaption>
+            </figure>
+          </li>
+          </ul>
         </div>
       </div>
 
@@ -272,31 +366,31 @@
     <div class="wide">
       <ul class="premium__grid premium__grid--four">
         <li>
-          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>Family sharing</h3>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Family sharing</h3>
+          <p class="premium__copy"><span class="nb">Keep your pup's records</span> <span class="nb">in one place for the whole family</span></p>
           <img src="../assets/shot-premium-family-en.webp" width="1068" height="756" loading="lazy"
                alt="Family sharing screen with Mom's iPhone and Dad's Android listed as members, and an Invite family button below">
-          <p class="premium__copy"><span class="nb">Keep your pup's records</span> <span class="nb">in one place for the whole family</span></p>
           <p>Sync weight, care logs and the Memory Map with your family's devices. Just send an invite code, iPhone or Android. One subscription is enough: invited family members (up to 5 devices) join free and can use Calendar and Memory Map too.</p>
         </li>
         <li>
-          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>Calendar</h3>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Calendar</h3>
+          <p class="premium__copy"><span class="nb">Your pup's plans,</span> <span class="nb">on the calendar your way</span></p>
           <img src="../assets/shot-premium-calendar-en.webp" width="1068" height="756" loading="lazy"
                alt="Calendar screen for September with care plans such as vaccines, medicine and grooming marked as colored dots">
-          <p class="premium__copy"><span class="nb">Your pup's plans,</span> <span class="nb">on the calendar your way</span></p>
           <p>Add whatever your dog needs, from grooming and vet visits to heartworm prevention, and keep a record of each with photos and notes. Vaccination and flea and tick plans are free even without Premium.</p>
         </li>
         <li>
-          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>Memory Map</h3>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Memory Map</h3>
+          <p class="premium__copy"><span class="nb">Keep walk memories</span> <span class="nb">on the map, with photos</span></p>
           <img src="../assets/shot-premium-memories-en.webp" width="1068" height="756" loading="lazy"
                alt="Memory Map of Manhattan with a pin on Central Park where memories were saved">
-          <p class="premium__copy"><span class="nb">Keep walk memories</span> <span class="nb">on the map, with photos</span></p>
           <p>Pin a photo and a note to the places you've walked together. The more pins you add, the more your time together turns into a map. You can try up to 3 for free.</p>
         </li>
         <li>
-          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></svg>Daily backgrounds</h3>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Daily backgrounds</h3>
+          <p class="premium__copy"><span class="nb">Ten photos and many pups,</span> <span class="nb">taking turns on Home</span></p>
           <img src="../assets/shot-premium-background.webp" width="1068" height="756" loading="lazy"
                alt="Illustration of a Golden Retriever, Chihuahua, Pomeranian, Border Collie, Shiba Inu, Toy Poodle, Norfolk Terrier and Corgi gathered on a grassy field">
-          <p class="premium__copy"><span class="nb">Ten photos and many pups,</span> <span class="nb">taking turns on Home</span></p>
           <p>The free version always shows the same photo. With Premium, finding out who's on Home today becomes a little treat every morning.</p>
         </li>
       </ul>
@@ -413,5 +507,6 @@
   </div>
 </footer>
 
+<script src="../assets/lp.js?v=a619f32d" defer></script>
 </body>
 </html>
