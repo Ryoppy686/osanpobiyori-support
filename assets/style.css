@@ -290,9 +290,11 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 .h2-blob--grass::before { background-image: url("blob-grass.webp"); }
 
 /* --- 動画 ----------------------------------------------------
-   ⚠️ いまは使われていない。動画が未制作のため `index.html` 側の
-   `<section class="video">` をコメントにしてある(2026-08-26)。
-   **消さないこと** — 動画ができたらHTMLのコメントを外すだけで戻せる */
+   2026-10-02 から使用(それまでは未制作でHTML側をコメントにしていた)。
+   ポスターの上に丸い再生ボタンを重ね、押したら本体のコントロールに切り替える */
+
+/* 動画だけ本文の版面(720px)より広く取る。PCで小さく見えるため(2026-10-02) */
+.video .measure { max-width: 1040px; }
 
 .video__frame {
   position: relative;
@@ -300,26 +302,30 @@ section { padding-block: clamp(56px, 9vw, 104px); }
   overflow: hidden;
   background: var(--paper-deep);
   aspect-ratio: 16 / 9;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: .95rem;
-  padding: 24px;
 }
+.video__player { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .video__play {
+  position: absolute; inset: 0; margin: auto;
   width: 68px; height: 68px;
   border-radius: 50%;
   background: rgba(255,255,255,.86);
   border: none;
   display: grid; place-items: center;
   cursor: pointer;
-  margin-bottom: 12px;
+  box-shadow: 0 4px 18px rgba(58,54,48,.22);
   transition: transform .18s ease, background-color .18s ease;
 }
 .video__play:hover { transform: scale(1.06); background: #fff; }
 .video__play svg { margin-left: 4px; }
+.video__frame.is-playing .video__play { display: none; }
+
+.video__credit {
+  margin-top: 10px;
+  text-align: center;
+  font-size: .8rem;
+  color: var(--ink-soft);
+}
 
 /* --- 課題提起 ------------------------------------------------ */
 

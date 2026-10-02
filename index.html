@@ -13,7 +13,7 @@
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/">
 <link rel="icon" href="assets/icon-192.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/icon-192.webp">
-<link rel="stylesheet" href="assets/style.css?v=20260925c">
+<link rel="stylesheet" href="assets/style.css?v=20261002a">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="おさんぽびより — 犬のための天気アプリ">
@@ -132,25 +132,41 @@
   </section>
 
   <!-- PR動画 ---------------------------------------------------
-       動画が未制作のため、初回公開では**出さない**(2026-08-26)。
-       中身は消さずコメントにしてある。差し替えるときは
-       このコメントを外し、`.video__frame` の中身をポスター画像+mp4に置き換える。
-       CSS(`style.css` の「--- 動画 ---」)も残してあるのでそのまま使える。
-       ⚠️ 戻したら `lp-fonts.py` も再実行すること — サブセットフォントは
-       コメント内の文字を集めないので、この節の文字がいまは入っていない。
+       2026-10-02 公開。映像は ~/おさんぽびよりPR動画(AE `LP_本編`)・音はffmpeg(台本C_v1.md の実装記録)。
+       mp4は 720p・約2.4Mbps・16MB(Cloudflare Pages の1ファイル25MiB制限内)。ポスターは場面3のコマ。
+       ⚠️ この節の文字を変えたら `lp-fonts.py` を再実行する(サブセットフォントに文字が足りなくなる) -->
   <section class="video">
     <div class="measure">
-      <div class="video__frame">
+      <div class="video__frame" id="lp-video">
+        <video class="video__player" playsinline preload="metadata" width="1280" height="720"
+               poster="assets/lp-video-poster.webp" aria-label="おさんぽびよりの紹介動画(55秒)">
+          <source src="assets/lp-video.mp4" type="video/mp4">
+        </video>
         <button class="video__play" type="button" aria-label="紹介動画を再生する">
           <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true">
             <path d="M2 2.6 20 13 2 23.4Z" fill="#3A3630"></path>
           </svg>
         </button>
-        紹介動画がここに入ります
       </div>
+      <p class="video__credit">ナレーション: VOICEVOX:春日部つむぎ</p>
     </div>
   </section>
-  -->
+  <script>
+    (function () {
+      var frame = document.getElementById("lp-video");
+      var video = frame.querySelector("video");
+      var play = frame.querySelector(".video__play");
+      play.addEventListener("click", function () {
+        frame.classList.add("is-playing");
+        video.controls = true;
+        video.play();
+      });
+      video.addEventListener("ended", function () {
+        frame.classList.remove("is-playing");
+        video.controls = false;
+      });
+    })();
+  </script>
 
   <img class="wash" src="assets/divider-wash.webp" alt="" aria-hidden="true"
        width="840" height="163" loading="lazy" decoding="async">
