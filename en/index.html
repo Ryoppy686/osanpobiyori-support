@@ -14,7 +14,7 @@
 <link rel="icon" href="../assets/icon-192.webp" type="image/webp">
 <link rel="apple-touch-icon" href="../assets/icon-192.webp">
 <meta name="theme-color" content="#F5F3ED">
-<link rel="stylesheet" href="../assets/style.css?v=8f1ea18f">
+<link rel="stylesheet" href="../assets/style.css?v=3f7f41d7">
 <!-- 同梱フォント(日本語・英語のページだけ)。CSSを読んでから取りに行くと見出しが一瞬システム書体で出るので先に取り始める -->
 <link rel="preload" href="../assets/fonts/kurenaido-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/zenkaku-regular-subset.woff2" as="font" type="font/woff2" crossorigin>
@@ -256,7 +256,7 @@
           <ul class="shots" aria-label="Pavement heat and heatstroke screens">
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-heat-en.webp" width="720" height="1565" loading="lazy" alt="Home screen on a very hot day: a Walk Index of 10, the mascot lying down and saying to stay in the shade and keep it short">
+              <img src="../assets/shot-heat-en.webp" width="720" height="1565" loading="lazy" alt="Home screen on a very hot day: a Walk Index of 10, the mascot lying down and saying “It's very hot. Cool off first”">
               <figcaption>Home on a very hot day</figcaption>
             </figure>
           </li>
@@ -310,14 +310,14 @@
         <div class="feature__body">
           <span class="feature__mark"></span>
           <h3>Tuned to your dog</h3>
-          <p>Register your dog's breed, age and build, and every rating adjusts to them. 121 breeds are supported, and you can add as many dogs as you have.</p>
+          <p>Register your dog's breed, age and build, and every rating adjusts to them. 122 breeds are supported, and you can add as many dogs as you have.</p>
         </div>
         <div class="feature__shots" data-carousel>
           <ul class="shots" aria-label="My Dogs screens">
           <li class="shots__item">
             <figure>
               <img src="../assets/shot-breeds-en.webp" width="720" height="1565" loading="lazy" alt="Breed picker listing Toy Poodle, Chihuahua, Shiba Inu and more, each with a mascot illustration">
-              <figcaption>Choose from 121 breeds</figcaption>
+              <figcaption>Choose from 122 breeds</figcaption>
             </figure>
           </li>
           <li class="shots__item">
@@ -355,22 +355,29 @@
   </section>
 
   <!-- プレミアム ------------------------------------------------
-       日本の外でペイウォールに出る4つだけを載せる(レーダー強化・リアルタイムアラートは
-       日本国内の地点のみのため注記へ)。見出しコピーはアプリのペイウォールの英訳と同じ -->
+       日本の外でペイウォールに出る6つだけを載せる(レーダー強化・リアルタイムアラートは
+       日本国内の地点のみのため注記へ)。並びもペイウォールと同じ。見出しコピーはアプリのペイウォールの英訳と同じ -->
   <section class="premium">
     <div class="measure">
       <h2>Osanpo Biyori Premium</h2>
-      <p class="premium__lead"><span class="nb">The core features stay free.</span> <span class="nb">For a little more help,</span> <span class="nb">Premium adds these four.</span></p>
+      <p class="premium__lead"><span class="nb">The core features stay free.</span> <span class="nb">For a little more help,</span> <span class="nb">Premium adds these six.</span></p>
     </div>
 
     <div class="wide">
-      <ul class="premium__grid premium__grid--four">
+      <ul class="premium__grid">
         <li>
           <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Family sharing</h3>
           <p class="premium__copy"><span class="nb">Keep your pup's records</span> <span class="nb">in one place for the whole family</span></p>
           <img src="../assets/shot-premium-family-en.webp" width="1068" height="756" loading="lazy"
                alt="Family sharing screen with Mom's iPhone and Dad's Android listed as members, and an Invite family button below">
-          <p>Sync weight, care logs and the Memory Map with your family's devices. Just send an invite code, iPhone or Android. One subscription is enough: invited family members (up to 5 devices) join free and can use Calendar and Memory Map too.</p>
+          <p>Sync weight, care logs and the Memory Map with your family's devices. Just send an invite code, iPhone or Android. One subscription is enough: invited family members (up to 5 devices) join free and can use Calendar, Memory Map and Coat colors too.</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Coat colors</h3>
+          <p class="premium__copy"><span class="nb">A mascot in</span> <span class="nb">your pup's coat color</span></p>
+          <img src="../assets/shot-premium-coat.webp" width="1068" height="756" loading="lazy"
+               alt="Coat color screen with a Cairn Terrier mascot in four coats: wheaten, brindle, gray and red, with red selected">
+          <p>Pick the color closest to your pup from the coats we've drawn for each breed. Home and widgets show the color you pick, and family members in Family sharing see the same coat. If the color or the ears don't match your pup, you can send us a request.</p>
         </li>
         <li>
           <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Calendar</h3>
@@ -385,6 +392,13 @@
           <img src="../assets/shot-premium-memories-en.webp" width="1068" height="756" loading="lazy"
                alt="Memory Map of Manhattan with a pin on Central Park where memories were saved">
           <p>Pin a photo and a note to the places you've walked together. The more pins you add, the more your time together turns into a map. You can try up to 3 for free.</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Pressure graph</h3>
+          <p class="premium__copy"><span class="nb">Pressure changes,</span> <span class="nb">graphed 3 days ahead</span></p>
+          <img src="../assets/shot-premium-pressure-en.webp" width="1068" height="756" loading="lazy"
+               alt="Pressure graph screen. Today's pressure line starts falling at 6 PM and the falling hours are shaded, with a “10 PM 1012 hPa” bubble and a frowning face marker">
+          <p>See the pressure trend for today, tomorrow and the day after as an hourly line. Falling periods are shaded, and you can see when things change, like “Falls from 9 PM.” The free version still shows the current pressure level (three levels) on the Home card.</p>
         </li>
         <li>
           <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>Daily backgrounds</h3>
@@ -408,7 +422,7 @@
         </a>
       </div>
 
-      <p class="premium__note">Family members can use Calendar and Memory Map while the device that started sharing is subscribed to Premium. In Japan, Premium also includes real-time alerts and a 15-hour rain forecast with thunder radar. Daily backgrounds feature the breeds we have illustrations for. For payment and cancellation terms, see the <a href="../tokushoho.html" lang="ja" hreflang="ja">Japanese Act on Specified Commercial Transactions notice</a> (in Japanese).</p>
+      <p class="premium__note">Family members can use Calendar, Memory Map and Coat colors while the device that started sharing is subscribed to Premium. In Japan, Premium also includes real-time alerts and a 15-hour rain forecast with thunder radar. Daily backgrounds feature the breeds we have illustrations for. The number of coat colors varies by breed. For payment and cancellation terms, see the <a href="../tokushoho.html" lang="ja" hreflang="ja">Japanese Act on Specified Commercial Transactions notice</a> (in Japanese).</p>
     </div>
   </section>
 

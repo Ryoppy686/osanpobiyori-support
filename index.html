@@ -14,7 +14,7 @@
 <link rel="icon" href="assets/icon-192.webp" type="image/webp">
 <link rel="apple-touch-icon" href="assets/icon-192.webp">
 <meta name="theme-color" content="#F5F3ED">
-<link rel="stylesheet" href="assets/style.css?v=8f1ea18f">
+<link rel="stylesheet" href="assets/style.css?v=3f7f41d7">
 <!-- 同梱フォント(日本語・英語のページだけ)。CSSを読んでから取りに行くと見出しが一瞬システム書体で出るので先に取り始める -->
 <link rel="preload" href="assets/fonts/kurenaido-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/zenkaku-regular-subset.woff2" as="font" type="font/woff2" crossorigin>
@@ -269,7 +269,7 @@
           <ul class="shots" aria-label="路面温度と熱中症の画面">
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-heat.webp" width="720" height="1565" loading="lazy" alt="猛暑日のホーム画面。33℃で指数10点、「出るなら日かげで短めにね」の吹き出しとバテた表情のマスコット">
+              <img src="assets/shot-heat.webp" width="720" height="1565" loading="lazy" alt="猛暑日のホーム画面。33℃で指数10点、「かなり暑いよ。涼しくなってから行こう」の吹き出しとバテた表情のマスコット">
               <figcaption>猛暑日のホーム</figcaption>
             </figure>
           </li>
@@ -347,14 +347,14 @@
         <div class="feature__body">
           <span class="feature__mark"></span>
           <h3>うちの子に合わせて</h3>
-          <p>犬種・年齢・体型を登録すると、判定がその子に合わせて変わります。121種の犬種に対応。多頭飼いのおうちは、何頭でも登録できます。体重の記録や証明書の写真も、わんこごとにまとめておけます。</p>
+          <p>犬種・年齢・体型を登録すると、判定がその子に合わせて変わります。122種の犬種に対応。多頭飼いのおうちは、何頭でも登録できます。体重の記録や証明書の写真も、わんこごとにまとめておけます。</p>
         </div>
         <div class="feature__shots" data-carousel>
           <ul class="shots" aria-label="マイわんこの画面">
           <li class="shots__item">
             <figure>
               <img src="assets/shot-breeds.webp" width="720" height="1565" loading="lazy" alt="犬種を選ぶ画面。トイ・プードル、チワワ、柴犬などがマスコットのイラストつきで並んでいる">
-              <figcaption>121種から犬種を選ぶ</figcaption>
+              <figcaption>122種から犬種を選ぶ</figcaption>
             </figure>
           </li>
           <li class="shots__item">
@@ -394,16 +394,17 @@
   </section>
 
   <!-- プレミアム ------------------------------------------------ -->
-  <!-- 見出しコピー6本はアプリのペイウォールと同じ文言にしてある。
+  <!-- 見出しコピー8本はアプリのペイウォールと同じ文言にしてある。
        LPとアプリで言うことが違うと、入ってから「思っていたのと違う」になるため。
-       並び順もペイウォールと同じ(1.11.0から家族共有が先頭・次がカレンダー) -->
+       並び順もペイウォールと同じ(1.11.0から家族共有が先頭。1.13.0の毛色選択はその次、
+       1.12.0の気圧グラフはレーダー強化の次=天気系をまとめる。PremiumPaywallView.swift) -->
   <section class="premium">
     <div class="measure">
       <h2>おさんぽびよりプレミアム</h2>
-      <p class="premium__lead"><span class="nb">基本の機能は無料のまま。</span><span class="nb">もう少し手を貸してほしい方へ、</span><span class="nb">次の6つが加わります。</span></p>
+      <p class="premium__lead"><span class="nb">基本の機能は無料のまま。</span><span class="nb">もう少し手を貸してほしい方へ、</span><span class="nb">次の8つが加わります。</span></p>
     </div>
 
-    <!-- 6枚の絵はiOS版のペイウォールと同じもの。縦横比は 1206×854 に切り揃えてある
+    <!-- 8枚の絵はiOS版のペイウォールと同じもの。縦横比は 1206×854 に切り揃えてある
          (揃えないと、横に並べたとき隣とテキストの開始位置がずれる) -->
     <div class="wide">
       <ul class="premium__grid">
@@ -412,7 +413,14 @@
           <p class="premium__copy"><span class="nb">家族みんなで、</span><span class="nb">うちの子の記録をひとつに</span></p>
           <img src="assets/shot-premium-family.webp" width="1068" height="756" loading="lazy"
                alt="家族共有の画面。ママのiPhoneとパパのAndroidがメンバーに並び、その下に「家族を招待」のボタンがある">
-          <p>体重・お世話の記録・おもいでマップを、家族の端末と同期します。招待コードを送るだけで、iPhoneとAndroidのあいだでも共有できます。加入は1台だけで、招待された家族(最大5台)は無料でカレンダーとおもいでマップも使えます。</p>
+          <p>体重・お世話の記録・おもいでマップを、家族の端末と同期します。招待コードを送るだけで、iPhoneとAndroidのあいだでも共有できます。加入は1台だけで、招待された家族(最大5台)は無料でカレンダー・おもいでマップ・毛色選択も使えます。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>毛色選択</h3>
+          <p class="premium__copy"><span class="nb">マスコットを、</span><span class="nb">うちの子の毛色に</span></p>
+          <img src="assets/shot-premium-coat.webp" width="1068" height="756" loading="lazy"
+               alt="毛色変更の画面。ケアーン・テリアのマスコットがウィートン・ブリンドル・グレー・レッドの4色で並び、レッドが選ばれている">
+          <p>犬種ごとに用意した毛色から、うちの子に近い色を選べます。ホームもウィジェットも、選んだ毛色の子に。家族共有の家族の画面にも同じ毛色で出ます。毛色や耳の形がうちの子と違うときは、リクエストも送れます。</p>
         </li>
         <li>
           <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>カレンダー</h3>
@@ -443,6 +451,13 @@
           <p>無料の雨雲レーダーは1時間先まで。「夕方なら降られない」が前の晩にわかります。雷レーダーは、いま雷が鳴っている場所を映します。</p>
         </li>
         <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>気圧グラフ</h3>
+          <p class="premium__copy"><span class="nb">気圧の変化を、</span><span class="nb">3日先までグラフで</span></p>
+          <img src="assets/shot-premium-pressure.webp" width="1068" height="756" loading="lazy"
+               alt="気圧グラフの画面。今日の気圧の折れ線が18時から下がりはじめ、下がる時間帯に色が付いている。「22時 1012hPa」のふきだしと、しょんぼりした顔のつまみ">
+          <p>今日・明日・あさっての気圧の推移を、時間ごとの折れ線で。下がる時間帯には色が付き、「21時から下がる」のように変わり目の時刻もわかります。無料でも、ホームのカードでいまの気圧の状態(3段階)は見られます。</p>
+        </li>
+        <li>
           <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>日替わり背景</h3>
           <p class="premium__copy"><span class="nb">写真10枚といろんなわんこが、</span><span class="nb">日替わりでホームに</span></p>
           <img src="assets/shot-premium-background.webp" width="1068" height="756" loading="lazy"
@@ -464,7 +479,7 @@
         </a>
       </div>
 
-      <p class="premium__note">家族がカレンダーとおもいでマップを使えるのは、ホスト端末(家族共有を始めた端末)がプレミアムに加入している間です。リアルタイムアラートと雨の予想・雷レーダーは、日本国内の地点のみに対応しています。日替わりで登場するのは、イラストをご用意できている犬種です。お支払い・解約の条件は<a href="./tokushoho.html">特定商取引法に基づく表記</a>をご覧ください。</p>
+      <p class="premium__note">家族がカレンダー・おもいでマップ・毛色選択を使えるのは、ホスト端末(家族共有を始めた端末)がプレミアムに加入している間です。リアルタイムアラートと雨の予想・雷レーダーは、日本国内の地点のみに対応しています。日替わりで登場するのは、イラストをご用意できている犬種です。毛色選択で選べる色の数は、犬種によって違います。お支払い・解約の条件は<a href="./tokushoho.html">特定商取引法に基づく表記</a>をご覧ください。</p>
     </div>
   </section>
 

@@ -499,10 +499,10 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 .premium h2 { font-size: min(clamp(1.45rem, 4.4vw, 2.1rem), var(--fit-h2)); margin-bottom: .7em; }
 .premium__lead { color: var(--ink-soft); }
 
-/* 5機能。狭い順に 1列 → 2列(769px〜) → 3列(1100px〜)。
+/* 8機能(海外向けは6)。狭い順に 1列 → 2列(769px〜) → 3列(1100px〜)。
    1枚は2列で534px・3列で316px。3列は通知の文面やカレンダーの凡例が小さくなるので、
    幅が伸びきる1100pxまでは2列のままにする。
-   5つはどちらの列数でも割り切れないので、余った枚を中央に寄せる(下の各ブロック) */
+   8枚は3列で割り切れない(3+3+2)ので、最後の段の2枚を中央に寄せる(下の 1100px のブロック) */
 .premium__grid {
   list-style: none;
   margin: clamp(28px, 5vw, 44px) 0 0;
@@ -784,8 +784,7 @@ html[lang="ko"] body { word-break: keep-all; overflow-wrap: anywhere; }
   .feature__shots { --shot-w: 250px; }
   .trust__list { columns: 2; column-gap: 40px; }
   .trust__list li { break-inside: avoid; }
-  /* 2列(2+2+2)。6枚になって割り切れるので、5枚のときの「列を倍に取って
-     最後の1枚を中央へずらす」細工は外した(2026-09-25・家族共有の追加) */
+  /* 2列。8枚(2+2+2+2)も海外向けの6枚(2+2+2)も割り切れる */
   .premium__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -794,9 +793,12 @@ html[lang="ko"] body { word-break: keep-all; overflow-wrap: anywhere; }
    これより狭いところで3列にすると1枚が290pxまで痩せて、カレンダーの凡例
    (ワクチン・お薬…)が潰れ、見出しコピーの折り返しも増える */
 @media (min-width: 1100px) {
-  .premium__grid { grid-template-columns: repeat(3, 1fr); }
-  /* 海外向けトップは日本域外で使える4つだけなので、3列だと最後の1枚が取り残される。2列×2段のままにする */
-  .premium__grid--four { grid-template-columns: repeat(2, 1fr); }
+  /* 列を倍の6本に取って1枚を2本ぶんにし、8枚のとき(3+3+2)だけ7枚目を2本目から始めて
+     最後の段の2枚を中央へ寄せる(2026-10-09・気圧グラフと毛色選択の追加)。
+     海外向けの6枚(3+3)は 3n+1 かつ後ろから2番目の枚が無いので、そのまま3列に並ぶ */
+  .premium__grid { grid-template-columns: repeat(6, 1fr); }
+  .premium__grid > li { grid-column: span 2; }
+  .premium__grid > li:nth-child(3n+1):nth-last-child(2) { grid-column: 2 / span 2; }
 }
 
 /* --- 動きを減らす設定を尊重する ------------------------------- */
