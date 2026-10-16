@@ -11,27 +11,38 @@
 <link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy">
 <link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/privacy-policy">
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/privacy-policy">
-<link rel="icon" href="assets/icon-192.webp" type="image/webp">
-<link rel="apple-touch-icon" href="assets/icon-192.webp">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/icon-192.webp" type="image/webp" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F5F3ED">
-<link rel="stylesheet" href="assets/style.css?v=3f7f41d7">
+<link rel="stylesheet" href="assets/style.css?v=e7cde4cd">
 <!-- 同梱フォント(日本語・英語のページだけ)。CSSを読んでから取りに行くと見出しが一瞬システム書体で出るので先に取り始める -->
 <link rel="preload" href="assets/fonts/kurenaido-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/zenkaku-regular-subset.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
 
+<a class="skip-link" href="#main">本文へ移動</a>
 <header class="site-head">
   <a class="site-head__brand" href="./">
     <img src="assets/icon-192.webp" width="34" height="34" alt="">
     おさんぽびより
   </a>
-  <nav class="site-head__nav">
-    <a href="./support.html">サポート</a>
+  <nav class="site-head__nav" aria-label="サイト内">
+    <a href="./support">サポート</a>
   </nav>
+  <details class="lang-menu">
+    <summary class="lang-menu__button" aria-label="言語"><svg class="lang-menu__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c-3.4 3.6-3.4 14.8 0 18.4M12 2.8c3.4 3.6 3.4 14.8 0 18.4"/></svg><span class="lang-menu__label">日本語</span></summary>
+    <ul class="lang-menu__list">
+      <li><span aria-current="page" lang="ja">日本語</span></li>
+      <li><a href="./en/privacy-policy" lang="en" hreflang="en">English</a></li>
+      <li><a href="./zh/privacy-policy" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li>
+      <li><a href="./ko/privacy-policy" lang="ko" hreflang="ko">한국어</a></li>
+    </ul>
+  </details>
 </header>
 
-<main class="doc measure">
+<main id="main" class="doc measure">
   <h1>プライバシーポリシー</h1>
   <p class="doc__updated">制定日: 2026年7月4日 / 最終改定日: 2026年9月24日(家族共有について追記)</p>
 
@@ -82,7 +93,7 @@
   <p>本アプリが保存するデータ(愛犬のプロフィール、登録した地点、通知や表示の設定、背景に設定した写真、おもいでマップの記録)は、<strong>すべてお使いの端末内にのみ保存されます</strong>。開発者がこれらを取得することはなく、外部のサーバーに保管することもありません(例外はリアルタイムアラートをオンにした場合と、家族共有を使う場合のみで、扱う情報と削除の条件は上記のとおりです)。</p>
   <p><strong>バックアップの書き出しについて</strong>: 機種変更などに備えて、おもいでマップの記録・お世話カレンダーの予定・愛犬の情報(体重の記録、かかりつけの動物病院、マイクロチップ番号、アレルギーのメモ、登録した写真を含みます)を1つのファイルにまとめて書き出せます。書き出したファイルの保存先(iCloud Drive・端末内・他のアプリなど)は<strong>お客様がその場でお選びいただくもの</strong>で、開発者のサーバーへ送信されることはありません。健康や連絡先に関する情報が含まれますので、保存先の共有設定にはご注意ください。</p>
   <p><strong>アプリを端末からアンインストールすると、これらのデータはすべて削除されます。</strong>リアルタイムアラートをオンにしたままアンインストールした場合、サーバー上の登録情報は有料プランの期限切れから一定期間(30日)経過後に自動的に削除されます(すぐに削除したい場合は、アンインストール前にリアルタイムアラートをオフにしてください)。家族共有に参加したままアンインストールした場合、サーバー上のデータは共有が続く限り家族のために残ります。すぐに削除したい場合は、アンインストール前に「共有をやめる」(共有を始めた方)または「この端末を共有から外す」(参加した方)を選んでください。登録した愛犬や地点は、アプリ内からいつでも個別に削除できます。背景に設定した写真は、別の写真に変更するか、背景を「おまかせ(天気連動)」に戻すことで使用を停止できます。</p>
-  <p>Android版で使用する中継サーバー(天気データ取得用)には、ユーザーを識別できる情報を一切保存していません。取得した天気データを約10分間だけ一時的に保持しますが、これは丸めた座標に対応する天気の値であり、個人を特定できるものではなく、時間の経過とともに自動的に消去されます。そのため、削除をご請求いただくべき個人データは保持しておりません。ご不明な点は<a href="./support.html">サポートページ</a>よりお問い合わせください。</p>
+  <p>Android版で使用する中継サーバー(天気データ取得用)には、ユーザーを識別できる情報を一切保存していません。取得した天気データを約10分間だけ一時的に保持しますが、これは丸めた座標に対応する天気の値であり、個人を特定できるものではなく、時間の経過とともに自動的に消去されます。そのため、削除をご請求いただくべき個人データは保持しておりません。ご不明な点は<a href="./support">サポートページ</a>よりお問い合わせください。</p>
 
   <h2>トラッキング・分析について</h2>
   <p>本アプリは、広告・トラッキング・サードパーティの分析SDKを一切使用していません。Android版はリアルタイムアラートの通知配信に Firebase Cloud Messaging を使用しますが、分析(Google アナリティクス等)の機能は組み込んでいません。</p>
@@ -91,7 +102,7 @@
   <p>本アプリが表示する散歩指数・熱中症リスク・路面温度などの各指標は、気象データに基づく一般的な目安であり、獣医学的な診断を行うものではありません。愛犬の体調に不安がある場合は、獣医師にご相談ください。</p>
 
   <h2>お問い合わせ</h2>
-  <p>本ポリシーに関するお問い合わせは、<a href="./support.html">サポートページ</a>よりお願いいたします。</p>
+  <p>本ポリシーに関するお問い合わせは、<a href="./support">サポートページ</a>よりお願いいたします。</p>
 
   <h2>改定について</h2>
   <p>本ポリシーを改定する場合は、本ページにて告知します。</p>
@@ -101,19 +112,22 @@
   <div class="wide">
     <nav class="lang-switch" aria-label="言語">
       <span aria-current="page">日本語</span>
-      <a href="./en/privacy-policy.html" lang="en" hreflang="en">English</a>
-      <a href="./zh/privacy-policy.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
-      <a href="./ko/privacy-policy.html" lang="ko" hreflang="ko">한국어</a>
+      <a href="./en/privacy-policy" lang="en" hreflang="en">English</a>
+      <a href="./zh/privacy-policy" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      <a href="./ko/privacy-policy" lang="ko" hreflang="ko">한국어</a>
     </nav>
-    <nav>
+    <nav aria-label="フッター">
       <a href="./">トップ</a>
-      <a href="./support.html">サポート・よくある質問</a>
-      <a href="./tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="./support">サポート・よくある質問</a>
+      <a href="./tokushoho">特定商取引法に基づく表記</a>
       <a href="mailto:osanpobiyori.app@gmail.com">お問い合わせ</a>
     </nav>
+    <p class="site-foot__fonts">使用しているフォント: <a href="assets/fonts/ZenKurenaido-OFL.txt">Zen Kurenaido</a>・<a href="assets/fonts/ZenKakuGothicNew-OFL.txt">Zen Kaku Gothic New</a>(いずれも SIL Open Font License 1.1)</p>
     <p class="site-foot__copy">© 2026 おさんぽびより</p>
   </div>
 </footer>
 
+<!-- 言語切り替えを外側のタップ・Esc で閉じるため(無くても開閉はできる) -->
+<script src="assets/lp.js?v=af9211db" defer></script>
 </body>
 </html>

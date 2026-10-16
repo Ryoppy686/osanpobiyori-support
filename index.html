@@ -11,15 +11,17 @@
 <link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/">
 <link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/">
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/">
-<link rel="icon" href="assets/icon-192.webp" type="image/webp">
-<link rel="apple-touch-icon" href="assets/icon-192.webp">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/icon-192.webp" type="image/webp" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F5F3ED">
-<link rel="stylesheet" href="assets/style.css?v=3f7f41d7">
+<link rel="stylesheet" href="assets/style.css?v=e7cde4cd">
 <!-- 同梱フォント(日本語・英語のページだけ)。CSSを読んでから取りに行くと見出しが一瞬システム書体で出るので先に取り始める -->
 <link rel="preload" href="assets/fonts/kurenaido-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/zenkaku-regular-subset.woff2" as="font" type="font/woff2" crossorigin>
 
 <meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="おさんぽびより — 犬のための天気アプリ">
 <meta property="og:description" content="気温だけじゃわからない、わんこ目線の天気予報。基本の機能は無料・広告なし。">
 <meta property="og:url" content="https://osanpobiyori.app/">
@@ -27,7 +29,9 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="おさんぽびより — 気温だけじゃわからない、わんこ目線の天気予報。草原に並ぶ6匹の犬のイラスト">
+<meta property="og:site_name" content="おさんぽびより">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@osanpobiyori_jp">
 
 <!-- モバイルSafariでApp Storeへの誘導バナーを出す -->
 <meta name="apple-itunes-app" content="app-id=6789016064">
@@ -47,7 +51,26 @@
     "https://apps.apple.com/jp/app/id6789016064",
     "https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho"
   ],
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  "author": { "@type": "Organization", "name": "おさんぽびより", "url": "https://osanpobiyori.app/", "sameAs": ["https://x.com/osanpobiyori_jp", "https://www.instagram.com/osanpobiyori_app/", "https://www.youtube.com/@osanpobiyori_app"] },
+  "publisher": { "@type": "Organization", "name": "おさんぽびより", "url": "https://osanpobiyori.app/" },
+  "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    { "@type": "Offer", "name": "おさんぽびよりプレミアム", "category": "subscription", "price": "350", "priceCurrency": "JPY" }
+  ]
+}
+</script>
+<!-- 紹介動画の構造化データ(検索結果の動画リッチリザルト用)。長さは ffprobe で 55.2 秒(2026-10-17 実測) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "おさんぽびより 紹介動画",
+  "description": "犬のための天気アプリ「おさんぽびより」の紹介動画(55秒)。お散歩指数・路面温度・熱中症のリスクを、わんこ目線で毎朝お届けします。",
+  "thumbnailUrl": ["https://osanpobiyori.app/assets/lp-video-poster.webp"],
+  "uploadDate": "2026-10-02",
+  "duration": "PT55S",
+  "contentUrl": "https://osanpobiyori.app/assets/lp-video.mp4",
+  "inLanguage": "ja"
 }
 </script>
 <script type="application/ld+json">
@@ -109,21 +132,31 @@
 </head>
 <body>
 <!-- 王冠の形は1回だけ定義し、各見出しの <svg> は <use> で参照する(プレミアム紹介) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="crown-shape" viewBox="0 0 24 18"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></symbol></svg>
+<svg class="svg-defs" width="0" height="0" aria-hidden="true"><symbol id="crown-shape" viewBox="0 0 24 18"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></symbol></svg>
 
 
+<a class="skip-link" href="#main">本文へ移動</a>
 <header class="site-head site-head--overlay">
   <a class="site-head__brand" href="./">
     <img src="assets/icon-192.webp" width="34" height="34" alt="">
     おさんぽびより
   </a>
-  <nav class="site-head__nav">
-    <a href="./support.html">サポート</a>
-    <a href="./privacy-policy.html">プライバシーポリシー</a>
+  <nav class="site-head__nav" aria-label="サイト内">
+    <a href="./support">サポート</a>
+    <a href="./privacy-policy">プライバシーポリシー</a>
   </nav>
+  <details class="lang-menu">
+    <summary class="lang-menu__button" aria-label="言語"><svg class="lang-menu__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c-3.4 3.6-3.4 14.8 0 18.4M12 2.8c3.4 3.6 3.4 14.8 0 18.4"/></svg><span class="lang-menu__label">日本語</span></summary>
+    <ul class="lang-menu__list">
+      <li><span aria-current="page" lang="ja">日本語</span></li>
+      <li><a href="./en/" lang="en" hreflang="en">English</a></li>
+      <li><a href="./zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li>
+      <li><a href="./ko/" lang="ko" hreflang="ko">한국어</a></li>
+    </ul>
+  </details>
 </header>
 
-<main>
+<main id="main">
 
   <!-- ヒーロー ------------------------------------------------ -->
   <section class="hero">
@@ -137,7 +170,7 @@
         <a class="badge" href="https://apps.apple.com/jp/app/id6789016064">
           <img src="assets/badge-appstore.svg" width="109" height="40" alt="App Storeからダウンロード">
         </a>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho">
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Dja">
           <img src="assets/badge-googleplay.png" width="270" height="80" alt="Google Play で手に入れよう">
         </a>
       </div>
@@ -149,7 +182,7 @@
     <div class="hero__band">
       <picture>
         <source media="(max-width: 640px)" srcset="assets/hero-band-mobile.webp">
-        <img src="assets/hero-band-wide.webp" width="2048" height="560"
+        <img src="assets/hero-band-wide.webp" width="2048" height="560" fetchpriority="high"
              alt="草原に並ぶトイプードル・コーギー・柴犬・ノーフォークテリア・チワワ・ゴールデンレトリバーのイラスト">
       </picture>
     </div>
@@ -221,13 +254,13 @@
           <ul class="shots" aria-label="今日のお散歩指数の画面">
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-home.webp" width="720" height="1565" loading="lazy" alt="ホーム画面。今日のお散歩指数100点と、マスコットの吹き出し「絶好のお散歩タイムだよ!」">
+              <img src="assets/shot-home.webp" srcset="assets/shot-home-480.webp 480w, assets/shot-home.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="ホーム画面。今日のお散歩指数100点と、マスコットの吹き出し「絶好のお散歩タイムだよ!」">
               <figcaption>ホームの指数と、わんこのひとこと</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-home-hourly.webp" width="720" height="1565" loading="lazy" alt="時間ごとのお散歩指数。11時から15時までの指数が並び、「今日は16時〜0時がおすすめ」の下に熱中症・路面温度・気圧・紫外線・花粉の指標カードが続いている">
+              <img src="assets/shot-home-hourly.webp" srcset="assets/shot-home-hourly-480.webp 480w, assets/shot-home-hourly.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="時間ごとのお散歩指数。11時から15時までの指数が並び、「今日は16時〜0時がおすすめ」の下に熱中症・路面温度・気圧・紫外線・花粉の指標カードが続いている">
               <figcaption>時間ごとの指数と、熱中症・路面温度などの指標カード</figcaption>
             </figure>
           </li>
@@ -245,13 +278,13 @@
           <ul class="shots" aria-label="スコアの内訳の画面">
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-breakdown.webp" width="720" height="1565" loading="lazy" alt="スコアの内訳画面。100点のお散歩日和で、7つの要素がすべて◎">
+              <img src="assets/shot-breakdown.webp" srcset="assets/shot-breakdown-480.webp 480w, assets/shot-breakdown.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="スコアの内訳画面。100点のお散歩日和で、7つの要素がすべて◎">
               <figcaption>100点の日の内訳</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-breakdown-hot.webp" width="720" height="1565" loading="lazy" alt="スコアの内訳画面。10点のお散歩は控えようで、暑さ・蒸し暑さが主因として赤く示されている">
+              <img src="assets/shot-breakdown-hot.webp" srcset="assets/shot-breakdown-hot-480.webp 480w, assets/shot-breakdown-hot.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="スコアの内訳画面。10点のお散歩は控えようで、暑さ・蒸し暑さが主因として赤く示されている">
               <figcaption>10点の日の内訳。主因が赤く示される</figcaption>
             </figure>
           </li>
@@ -269,19 +302,19 @@
           <ul class="shots" aria-label="路面温度と熱中症の画面">
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-heat.webp" width="720" height="1565" loading="lazy" alt="猛暑日のホーム画面。33℃で指数10点、「かなり暑いよ。涼しくなってから行こう」の吹き出しとバテた表情のマスコット">
+              <img src="assets/shot-heat.webp" srcset="assets/shot-heat-480.webp 480w, assets/shot-heat.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="猛暑日のホーム画面。33℃で指数10点、「かなり暑いよ。涼しくなってから行こう」の吹き出しとバテた表情のマスコット">
               <figcaption>猛暑日のホーム</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-heat-info.webp" width="720" height="1565" loading="lazy" alt="熱中症の「この判定になった理由」。天気だけの判定と、わんこの体質を加えた最終判定を段階のバーで示している">
+              <img src="assets/shot-heat-info.webp" srcset="assets/shot-heat-info-480.webp 480w, assets/shot-heat-info.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="熱中症の「この判定になった理由」。天気だけの判定と、わんこの体質を加えた最終判定を段階のバーで示している">
               <figcaption>熱中症の「この判定になった理由」</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-road-info.webp" width="720" height="1565" loading="lazy" alt="「路面温度と肉球」の説明。25℃までは快適、40℃以上は肉球の負担が増えるなど温度帯ごとの目安">
+              <img src="assets/shot-road-info.webp" srcset="assets/shot-road-info-480.webp 480w, assets/shot-road-info.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="「路面温度と肉球」の説明。25℃までは快適、40℃以上は肉球の負担が増えるなど温度帯ごとの目安">
               <figcaption>路面温度と肉球の、温度帯ごとの目安</figcaption>
             </figure>
           </li>
@@ -299,19 +332,19 @@
           <ul class="shots" aria-label="週間予報とおでかけ天気の画面">
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-weekly.webp" width="720" height="1565" loading="lazy" alt="週間予報。7日ぶんの天気・最高最低気温・降水確率と、日ごとのお散歩指数の帯">
+              <img src="assets/shot-weekly.webp" srcset="assets/shot-weekly-480.webp 480w, assets/shot-weekly.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="週間予報。7日ぶんの天気・最高最低気温・降水確率と、日ごとのお散歩指数の帯">
               <figcaption>週間予報と、日ごとの指数</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-day-detail.webp" width="720" height="1565" loading="lazy" alt="日詳細。おすすめ散歩時間の帯と、時間ごとのお散歩指数、わんこアドバイス">
+              <img src="assets/shot-day-detail.webp" srcset="assets/shot-day-detail-480.webp 480w, assets/shot-day-detail.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="日詳細。おすすめ散歩時間の帯と、時間ごとのお散歩指数、わんこアドバイス">
               <figcaption>日をタップすると、おすすめの時間と時間ごとの指数</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-outing.webp" width="720" height="1565" loading="lazy" alt="おでかけ天気。代々木公園・昭和記念公園・箱根の3地点の天気とお散歩指数">
+              <img src="assets/shot-outing.webp" srcset="assets/shot-outing-480.webp 480w, assets/shot-outing.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="おでかけ天気。代々木公園・昭和記念公園・箱根の3地点の天気とお散歩指数">
               <figcaption>登録した地点を、まとめてチェック</figcaption>
             </figure>
           </li>
@@ -329,13 +362,13 @@
           <ul class="shots" aria-label="雨雲レーダーの画面">
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-radar.webp" width="720" height="1565" loading="lazy" alt="雨雲レーダー。東京周辺の地図に雨雲が重なり、1時間前から1時間後まで送れるスライダーがある">
+              <img src="assets/shot-radar.webp" srcset="assets/shot-radar-480.webp 480w, assets/shot-radar.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="雨雲レーダー。東京周辺の地図に雨雲が重なり、1時間前から1時間後まで送れるスライダーがある">
               <figcaption>1時間先までの雨雲</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-radar-15h.webp" width="720" height="1565" loading="lazy" alt="雨雲レーダーの15時間予想。深夜1時の雨雲の広がりが地図に重ねて表示されている">
+              <img src="assets/shot-radar-15h.webp" srcset="assets/shot-radar-15h-480.webp 480w, assets/shot-radar-15h.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="雨雲レーダーの15時間予想。深夜1時の雨雲の広がりが地図に重ねて表示されている">
               <figcaption>15時間先までの予想 <svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg></figcaption>
             </figure>
           </li>
@@ -353,19 +386,19 @@
           <ul class="shots" aria-label="マイわんこの画面">
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-breeds.webp" width="720" height="1565" loading="lazy" alt="犬種を選ぶ画面。トイ・プードル、チワワ、柴犬などがマスコットのイラストつきで並んでいる">
+              <img src="assets/shot-breeds.webp" srcset="assets/shot-breeds-480.webp 480w, assets/shot-breeds.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="犬種を選ぶ画面。トイ・プードル、チワワ、柴犬などがマスコットのイラストつきで並んでいる">
               <figcaption>122種から犬種を選ぶ</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-dog-detail.webp" width="720" height="1565" loading="lazy" alt="わんこの詳細画面。体重6.2kgのグラフと、証明書・書類、プロフィールの欄">
+              <img src="assets/shot-dog-detail.webp" srcset="assets/shot-dog-detail-480.webp 480w, assets/shot-dog-detail.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="わんこの詳細画面。体重6.2kgのグラフと、証明書・書類、プロフィールの欄">
               <figcaption>体重の記録と、プロフィール</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="assets/shot-dogs.webp" width="720" height="1565" loading="lazy" alt="マイわんこの一覧。メインのモコ(ノーフォーク・テリア)と、ぱぐ蔵(パグ)が並んでいる">
+              <img src="assets/shot-dogs.webp" srcset="assets/shot-dogs-480.webp 480w, assets/shot-dogs.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="マイわんこの一覧。メインのモコ(ノーフォーク・テリア)と、ぱぐ蔵(パグ)が並んでいる">
               <figcaption>多頭飼いでも、それぞれの判定</figcaption>
             </figure>
           </li>
@@ -474,12 +507,12 @@
         <a class="badge" href="https://apps.apple.com/jp/app/id6789016064">
           <img src="assets/badge-appstore.svg" width="109" height="40" alt="App Storeからダウンロード">
         </a>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho">
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Dja">
           <img src="assets/badge-googleplay.png" width="270" height="80" alt="Google Play で手に入れよう">
         </a>
       </div>
 
-      <p class="premium__note">家族がカレンダー・おもいでマップ・毛色選択を使えるのは、ホスト端末(家族共有を始めた端末)がプレミアムに加入している間です。リアルタイムアラートと雨の予想・雷レーダーは、日本国内の地点のみに対応しています。日替わりで登場するのは、イラストをご用意できている犬種です。毛色選択で選べる色の数は、犬種によって違います。お支払い・解約の条件は<a href="./tokushoho.html">特定商取引法に基づく表記</a>をご覧ください。</p>
+      <p class="premium__note">家族がカレンダー・おもいでマップ・毛色選択を使えるのは、ホスト端末(家族共有を始めた端末)がプレミアムに加入している間です。リアルタイムアラートと雨の予想・雷レーダーは、日本国内の地点のみに対応しています。日替わりで登場するのは、イラストをご用意できている犬種です。毛色選択で選べる色の数は、犬種によって違います。お支払い・解約の条件は<a href="./tokushoho">特定商取引法に基づく表記</a>をご覧ください。</p>
     </div>
   </section>
 
@@ -491,7 +524,7 @@
         <li>広告は表示しません</li>
         <li>基本の機能は無料。追加機能は任意の有料プランです</li>
         <li>アカウント登録は不要です</li>
-        <li>わんこの情報も登録地点も、端末の中だけに保存されます(家族共有とリアルタイムアラートの利用時を除く。詳しくは<a href="./privacy-policy.html">プライバシーポリシー</a>)</li>
+        <li>わんこの情報も登録地点も、端末の中だけに保存されます(家族共有とリアルタイムアラートの利用時を除く。詳しくは<a href="./privacy-policy">プライバシーポリシー</a>)</li>
         <li>位置情報は天気の取得だけに使います</li>
         <li>位置情報を許可しなくても、地点を登録すればすべての機能が使えます</li>
         <li>それぞれの指標の根拠と出典を、アプリの中で公開しています</li>
@@ -533,7 +566,7 @@
         <p class="faq__a">いいえ。おさんぽびよりプレミアムへの加入は、家族共有を始める1台だけで大丈夫です。招待コードで参加する家族(最大5台)は無料で、iPhoneとAndroidのあいだでも共有できます。</p>
       </div>
 
-      <p class="faq__more"><a href="./support.html"><span class="nb">すべての質問と</span><span class="nb">お問い合わせ先を見る</span></a></p>
+      <p class="faq__more"><a href="./support"><span class="nb">すべての質問と</span><span class="nb">お問い合わせ先を見る</span></a></p>
     </div>
   </section>
 
@@ -546,7 +579,7 @@
         <a class="badge" href="https://apps.apple.com/jp/app/id6789016064">
           <img src="assets/badge-appstore.svg" width="109" height="40" alt="App Storeからダウンロード">
         </a>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho">
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Dja">
           <img src="assets/badge-googleplay.png" width="270" height="80" alt="Google Play で手に入れよう">
         </a>
       </div>
@@ -563,10 +596,10 @@
       <a href="./zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
       <a href="./ko/" lang="ko" hreflang="ko">한국어</a>
     </nav>
-    <nav>
-      <a href="./support.html">サポート・よくある質問</a>
-      <a href="./privacy-policy.html">プライバシーポリシー</a>
-      <a href="./tokushoho.html">特定商取引法に基づく表記</a>
+    <nav aria-label="フッター">
+      <a href="./support">サポート・よくある質問</a>
+      <a href="./privacy-policy">プライバシーポリシー</a>
+      <a href="./tokushoho">特定商取引法に基づく表記</a>
       <a href="mailto:osanpobiyori.app@gmail.com">お問い合わせ</a>
     </nav>
     <div class="site-foot__legal">
@@ -574,10 +607,11 @@
       <p>路面温度は推定した目安であり、実測値ではありません。本アプリは獣医学的診断を行うものではありません。</p>
       <p>Apple、Appleのロゴは米国その他の国や地域で登録されたApple Inc.の商標です。App StoreはApple Inc.のサービスマークです。Google Play および Google Play ロゴは Google LLC の商標です。</p>
     </div>
+    <p class="site-foot__fonts">使用しているフォント: <a href="assets/fonts/ZenKurenaido-OFL.txt">Zen Kurenaido</a>・<a href="assets/fonts/ZenKakuGothicNew-OFL.txt">Zen Kaku Gothic New</a>(いずれも SIL Open Font License 1.1)</p>
     <p class="site-foot__copy">© 2026 おさんぽびより</p>
   </div>
 </footer>
 
-<script src="assets/lp.js?v=a619f32d" defer></script>
+<script src="assets/lp.js?v=af9211db" defer></script>
 </body>
 </html>

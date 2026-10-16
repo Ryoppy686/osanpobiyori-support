@@ -1,0 +1,15 @@
+# Cloudflare Pages が返すレスポンスヘッダ(site/ ごと公開リポジトリへコピーされる。lp-publish.sh)。
+# 中身の方針は docs/lp-site-spec.md §7。
+#
+# CSP は 'self' が基本。ページ自身は外部へ通信しないが、Cloudflare が差し込むものを2つ通している:
+#   - Web Analytics のビーコン(static.cloudflareinsights.com。計測の送り先 /cdn-cgi/rum は同一オリジン)
+#   - メールアドレスの難読化を戻すスクリプト(/cdn-cgi/scripts/…/email-decode.min.js。同一オリジン)
+# どちらも Cloudflare のダッシュボードで切れば、CSP からも外してよい。
+# inline の style 属性・script は通さない(HTML 側は全部クラスと外部ファイルにしてある。lp-check.py が見張る)。
+# HSTS は .app が TLD ごと preload 済みなので要らない。
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests

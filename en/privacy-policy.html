@@ -11,27 +11,38 @@
 <link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy">
 <link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/privacy-policy">
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/privacy-policy">
-<link rel="icon" href="../assets/icon-192.webp" type="image/webp">
-<link rel="apple-touch-icon" href="../assets/icon-192.webp">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/icon-192.webp" type="image/webp" sizes="192x192">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#F5F3ED">
-<link rel="stylesheet" href="../assets/style.css?v=3f7f41d7">
+<link rel="stylesheet" href="../assets/style.css?v=e7cde4cd">
 <!-- 同梱フォント(日本語・英語のページだけ)。CSSを読んでから取りに行くと見出しが一瞬システム書体で出るので先に取り始める -->
 <link rel="preload" href="../assets/fonts/kurenaido-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/zenkaku-regular-subset.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-head">
   <a class="site-head__brand" href="./">
     <img src="../assets/icon-192.webp" width="34" height="34" alt="">
     Osanpo Biyori
   </a>
-  <nav class="site-head__nav">
-    <a href="./support.html">Support</a>
+  <nav class="site-head__nav" aria-label="Site">
+    <a href="./support">Support</a>
   </nav>
+  <details class="lang-menu">
+    <summary class="lang-menu__button" aria-label="Language"><svg class="lang-menu__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c-3.4 3.6-3.4 14.8 0 18.4M12 2.8c3.4 3.6 3.4 14.8 0 18.4"/></svg><span class="lang-menu__label">English</span></summary>
+    <ul class="lang-menu__list">
+      <li><a href="../privacy-policy" lang="ja" hreflang="ja">日本語</a></li>
+      <li><span aria-current="page" lang="en">English</span></li>
+      <li><a href="../zh/privacy-policy" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li>
+      <li><a href="../ko/privacy-policy" lang="ko" hreflang="ko">한국어</a></li>
+    </ul>
+  </details>
 </header>
 
-<main class="doc measure">
+<main id="main" class="doc measure">
   <h1>Privacy Policy</h1>
   <p class="doc__updated">Effective: July 4, 2026 / Last updated: September 24, 2026 (added Family sharing)</p>
 
@@ -82,7 +93,7 @@
   <p>The data the app saves — your dogs' profiles, the locations you register, your notification and display settings, the photo you set as a background, and your Memory Map records — is <strong>stored only on your device</strong>. The developer never obtains it and never keeps it on an external server (the only exceptions are when Real-time alerts is on and when you use Family sharing; what is handled and when it is deleted are described above).</p>
   <p><strong>About exporting a backup</strong>: In preparation for changing devices, you can export your Memory Map records, care calendar plans, and your dogs' information (including weight records, primary veterinary clinic, microchip number, allergy notes, and photos you registered) into a single file. <strong>You choose where that file is saved</strong> at that moment (iCloud Drive, your device, another app, and so on); it is never sent to the developer's server. Because the file contains health and contact information, please take care with the sharing settings of wherever you save it.</p>
   <p><strong>Uninstalling the app from your device deletes all of this data.</strong> If you uninstall while Real-time alerts is still on, the registration held on the server is deleted automatically once a set period (30 days) has passed after your paid plan expires (if you would like it deleted right away, turn Real-time alerts off before uninstalling). If you uninstall while still in Family sharing, the data on the server remains for your family for as long as the share continues. If you would like it deleted right away, choose "Stop sharing" (if you started the share) or "Remove this device from the family" (if you joined) before uninstalling. Dogs and locations you have registered can be deleted individually from within the app at any time. You can stop using a photo set as a background by choosing a different photo or by setting the background back to "Automatic (follows the weather)".</p>
-  <p>The relay server used on Android (for fetching weather data) stores nothing that identifies you. It holds retrieved weather data for only about 10 minutes; those are weather values for a rounded coordinate, cannot identify an individual, and are erased automatically as time passes. We therefore hold no personal data for which you would need to request deletion. If you have any questions, please contact us through the <a href="./support.html">support page</a>.</p>
+  <p>The relay server used on Android (for fetching weather data) stores nothing that identifies you. It holds retrieved weather data for only about 10 minutes; those are weather values for a rounded coordinate, cannot identify an individual, and are erased automatically as time passes. We therefore hold no personal data for which you would need to request deletion. If you have any questions, please contact us through the <a href="./support">support page</a>.</p>
 
   <h2>Tracking and analytics</h2>
   <p>The app uses no advertising, tracking, or third-party analytics SDKs. The Android version uses Firebase Cloud Messaging to deliver real-time alert notifications, but no analytics features (such as Google Analytics) are included.</p>
@@ -91,7 +102,7 @@
   <p>The Walk Index, heatstroke risk, pavement temperature, and other measures shown in the app are general guides based on weather data; they are not a veterinary diagnosis. If you have any concerns about your dog's condition, please consult a veterinarian.</p>
 
   <h2>Contact</h2>
-  <p>For questions about this policy, please get in touch through the <a href="./support.html">support page</a>.</p>
+  <p>For questions about this policy, please get in touch through the <a href="./support">support page</a>.</p>
 
   <h2>Changes to this policy</h2>
   <p>If this policy is revised, we will announce it on this page.</p>
@@ -100,20 +111,23 @@
 <footer class="site-foot">
   <div class="wide">
     <nav class="lang-switch" aria-label="Language">
-      <a href="../privacy-policy.html" lang="ja" hreflang="ja">日本語</a>
+      <a href="../privacy-policy" lang="ja" hreflang="ja">日本語</a>
       <span aria-current="page">English</span>
-      <a href="../zh/privacy-policy.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
-      <a href="../ko/privacy-policy.html" lang="ko" hreflang="ko">한국어</a>
+      <a href="../zh/privacy-policy" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      <a href="../ko/privacy-policy" lang="ko" hreflang="ko">한국어</a>
     </nav>
-    <nav>
+    <nav aria-label="Footer">
       <a href="./">Home</a>
-      <a href="./support.html">Support &amp; FAQ</a>
-      <a href="../tokushoho.html" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
+      <a href="./support">Support &amp; FAQ</a>
+      <a href="../tokushoho" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
       <a href="mailto:osanpobiyori.app@gmail.com">Contact</a>
     </nav>
+    <p class="site-foot__fonts">Fonts: <a href="../assets/fonts/ZenKurenaido-OFL.txt">Zen Kurenaido</a> and <a href="../assets/fonts/ZenKakuGothicNew-OFL.txt">Zen Kaku Gothic New</a> (SIL Open Font License 1.1)</p>
     <p class="site-foot__copy">© 2026 Osanpo Biyori</p>
   </div>
 </footer>
 
+<!-- 言語切り替えを外側のタップ・Esc で閉じるため(無くても開閉はできる) -->
+<script src="../assets/lp.js?v=af9211db" defer></script>
 </body>
 </html>

@@ -3,9 +3,15 @@
    1. 紹介動画: ポスターの再生ボタンを押したら本体のコントロールに切り替える
    2. 機能紹介のカルーセル: 現在位置の点・中央以外を薄くする印・マウスで掴んで送る操作を足す
       (送る動作そのものはCSSの scroll-snap。JSが無くても指やトラックパッドで送れる)
-   3. 英語トップの気温: ブラウザが en-US のときだけ華氏を大きく出す */
+   3. 英語トップの気温: ブラウザが en-US のときだけ華氏を大きく出す
+   4. ヘッダーの言語切り替え(<details>): 外を押したか Esc で閉じる(開閉そのものはブラウザ任せ) */
 (function () {
   "use strict";
+
+  // 「動きを減らす」設定の人には、送る動きを滑らかにしない(CSS の scroll-behavior と同じ扱い)
+  function scrollBehavior() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  }
 
   // --- 1. 紹介動画 -------------------------------------------------------
   var frame = document.getElementById("lp-video");
@@ -42,7 +48,7 @@
       // 読み上げ用の名前。言語によらず通じる「説明 (2/3)」の形にする(4言語のページで共用するため)
       b.setAttribute("aria-label", (caption ? caption.textContent.trim() + " " : "") + "(" + (i + 1) + "/" + items.length + ")");
       b.addEventListener("click", function () {
-        item.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        item.scrollIntoView({ behavior: scrollBehavior(), block: "nearest", inline: "center" });
       });
       dots.appendChild(b);
       buttons.push(b);
@@ -105,12 +111,23 @@
       if (!moved) { track.classList.remove("is-settling"); return; }
       // 枠の中央にいちばん近い1枚へ寄せる。snap(is-settling で切ったまま)は寄せ終わってから戻す —
       // 先に戻すと Chrome が「最後に止まっていた1枚」へ引き戻してしまい、掴んで送った意味がなくなる
-      nearestItem().scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      nearestItem().scrollIntoView({ behavior: scrollBehavior(), block: "nearest", inline: "center" });
       setTimeout(function () { track.classList.remove("is-settling"); markActive(); }, 500);
     }
     track.addEventListener("pointerup", release);
     track.addEventListener("pointercancel", release);
   });
+
+  // --- 4. 言語切り替え -----------------------------------------------------
+  var langMenu = document.querySelector(".lang-menu");
+  if (langMenu) {
+    document.addEventListener("click", function (e) {
+      if (langMenu.open && !langMenu.contains(e.target)) langMenu.open = false;
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && langMenu.open) { langMenu.open = false; langMenu.querySelector("summary").focus(); }
+    });
+  }
 
   // --- 3. 英語トップの気温(℃ ⇄ ℉) -------------------------------------
   // HTMLの既定は摂氏(華氏を日常的に使うのは米国とごく一部だけ)。

@@ -11,10 +11,11 @@
 <link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support">
 <link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support">
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support">
-<link rel="icon" href="assets/icon-192.webp" type="image/webp">
-<link rel="apple-touch-icon" href="assets/icon-192.webp">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/icon-192.webp" type="image/webp" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#F5F3ED">
-<link rel="stylesheet" href="assets/style.css?v=3f7f41d7">
+<link rel="stylesheet" href="assets/style.css?v=e7cde4cd">
 <!-- 同梱フォント(日本語・英語のページだけ)。CSSを読んでから取りに行くと見出しが一瞬システム書体で出るので先に取り始める -->
 <link rel="preload" href="assets/fonts/kurenaido-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/zenkaku-regular-subset.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,17 +23,27 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">本文へ移動</a>
 <header class="site-head">
   <a class="site-head__brand" href="./">
     <img src="assets/icon-192.webp" width="34" height="34" alt="">
     おさんぽびより
   </a>
-  <nav class="site-head__nav">
-    <a href="./privacy-policy.html">プライバシーポリシー</a>
+  <nav class="site-head__nav" aria-label="サイト内">
+    <a href="./privacy-policy">プライバシーポリシー</a>
   </nav>
+  <details class="lang-menu">
+    <summary class="lang-menu__button" aria-label="言語"><svg class="lang-menu__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c-3.4 3.6-3.4 14.8 0 18.4M12 2.8c3.4 3.6 3.4 14.8 0 18.4"/></svg><span class="lang-menu__label">日本語</span></summary>
+    <ul class="lang-menu__list">
+      <li><span aria-current="page" lang="ja">日本語</span></li>
+      <li><a href="./en/support" lang="en" hreflang="en">English</a></li>
+      <li><a href="./zh/support" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li>
+      <li><a href="./ko/support" lang="ko" hreflang="ko">한국어</a></li>
+    </ul>
+  </details>
 </header>
 
-<main class="doc measure">
+<main id="main" class="doc measure">
   <h1>サポート</h1>
   <p>お困りのことがあれば、まずはこちらをご覧ください。解決しないときは、下のお問い合わせ先までお気軽にご連絡ください。</p>
 
@@ -52,7 +63,7 @@
   </div>
   <div class="faq__item">
     <h3 class="faq__q">データはどこに保存されますか?</h3>
-    <p class="faq__a">わんこのプロフィールや登録地点は、端末の中に保存されます。家族共有をお使いの場合のみ、家族の端末と同期するために、わんこのデータ・記録・写真・おもいでマップの場所をサーバー(日本国内)にも保存します。プレミアムのリアルタイムアラートをお使いの場合は、ご自身で登録したアラート地点をお知らせの配信に使います。詳細は<a href="./privacy-policy.html">プライバシーポリシー</a>をご覧ください。</p>
+    <p class="faq__a">わんこのプロフィールや登録地点は、端末の中に保存されます。家族共有をお使いの場合のみ、家族の端末と同期するために、わんこのデータ・記録・写真・おもいでマップの場所をサーバー(日本国内)にも保存します。プレミアムのリアルタイムアラートをお使いの場合は、ご自身で登録したアラート地点をお知らせの配信に使います。詳細は<a href="./privacy-policy">プライバシーポリシー</a>をご覧ください。</p>
   </div>
 
   <div class="faq__item">
@@ -61,7 +72,7 @@
   </div>
   <div class="faq__item">
     <h3 class="faq__q"><span class="nb">おさんぽびよりプレミアムは</span><span class="nb">いくらですか?</span></h3>
-    <p class="faq__a">月額350円(税込)です。無料でお試しいただける期間は設けていません。お支払いの条件は<a href="./tokushoho.html">特定商取引法に基づく表記</a>に記載しています。</p>
+    <p class="faq__a">月額350円(税込)です。無料でお試しいただける期間は設けていません。お支払いの条件は<a href="./tokushoho">特定商取引法に基づく表記</a>に記載しています。</p>
   </div>
   <div class="faq__item">
     <h3 class="faq__q">解約はどこからできますか?</h3>
@@ -106,19 +117,22 @@
   <div class="wide">
     <nav class="lang-switch" aria-label="言語">
       <span aria-current="page">日本語</span>
-      <a href="./en/support.html" lang="en" hreflang="en">English</a>
-      <a href="./zh/support.html" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
-      <a href="./ko/support.html" lang="ko" hreflang="ko">한국어</a>
+      <a href="./en/support" lang="en" hreflang="en">English</a>
+      <a href="./zh/support" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      <a href="./ko/support" lang="ko" hreflang="ko">한국어</a>
     </nav>
-    <nav>
+    <nav aria-label="フッター">
       <a href="./">トップ</a>
-      <a href="./privacy-policy.html">プライバシーポリシー</a>
-      <a href="./tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="./privacy-policy">プライバシーポリシー</a>
+      <a href="./tokushoho">特定商取引法に基づく表記</a>
       <a href="mailto:osanpobiyori.app@gmail.com">お問い合わせ</a>
     </nav>
+    <p class="site-foot__fonts">使用しているフォント: <a href="assets/fonts/ZenKurenaido-OFL.txt">Zen Kurenaido</a>・<a href="assets/fonts/ZenKakuGothicNew-OFL.txt">Zen Kaku Gothic New</a>(いずれも SIL Open Font License 1.1)</p>
     <p class="site-foot__copy">© 2026 おさんぽびより</p>
   </div>
 </footer>
 
+<!-- 言語切り替えを外側のタップ・Esc で閉じるため(無くても開閉はできる) -->
+<script src="assets/lp.js?v=af9211db" defer></script>
 </body>
 </html>

@@ -4,17 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Osanpo Biyori — Dog Weather App</title>
-<meta name="description" content="The forecast from your dog's point of view. Pavement heat, heatstroke risk and humidity, tuned to your dog's breed and age, answer one question: is now a good time for a walk? No ads. Core features are free.">
+<meta name="description" content="The forecast from your dog's point of view: pavement heat, heatstroke risk and humidity, tuned to your dog's breed and age. No ads, core features free.">
 <link rel="canonical" href="https://osanpobiyori.app/en/">
 <link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/">
 <link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/">
 <link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/">
 <link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/">
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/">
-<link rel="icon" href="../assets/icon-192.webp" type="image/webp">
-<link rel="apple-touch-icon" href="../assets/icon-192.webp">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/icon-192.webp" type="image/webp" sizes="192x192">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#F5F3ED">
-<link rel="stylesheet" href="../assets/style.css?v=3f7f41d7">
+<link rel="stylesheet" href="../assets/style.css?v=e7cde4cd">
 <!-- 同梱フォント(日本語・英語のページだけ)。CSSを読んでから取りに行くと見出しが一瞬システム書体で出るので先に取り始める -->
 <link rel="preload" href="../assets/fonts/kurenaido-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/zenkaku-regular-subset.woff2" as="font" type="font/woff2" crossorigin>
@@ -28,7 +29,9 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Osanpo Biyori — The forecast from your dog's point of view. Six dogs lined up on a grassy hill">
+<meta property="og:site_name" content="Osanpo Biyori">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@osanpobiyori_jp">
 
 <!-- モバイルSafariでApp Storeへの誘導バナーを出す -->
 <meta name="apple-itunes-app" content="app-id=6789016064">
@@ -43,7 +46,7 @@
   "name": "Osanpo Biyori",
   "operatingSystem": "iOS, Android",
   "applicationCategory": "WeatherApplication",
-  "description": "The forecast from your dog's point of view. Pavement heat, heatstroke risk and humidity, tuned to your dog's breed and age, answer one question: is now a good time for a walk? No ads. Core features are free.",
+  "description": "The forecast from your dog's point of view: pavement heat, heatstroke risk and humidity, tuned to your dog's breed and age. No ads, core features free.",
   "url": "https://osanpobiyori.app/en/",
   "image": "https://osanpobiyori.app/assets/ogp-en.jpg",
   "inLanguage": "en",
@@ -51,7 +54,12 @@
     "https://apps.apple.com/app/id6789016064",
     "https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho"
   ],
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  "author": { "@type": "Organization", "name": "Osanpo Biyori", "url": "https://osanpobiyori.app/", "sameAs": ["https://x.com/osanpobiyori_jp", "https://www.instagram.com/osanpobiyori_app/", "https://www.youtube.com/@osanpobiyori_app"] },
+  "publisher": { "@type": "Organization", "name": "Osanpo Biyori", "url": "https://osanpobiyori.app/" },
+  "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Osanpo Biyori Premium", "category": "subscription", "price": "1.99", "priceCurrency": "USD" }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -113,20 +121,30 @@
 </head>
 <body>
 <!-- 王冠の形は1回だけ定義し、各見出しの <svg> は <use> で参照する(プレミアム紹介) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="crown-shape" viewBox="0 0 24 18"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></symbol></svg>
+<svg class="svg-defs" width="0" height="0" aria-hidden="true"><symbol id="crown-shape" viewBox="0 0 24 18"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></symbol></svg>
 
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-head site-head--overlay">
   <a class="site-head__brand" href="./">
     <img src="../assets/icon-192.webp" width="34" height="34" alt="">
     Osanpo Biyori
   </a>
-  <nav class="site-head__nav">
-    <a href="./support.html">Support</a>
-    <a href="./privacy-policy.html">Privacy Policy</a>
+  <nav class="site-head__nav" aria-label="Site">
+    <a href="./support">Support</a>
+    <a href="./privacy-policy">Privacy Policy</a>
   </nav>
+  <details class="lang-menu">
+    <summary class="lang-menu__button" aria-label="Language"><svg class="lang-menu__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c-3.4 3.6-3.4 14.8 0 18.4M12 2.8c3.4 3.6 3.4 14.8 0 18.4"/></svg><span class="lang-menu__label">English</span></summary>
+    <ul class="lang-menu__list">
+      <li><a href="../" lang="ja" hreflang="ja">日本語</a></li>
+      <li><span aria-current="page" lang="en">English</span></li>
+      <li><a href="../zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li>
+      <li><a href="../ko/" lang="ko" hreflang="ko">한국어</a></li>
+    </ul>
+  </details>
 </header>
 
-<main>
+<main id="main">
 
   <!-- ヒーロー ------------------------------------------------ -->
   <section class="hero">
@@ -140,7 +158,7 @@
         <a class="badge" href="https://apps.apple.com/app/id6789016064">
           <img src="../assets/badge-appstore-en.svg" width="120" height="40" alt="Download on the App Store">
         </a>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en">
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Den">
           <img src="../assets/badge-googleplay-en.png" width="269" height="80" alt="Get it on Google Play">
         </a>
       </div>
@@ -152,7 +170,7 @@
     <div class="hero__band">
       <picture>
         <source media="(max-width: 640px)" srcset="../assets/hero-band-mobile.webp">
-        <img src="../assets/hero-band-wide.webp" width="2048" height="560"
+        <img src="../assets/hero-band-wide.webp" width="2048" height="560" fetchpriority="high"
              alt="Illustration of a Toy Poodle, Corgi, Shiba Inu, Norfolk Terrier, Chihuahua and Golden Retriever on a grassy hill">
       </picture>
     </div>
@@ -208,13 +226,13 @@
           <ul class="shots" aria-label="Walk Index screens">
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-home-en.webp" width="720" height="1565" loading="lazy" alt="Home screen showing a Walk Index of 100 and the mascot saying “The perfect time for a walk!”">
+              <img src="../assets/shot-home-en.webp" srcset="../assets/shot-home-en-480.webp 480w, ../assets/shot-home-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Home screen showing a Walk Index of 100 and the mascot saying “The perfect time for a walk!”">
               <figcaption>Today's index and a word from your pup</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-home-hourly-en.webp" width="720" height="1565" loading="lazy" alt="Walk Index by hour from 11:00 to 15:00, with cards for heatstroke, pavement temperature, air pressure, dryness, UV and shedding season below">
+              <img src="../assets/shot-home-hourly-en.webp" srcset="../assets/shot-home-hourly-en-480.webp 480w, ../assets/shot-home-hourly-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Walk Index by hour from 11:00 to 15:00, with cards for heatstroke, pavement temperature, air pressure, dryness, UV and shedding season below">
               <figcaption>Hourly index and the indicator cards</figcaption>
             </figure>
           </li>
@@ -232,13 +250,13 @@
           <ul class="shots" aria-label="Score breakdown screens">
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-breakdown-en.webp" width="720" height="1565" loading="lazy" alt="Score breakdown screen: 100, perfect for a walk, with all seven factors rated good">
+              <img src="../assets/shot-breakdown-en.webp" srcset="../assets/shot-breakdown-en-480.webp 480w, ../assets/shot-breakdown-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Score breakdown screen: 100, perfect for a walk, with all seven factors rated good">
               <figcaption>A 100-point day</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-breakdown-hot-en.webp" width="720" height="1565" loading="lazy" alt="Score breakdown screen: 10, best to stay in, with heat and humidity marked in red as the main factor">
+              <img src="../assets/shot-breakdown-hot-en.webp" srcset="../assets/shot-breakdown-hot-en-480.webp 480w, ../assets/shot-breakdown-hot-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Score breakdown screen: 10, best to stay in, with heat and humidity marked in red as the main factor">
               <figcaption>A 10-point day, with the main factor in red</figcaption>
             </figure>
           </li>
@@ -256,19 +274,19 @@
           <ul class="shots" aria-label="Pavement heat and heatstroke screens">
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-heat-en.webp" width="720" height="1565" loading="lazy" alt="Home screen on a very hot day: a Walk Index of 10, the mascot lying down and saying “It's very hot. Cool off first”">
+              <img src="../assets/shot-heat-en.webp" srcset="../assets/shot-heat-en-480.webp 480w, ../assets/shot-heat-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Home screen on a very hot day: a Walk Index of 10, the mascot lying down and saying “It's very hot. Cool off first”">
               <figcaption>Home on a very hot day</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-heat-info-en.webp" width="720" height="1565" loading="lazy" alt="“Why this rating” sheet showing the weather-only rating and the final rating with the dog's traits added, on a bar of levels">
+              <img src="../assets/shot-heat-info-en.webp" srcset="../assets/shot-heat-info-en-480.webp 480w, ../assets/shot-heat-info-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="“Why this rating” sheet showing the weather-only rating and the final rating with the dog's traits added, on a bar of levels">
               <figcaption>Why the heatstroke rating came out this way</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-road-info-en.webp" width="720" height="1565" loading="lazy" alt="“Pavement temperature and paw pads” sheet listing what each temperature band means for paw pads">
+              <img src="../assets/shot-road-info-en.webp" srcset="../assets/shot-road-info-en-480.webp 480w, ../assets/shot-road-info-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="“Pavement temperature and paw pads” sheet listing what each temperature band means for paw pads">
               <figcaption>Pavement temperature and paw pads, band by band</figcaption>
             </figure>
           </li>
@@ -286,19 +304,19 @@
           <ul class="shots" aria-label="Weekly forecast and Places screens">
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-weekly-en.webp" width="720" height="1565" loading="lazy" alt="Weekly screen listing the weather, temperatures, chance of rain and a Walk Index bar for each of the next seven days">
+              <img src="../assets/shot-weekly-en.webp" srcset="../assets/shot-weekly-en-480.webp 480w, ../assets/shot-weekly-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Weekly screen listing the weather, temperatures, chance of rain and a Walk Index bar for each of the next seven days">
               <figcaption>The weekly forecast</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-day-detail-en.webp" width="720" height="1565" loading="lazy" alt="Day detail screen with a bar of the best times to walk, the Walk Index by hour and advice for your pup">
+              <img src="../assets/shot-day-detail-en.webp" srcset="../assets/shot-day-detail-en-480.webp 480w, ../assets/shot-day-detail-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Day detail screen with a bar of the best times to walk, the Walk Index by hour and advice for your pup">
               <figcaption>Tap a day for the best walk times and hourly index</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-outing-en.webp" width="720" height="1565" loading="lazy" alt="Places screen listing Central Park, Prospect Park and Bear Mountain with their weather and Walk Index">
+              <img src="../assets/shot-outing-en.webp" srcset="../assets/shot-outing-en-480.webp 480w, ../assets/shot-outing-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Places screen listing Central Park, Prospect Park and Bear Mountain with their weather and Walk Index">
               <figcaption>Check your saved places together</figcaption>
             </figure>
           </li>
@@ -316,19 +334,19 @@
           <ul class="shots" aria-label="My Dogs screens">
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-breeds-en.webp" width="720" height="1565" loading="lazy" alt="Breed picker listing Toy Poodle, Chihuahua, Shiba Inu and more, each with a mascot illustration">
+              <img src="../assets/shot-breeds-en.webp" srcset="../assets/shot-breeds-en-480.webp 480w, ../assets/shot-breeds-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Breed picker listing Toy Poodle, Chihuahua, Shiba Inu and more, each with a mascot illustration">
               <figcaption>Choose from 122 breeds</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-dog-detail-en.webp" width="720" height="1565" loading="lazy" alt="Dog detail screen with a weight chart at 6.2 kg, certificates and papers, and a profile">
+              <img src="../assets/shot-dog-detail-en.webp" srcset="../assets/shot-dog-detail-en-480.webp 480w, ../assets/shot-dog-detail-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="Dog detail screen with a weight chart at 6.2 kg, certificates and papers, and a profile">
               <figcaption>Weight records and profile</figcaption>
             </figure>
           </li>
           <li class="shots__item">
             <figure>
-              <img src="../assets/shot-dogs-en.webp" width="720" height="1565" loading="lazy" alt="My Dogs list with Moko the Norfolk Terrier as the main dog and Pugsley the Pug">
+              <img src="../assets/shot-dogs-en.webp" srcset="../assets/shot-dogs-en-480.webp 480w, ../assets/shot-dogs-en.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="My Dogs list with Moko the Norfolk Terrier as the main dog and Pugsley the Pug">
               <figcaption>Each dog gets its own ratings</figcaption>
             </figure>
           </li>
@@ -417,12 +435,12 @@
         <a class="badge" href="https://apps.apple.com/app/id6789016064">
           <img src="../assets/badge-appstore-en.svg" width="120" height="40" alt="Download on the App Store">
         </a>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en">
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Den">
           <img src="../assets/badge-googleplay-en.png" width="269" height="80" alt="Get it on Google Play">
         </a>
       </div>
 
-      <p class="premium__note">Family members can use Calendar, Memory Map and Coat colors while the device that started sharing is subscribed to Premium. In Japan, Premium also includes real-time alerts and a 15-hour rain forecast with thunder radar. Daily backgrounds feature the breeds we have illustrations for. The number of coat colors varies by breed. For payment and cancellation terms, see the <a href="../tokushoho.html" lang="ja" hreflang="ja">Japanese Act on Specified Commercial Transactions notice</a> (in Japanese).</p>
+      <p class="premium__note">Family members can use Calendar, Memory Map and Coat colors while the device that started sharing is subscribed to Premium. In Japan, Premium also includes real-time alerts and a 15-hour rain forecast with thunder radar. Daily backgrounds feature the breeds we have illustrations for. The number of coat colors varies by breed. For payment and cancellation terms, see the <a href="../tokushoho" lang="ja" hreflang="ja">Japanese Act on Specified Commercial Transactions notice</a> (in Japanese).</p>
     </div>
   </section>
 
@@ -434,7 +452,7 @@
         <li>No ads</li>
         <li>The core features are free. Premium is optional</li>
         <li>No account needed</li>
-        <li>Your dogs' info and saved places stay on your phone (except when you use Family sharing or real-time alerts. See the <a href="./privacy-policy.html">Privacy Policy</a>)</li>
+        <li>Your dogs' info and saved places stay on your phone (except when you use Family sharing or real-time alerts. See the <a href="./privacy-policy">Privacy Policy</a>)</li>
         <li>Location is used only to get the weather</li>
         <li>Every feature works without location access, once you save a place</li>
         <li>The reasoning and sources behind every index are in the app</li>
@@ -476,7 +494,7 @@
         <p class="faq__a">No. Only the one device that starts Family sharing needs Osanpo Biyori Premium. Family members who join with an invite code (up to 5 devices) join for free, and you can share between iPhone and Android, too.</p>
       </div>
 
-      <p class="faq__more"><a href="./support.html">See all questions and how to contact us</a></p>
+      <p class="faq__more"><a href="./support">See all questions and how to contact us</a></p>
     </div>
   </section>
 
@@ -489,7 +507,7 @@
         <a class="badge" href="https://apps.apple.com/app/id6789016064">
           <img src="../assets/badge-appstore-en.svg" width="120" height="40" alt="Download on the App Store">
         </a>
-        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en">
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=en&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Den">
           <img src="../assets/badge-googleplay-en.png" width="269" height="80" alt="Get it on Google Play">
         </a>
       </div>
@@ -506,10 +524,10 @@
       <a href="../zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
       <a href="../ko/" lang="ko" hreflang="ko">한국어</a>
     </nav>
-    <nav>
-      <a href="./support.html">Support &amp; FAQ</a>
-      <a href="./privacy-policy.html">Privacy Policy</a>
-      <a href="../tokushoho.html" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
+    <nav aria-label="Footer">
+      <a href="./support">Support &amp; FAQ</a>
+      <a href="./privacy-policy">Privacy Policy</a>
+      <a href="../tokushoho" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
       <a href="mailto:osanpobiyori.app@gmail.com">Contact</a>
     </nav>
     <div class="site-foot__legal">
@@ -517,10 +535,11 @@
       <p>Pavement temperature is an estimated guide, not a measurement. This app does not provide veterinary diagnosis.</p>
       <p>Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
     </div>
+    <p class="site-foot__fonts">Fonts: <a href="../assets/fonts/ZenKurenaido-OFL.txt">Zen Kurenaido</a> and <a href="../assets/fonts/ZenKakuGothicNew-OFL.txt">Zen Kaku Gothic New</a> (SIL Open Font License 1.1)</p>
     <p class="site-foot__copy">© 2026 Osanpo Biyori</p>
   </div>
 </footer>
 
-<script src="../assets/lp.js?v=a619f32d" defer></script>
+<script src="../assets/lp.js?v=af9211db" defer></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://osanpobiyori.app/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/"/>
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://osanpobiyori.app/en/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/"/>
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://osanpobiyori.app/zh/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/"/>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://osanpobiyori.app/ko/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/"/>
@@ -38,44 +38,8 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/"/>
   </url>
   <url>
-    <loc>https://osanpobiyori.app/support</loc>
-    <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/support"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/support"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support"/>
-  </url>
-  <url>
-    <loc>https://osanpobiyori.app/en/support</loc>
-    <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/support"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/support"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support"/>
-  </url>
-  <url>
-    <loc>https://osanpobiyori.app/zh/support</loc>
-    <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/support"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/support"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support"/>
-  </url>
-  <url>
-    <loc>https://osanpobiyori.app/ko/support</loc>
-    <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/support"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/support"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support"/>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support"/>
-  </url>
-  <url>
     <loc>https://osanpobiyori.app/privacy-policy</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy"/>
@@ -84,7 +48,7 @@
   </url>
   <url>
     <loc>https://osanpobiyori.app/en/privacy-policy</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy"/>
@@ -93,7 +57,7 @@
   </url>
   <url>
     <loc>https://osanpobiyori.app/zh/privacy-policy</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy"/>
@@ -102,7 +66,7 @@
   </url>
   <url>
     <loc>https://osanpobiyori.app/ko/privacy-policy</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy"/>
@@ -110,7 +74,43 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/privacy-policy"/>
   </url>
   <url>
+    <loc>https://osanpobiyori.app/support</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support"/>
+  </url>
+  <url>
+    <loc>https://osanpobiyori.app/en/support</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support"/>
+  </url>
+  <url>
+    <loc>https://osanpobiyori.app/zh/support</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support"/>
+  </url>
+  <url>
+    <loc>https://osanpobiyori.app/ko/support</loc>
+    <lastmod>2026-10-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/support"/>
+  </url>
+  <url>
     <loc>https://osanpobiyori.app/tokushoho</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-17</lastmod>
   </url>
 </urlset>

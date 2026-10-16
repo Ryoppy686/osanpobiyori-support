@@ -11,24 +11,35 @@
 <link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/privacy-policy">
 <link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/privacy-policy">
 <link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/privacy-policy">
-<link rel="icon" href="../assets/icon-192.webp" type="image/webp">
-<link rel="apple-touch-icon" href="../assets/icon-192.webp">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/icon-192.webp" type="image/webp" sizes="192x192">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta name="theme-color" content="#F5F3ED">
-<link rel="stylesheet" href="../assets/style.css?v=3f7f41d7">
+<link rel="stylesheet" href="../assets/style.css?v=e7cde4cd">
 </head>
 <body>
 
+<a class="skip-link" href="#main">跳到正文</a>
 <header class="site-head">
   <a class="site-head__brand" href="./">
     <img src="../assets/icon-192.webp" width="34" height="34" alt="">
     散步日和
   </a>
-  <nav class="site-head__nav">
-    <a href="./support.html">支持</a>
+  <nav class="site-head__nav" aria-label="网站导航">
+    <a href="./support">支持</a>
   </nav>
+  <details class="lang-menu">
+    <summary class="lang-menu__button" aria-label="语言"><svg class="lang-menu__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c-3.4 3.6-3.4 14.8 0 18.4M12 2.8c3.4 3.6 3.4 14.8 0 18.4"/></svg><span class="lang-menu__label">简体中文</span></summary>
+    <ul class="lang-menu__list">
+      <li><a href="../privacy-policy" lang="ja" hreflang="ja">日本語</a></li>
+      <li><a href="../en/privacy-policy" lang="en" hreflang="en">English</a></li>
+      <li><span aria-current="page" lang="zh-Hans">简体中文</span></li>
+      <li><a href="../ko/privacy-policy" lang="ko" hreflang="ko">한국어</a></li>
+    </ul>
+  </details>
 </header>
 
-<main class="doc measure">
+<main id="main" class="doc measure">
   <h1>隐私政策</h1>
   <p class="doc__updated">制定日期：2026年7月4日 / 最后修订日期：2026年9月24日(新增家人共享相关内容)</p>
 
@@ -79,7 +90,7 @@
   <p>本应用保存的数据(狗狗的资料、登记的地点、通知与显示的设置、设为背景的照片、回忆地图的记录)<strong>全部仅保存在您的设备内</strong>。开发者不会取得这些数据，也不会保管在外部服务器上(例外仅限开启实时提醒和使用家人共享的情形，所处理的信息与删除条件如上所述)。</p>
   <p><strong>关于导出备份</strong>：为更换机型等情况做准备，可将回忆地图的记录、护理日历的计划、狗狗的信息(包含体重记录、常去的动物医院、芯片号码、过敏备注、已登记的照片)汇总导出为一个文件。导出文件的保存位置(iCloud Drive、设备内、其他应用等)<strong>由您当场自行选择</strong>，不会发送至开发者的服务器。由于其中包含健康与联系方式相关的信息，请注意保存位置的共享设置。</p>
   <p><strong>从设备卸载本应用后，这些数据将全部删除。</strong>若在开启实时提醒的状态下卸载，服务器上的登记信息会在高级版到期后经过一定期间(30 天)自动删除(如需立即删除，请在卸载前关闭实时提醒)。若在加入家人共享的状态下卸载，只要共享仍在继续，服务器上的数据就会为家人保留。如需立即删除，请在卸载前选择"停止共享"(发起共享的一方)或"将本设备退出家庭"(加入的一方)。已登记的狗狗与地点，可随时在应用内单独删除。设为背景的照片，可通过更换为其他照片，或将背景改回"自动(跟随天气)"来停止使用。</p>
-  <p>Android 版使用的中转服务器(用于获取天气数据)不保存任何可识别用户身份的信息。虽然会将取得的天气数据临时保留约 10 分钟，但那是与模糊坐标对应的天气数值，无法确定个人身份，并会随时间自动清除。因此，我们并未持有需要您申请删除的个人数据。如有疑问，请通过<a href="./support.html">支持页面</a>与我们联系。</p>
+  <p>Android 版使用的中转服务器(用于获取天气数据)不保存任何可识别用户身份的信息。虽然会将取得的天气数据临时保留约 10 分钟，但那是与模糊坐标对应的天气数值，无法确定个人身份，并会随时间自动清除。因此，我们并未持有需要您申请删除的个人数据。如有疑问，请通过<a href="./support">支持页面</a>与我们联系。</p>
 
   <h2>关于跟踪与分析</h2>
   <p>本应用完全不使用广告、跟踪或第三方分析 SDK。Android 版使用 Firebase Cloud Messaging 投送实时提醒的通知，但未加入分析(Google Analytics 等)功能。</p>
@@ -88,7 +99,7 @@
   <p>本应用显示的散步指数、中暑风险、路面温度等各项指标，是基于气象数据的一般参考，并非兽医学诊断。若对狗狗的身体状况有所担心，请咨询兽医。</p>
 
   <h2>联系我们</h2>
-  <p>关于本政策的咨询，请通过<a href="./support.html">支持页面</a>与我们联系。</p>
+  <p>关于本政策的咨询，请通过<a href="./support">支持页面</a>与我们联系。</p>
 
   <h2>关于修订</h2>
   <p>本政策如有修订，将在本页面公告。</p>
@@ -97,20 +108,22 @@
 <footer class="site-foot">
   <div class="wide">
     <nav class="lang-switch" aria-label="语言">
-      <a href="../privacy-policy.html" lang="ja" hreflang="ja">日本語</a>
-      <a href="../en/privacy-policy.html" lang="en" hreflang="en">English</a>
+      <a href="../privacy-policy" lang="ja" hreflang="ja">日本語</a>
+      <a href="../en/privacy-policy" lang="en" hreflang="en">English</a>
       <span aria-current="page">简体中文</span>
-      <a href="../ko/privacy-policy.html" lang="ko" hreflang="ko">한국어</a>
+      <a href="../ko/privacy-policy" lang="ko" hreflang="ko">한국어</a>
     </nav>
-    <nav>
+    <nav aria-label="页脚">
       <a href="./">首页</a>
-      <a href="./support.html">支持与常见问题</a>
-      <a href="../tokushoho.html" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
+      <a href="./support">支持与常见问题</a>
+      <a href="../tokushoho" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
       <a href="mailto:osanpobiyori.app@gmail.com">联系我们</a>
     </nav>
     <p class="site-foot__copy">© 2026 散步日和</p>
   </div>
 </footer>
 
+<!-- 言語切り替えを外側のタップ・Esc で閉じるため(無くても開閉はできる) -->
+<script src="../assets/lp.js?v=af9211db" defer></script>
 </body>
 </html>
