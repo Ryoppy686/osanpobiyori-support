@@ -57,7 +57,9 @@
 
     // 枠の中央にいちばん近い1枚を「いま見えている枚目」とする。
     // CSS はそれ以外を半透明にして「次の絵がうっすら見える」状態を作り、点も同じ値で更新する。
-    // scroll のたびに計算すると重いので、止まってから少し待って1回だけ計算する
+    // 送っている最中も描画フレームごとに計算し、次の絵が中央を越えた瞬間にはっきりさせる
+    // (止まってから計算する作りだと、送り終わってからワンテンポ遅れて濃くなった・2026-10-17)。
+    // 矩形を2〜3枚ぶん測るだけなので、フレームごとでも重くない
     function nearestItem() {
       // offsetLeft は offsetParent 基準で、枠(.shots)は position を持たないので使えない。
       // 画面上の矩形どうしで中央の距離を測る
@@ -79,10 +81,11 @@
         buttons[j].setAttribute("aria-current", on ? "true" : "false");
       });
     }
-    var timer = null;
+    var queued = false;
     track.addEventListener("scroll", function () {
-      clearTimeout(timer);
-      timer = setTimeout(markActive, 80);
+      if (queued) return;   // 1フレームに1回だけ
+      queued = true;
+      requestAnimationFrame(function () { queued = false; markActive(); });
     }, { passive: true });
     markActive();
 

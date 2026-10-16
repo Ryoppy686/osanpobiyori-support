@@ -493,7 +493,7 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 }
 /* 中央の1枚だけはっきり見せ、隣はうっすら(lp.js が is-active を付ける。JSが無ければ全部はっきり)。
    薄くするのは**絵だけ**。説明文まで薄めると文字のコントラストが 1.9:1 になり読めない(2026-10-17) */
-.shots__item img { transition: opacity .35s ease; }
+.shots__item img { transition: opacity .2s ease; }   /* 送りに追従して切り替わるので、長い余韻は要らない */
 .shots:has(.is-active) .shots__item:not(.is-active) img { opacity: .45; }
 /* マウスで掴んで送る(lp.js)。掴んでいる間は snap を切って指に追従させる */
 .shots { cursor: grab; }
