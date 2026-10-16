@@ -1,10 +1,9 @@
 # Cloudflare Pages が返すレスポンスヘッダ(site/ ごと公開リポジトリへコピーされる。lp-publish.sh)。
 # 中身の方針は docs/lp-site-spec.md §7。
 #
-# CSP は 'self' が基本。ページ自身は外部へ通信しないが、Cloudflare が差し込むものを2つ通している:
-#   - Web Analytics のビーコン(static.cloudflareinsights.com。計測の送り先 /cdn-cgi/rum は同一オリジン)
-#   - メールアドレスの難読化を戻すスクリプト(/cdn-cgi/scripts/…/email-decode.min.js。同一オリジン)
-# どちらも Cloudflare のダッシュボードで切れば、CSP からも外してよい。
+# CSP は 'self' が基本。ページ自身は外部へ通信しないが、Cloudflare が差し込む Web Analytics のビーコンだけ通している
+# (static.cloudflareinsights.com。計測の送り先 /cdn-cgi/rum は同一オリジン。残すと決めた・PP に記載・2026-10-17)。
+# メールアドレスの難読化(email-decode.min.js)は 2026-10-17 にダッシュボードで切った。
 # inline の style 属性・script は通さない(HTML 側は全部クラスと外部ファイルにしてある。lp-check.py が見張る)。
 # HSTS は .app が TLD ごと preload 済みなので要らない。
 /*
