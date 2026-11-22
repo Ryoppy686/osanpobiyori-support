@@ -699,7 +699,8 @@ section { padding-block: clamp(56px, 9vw, 104px); }
 .site-foot__fonts { margin: 14px 0 0; line-height: 1.75; }
 .site-foot__copy { margin-top: 22px; }
 
-/* --- 多言語ページ(en / zh-Hans / ko) ----------------------------
+/* --- 多言語ページ(en / zh-Hans / zh-Hant / ko) ------------------
+   繁体字(site/zh-hant・2026-11-21)は簡体字と同じ扱いで、フォントだけ台湾の字形(PingFang TC)にする
    プライバシーポリシーとサポートだけ3言語版を site/en・zh・ko に置く
    (アプリの仕様書 §11)。トップと特商法は日本語のみ。
 
@@ -712,6 +713,10 @@ html[lang="zh-Hans"] {
   --display: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
   --sans:    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
 }
+html[lang="zh-Hant"] {
+  --display: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  --sans:    "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+}
 html[lang="ko"] {
   --display: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
   --sans:    "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
@@ -719,6 +724,7 @@ html[lang="ko"] {
 /* 見出しの weight 400 は Zen Kurenaido が1ウェイトしか無いための指定なので、
    システムフォントで描く中韓では太字に戻して見出しらしくする */
 html[lang="zh-Hans"] :is(h1, h2, h3),
+html[lang="zh-Hant"] :is(h1, h2, h3),
 html[lang="ko"] :is(h1, h2, h3) { font-weight: 600; }
 /* 韓国語は単語の途中で折り返さない(分かち書きの言語なので語の途中で切ると読みにくい)。
    メールアドレスなど長い1語だけは anywhere で逃がす */

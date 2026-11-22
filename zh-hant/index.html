@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>散步日和 — 狗狗視角的天氣 App</title>
+<meta name="description" content="狗狗視角的天氣預報。結合犬種和年齡，綜合路面溫度、中暑風險和濕度，告訴你「現在可以去散步嗎？」。沒有廣告，基本功能免費。">
+<link rel="canonical" href="https://osanpobiyori.app/zh-hant/">
+<link rel="alternate" hreflang="ja" href="https://osanpobiyori.app/">
+<link rel="alternate" hreflang="en" href="https://osanpobiyori.app/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://osanpobiyori.app/zh/">
+<link rel="alternate" hreflang="zh-Hant" href="https://osanpobiyori.app/zh-hant/">
+<link rel="alternate" hreflang="ko" href="https://osanpobiyori.app/ko/">
+<link rel="alternate" hreflang="x-default" href="https://osanpobiyori.app/">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/icon-192.webp" type="image/webp" sizes="192x192">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#F5F3ED">
+<link rel="stylesheet" href="../assets/style.css?v=e1a6b921">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="散步日和 — 狗狗視角的天氣 App">
+<meta property="og:description" content="狗狗視角的天氣預報。沒有廣告，基本功能免費。">
+<meta property="og:url" content="https://osanpobiyori.app/zh-hant/">
+<meta property="og:image" content="https://osanpobiyori.app/assets/ogp-zh-hant.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="散步日和 — 狗狗視角的天氣預報。草地上並排的 6 隻狗狗插畫">
+<meta property="og:site_name" content="散步日和">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@osanpobiyori_jp">
+
+<!-- モバイルSafariでApp Storeへの誘導バナーを出す -->
+<meta name="apple-itunes-app" content="app-id=6789016064">
+
+<!-- 海外向けトップ(簡體字中國語)。英語版と同じ骨組み(docs/海外向けトップページ構成案.md)。
+     気溫は摂氏のみ。Google Play は中國本土で使えないので、バッジの下に斷り書きを添える。
+     検索エンジン向けの構造化データ(アプリ情報+FAQ)。FAQの文面は本文と一字一句揃えること -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "散步日和",
+  "alternateName": "Osanpo Biyori",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "WeatherApplication",
+  "description": "狗狗視角的天氣預報。結合犬種和年齡，綜合路面溫度、中暑風險和濕度，告訴你「現在可以去散步嗎？」。沒有廣告，基本功能免費。",
+  "url": "https://osanpobiyori.app/zh-hant/",
+  "image": "https://osanpobiyori.app/assets/ogp-zh-hant.jpg",
+  "inLanguage": "zh-Hant",
+  "installUrl": [
+    "https://apps.apple.com/app/id6789016064",
+    "https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho"
+  ],
+  "author": { "@type": "Organization", "name": "散步日和", "url": "https://osanpobiyori.app/", "sameAs": ["https://x.com/osanpobiyori_jp", "https://www.instagram.com/osanpobiyori_app/", "https://www.youtube.com/@osanpobiyori_app"] },
+  "publisher": { "@type": "Organization", "name": "散步日和", "url": "https://osanpobiyori.app/" },
+  "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+    { "@type": "Offer", "name": "散步日和 Premium", "category": "subscription", "price": "15", "priceCurrency": "CNY" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "不允許使用位置資訊也能用嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。在首頁的地點選單中登記地點後，全部功能都能使用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "顯示的路面溫度是實測值嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是。那是根據太陽高度與雲量估算的參考值。出門前請一併做「5 秒檢查」：把手放在地面上停留 5 秒。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "在日本以外也能用嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。除了雨雲雷達、即時提醒、氣象警報和實測的目前氣溫以外，所有功能在任何地方都能使用。這幾項使用日本氣象廳的資料，僅覆蓋日本國內的地點。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "一直用免費版可以嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。散步指數、中暑與路面溫度的判定、一週預報等基本功能都可免費使用。照護行事曆中疫苗、驅蟲等計畫也可免費使用。散步日和 進階版是在此之上增加功能的可選方案。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "散步日和 進階版在 Android 版也能用嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。iOS 版與 Android 版都能訂閱。基本功能在兩個平台上也都可免費使用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "家人共享需要全家人都訂閱嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不需要。只需開始家人共享的那 1 台裝置訂閱散步日和 進階版即可。使用邀請碼加入的家人(最多 5 台裝置)可免費加入，iPhone 和 Android 之間也能共享。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- 王冠の形は1回だけ定義し、各見出しの <svg> は <use> で参照する(プレミアム紹介) -->
+<svg class="svg-defs" width="0" height="0" aria-hidden="true"><symbol id="crown-shape" viewBox="0 0 24 18"><path d="M2 5.2 6 9 12 1.6 18 9 22 5.2 20.4 15.4H3.6Z" fill="currentColor"/></symbol></svg>
+
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head site-head--overlay">
+  <a class="site-head__brand" href="./">
+    <img src="../assets/icon-192.webp" width="34" height="34" alt="">
+    散步日和
+  </a>
+  <nav class="site-head__nav" aria-label="網站導航">
+    <a href="./support">支援</a>
+    <a href="./privacy-policy">隱私權政策</a>
+  </nav>
+  <details class="lang-menu">
+    <summary class="lang-menu__button" aria-label="語言"><svg class="lang-menu__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c-3.4 3.6-3.4 14.8 0 18.4M12 2.8c3.4 3.6 3.4 14.8 0 18.4"/></svg><span class="lang-menu__label">繁體中文</span></summary>
+    <ul class="lang-menu__list">
+      <li><a href="../" lang="ja" hreflang="ja">日本語</a></li>
+      <li><a href="../en/" lang="en" hreflang="en">English</a></li>
+      <li><a href="../zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a></li>
+      <li><span aria-current="page" lang="zh-Hant">繁體中文</span></li>
+      <li><a href="../ko/" lang="ko" hreflang="ko">한국어</a></li>
+    </ul>
+  </details>
+</header>
+
+<main id="main">
+
+  <!-- ヒーロー ------------------------------------------------ -->
+  <section class="hero">
+    <div class="measure">
+      <h1><span class="nb">今天的散步，</span><span class="nb">什麼時候出發？</span></h1>
+      <p class="hero__lead">狗狗視角的天氣預報。</p>
+
+      <p class="hero__name">散步日和</p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064?pt=122698343&amp;ct=lp-zh-hant&amp;mt=8">
+          <img src="../assets/badge-appstore-zh-hant.svg" width="109" height="40" alt="在 App Store 下載">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=zh-TW&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Dzh-hant">
+          <img src="../assets/badge-googleplay-zh-hant.png" width="269" height="80" alt="在 Google Play 下載">
+        </a>
+      </div>
+
+      <p class="hero__note">沒有廣告，基本功能免費。</p>
+    </div>
+
+    <!-- 640px以下は3匹の版に差し替える。6匹のままだと顔が潰れる -->
+    <div class="hero__band">
+      <picture>
+        <source media="(max-width: 640px)" srcset="../assets/hero-band-mobile.webp">
+        <img src="../assets/hero-band-wide.webp" width="2048" height="560" fetchpriority="high"
+             alt="草地上並排的玩具貴賓犬、柯基、柴犬、諾福克梗、吉娃娃和黃金獵犬的插畫">
+      </picture>
+    </div>
+  </section>
+
+  <img class="wash" src="../assets/divider-wash.webp" alt="" aria-hidden="true"
+       width="840" height="163" loading="lazy" decoding="async">
+
+  <!-- 課題提起 -------------------------------------------------- -->
+  <section class="problem">
+    <div class="measure">
+      <h2><span class="nb">對人來說是舒服的好天氣，</span><span class="nb">腳下卻可能很燙。</span></h2>
+
+      <div class="compare">
+        <div class="compare__item compare__item--air">
+          <span class="compare__label">氣溫</span>
+          <span class="compare__value">26℃</span>
+          <span class="compare__caption"><span class="nb">我們看到的</span><br><span class="nb">天氣預報數字</span></span>
+        </div>
+        <div class="compare__vs">腳下</div>
+        <div class="compare__item compare__item--road">
+          <span class="compare__label">柏油路面</span>
+          <span class="compare__value">50℃</span>
+          <span class="compare__caption"><span class="nb">狗狗赤腳</span><br><span class="nb">走路時的溫度</span></span>
+        </div>
+      </div>
+
+      <p><span class="nb">散步日和</span>會看到藏在氣溫背後的東西：路面的熱度、濕度、風和紫外線。把這些彙總成一句「現在出門沒問題嗎？」，每天早上告訴你。</p>
+    </div>
+  </section>
+
+  <img class="wash" src="../assets/divider-sky.webp" alt="" aria-hidden="true"
+       width="840" height="177" loading="lazy" decoding="async">
+
+  <!-- 機能 ------------------------------------------------------ -->
+  <section class="features">
+    <div class="wide">
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>今天的散步指數</h3>
+          <p>綜合氣溫、濕度、陽光、雨、風和路面溫度，用 0～100 告訴你今天適不適合散步。還附帶每小時的指數和「推薦的散步時間」。早上開啟看一眼，今天的安排就定了。</p>
+        </div>
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="散步指數的頁面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-home-zh-hant.webp" srcset="../assets/shot-home-zh-hant-480.webp 480w, ../assets/shot-home-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="首頁。散步指數 88 分，吉祥物說「非常適合散步的時間!」">
+              <figcaption>首頁的指數和狗狗的一句話</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-home-hourly-zh-hant.webp" srcset="../assets/shot-home-hourly-zh-hant-480.webp 480w, ../assets/shot-home-hourly-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="每小時的散步指數，從 11 點到 15 點，下方是中暑、路面溫度、氣壓、乾燥、紫外線、換毛期的指標卡片">
+              <figcaption>每小時的指數和各項指標卡片</figcaption>
+            </figure>
+          </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>為什麼是這個分數，全都給你看</h3>
+          <p>分成炎熱、路面、雨、寒冷、風、紫外線、乾燥 7 個要素，隨時檢視分數明細。判斷的依據和出處也都放在 App 裡，你可以自己確認，不必只聽我們說。</p>
+        </div>
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="分數明細的頁面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breakdown-zh-hant.webp" srcset="../assets/shot-breakdown-zh-hant-480.webp 480w, ../assets/shot-breakdown-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="分數明細頁面。88 分，最適合散步，7 個要素的狀況一目瞭然">
+              <figcaption>最適合散步那天的明細</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breakdown-hot-zh-hant.webp" srcset="../assets/shot-breakdown-hot-zh-hant-480.webp 480w, ../assets/shot-breakdown-hot-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="分數明細頁面。10 分，建議先別出門，炎熱與悶熱被標為紅色的主要因素">
+              <figcaption>10 分那天的明細，主要因素標為紅色</figcaption>
+            </figure>
+          </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>路面的熱度和中暑風險</h3>
+          <p>根據太陽高度和雲、雨的情況估算柏油路面的熱度，提示可能燙傷肉墊的時段。中暑風險根據氣溫、濕度與陽光的組合分 4 個等級判斷(等級名稱沿用日本環境省的暑熱指數)，短鼻犬種、幼犬和老齡犬會判斷得更謹慎。</p>
+        </div>
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="路面熱度和中暑的頁面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-heat-zh-hant.webp" srcset="../assets/shot-heat-zh-hant-480.webp 480w, ../assets/shot-heat-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="酷暑天的首頁。33℃、指數 10 分，吉祥物趴著說「很熱。涼一涼再去吧」">
+              <figcaption>酷暑天的首頁</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-heat-info-zh-hant.webp" srcset="../assets/shot-heat-info-zh-hant-480.webp 480w, ../assets/shot-heat-info-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="「得出這個判定的原因」頁面。用分級條顯示僅天氣的判定和加上狗狗體質後的最終判定">
+              <figcaption>中暑判定的原因</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-road-info-zh-hant.webp" srcset="../assets/shot-road-info-zh-hant-480.webp 480w, ../assets/shot-road-info-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="「路面溫度與肉墊」頁面。按溫度段說明對肉墊的影響">
+              <figcaption>路面溫度與肉墊，按溫度段說明</figcaption>
+            </figure>
+          </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>未來一週，一目瞭然</h3>
+          <p>未來 7 天的最高、最低氣溫、降水機率和風一目瞭然，可以提前安排散步和外出。把狗狗樂園或旅行目的地登記為地點，也能檢視那裡的狗狗視角天氣。</p>
+        </div>
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="一週預報和外出天氣的頁面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-weekly-zh-hant.webp" srcset="../assets/shot-weekly-zh-hant-480.webp 480w, ../assets/shot-weekly-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="一週預報頁面。列出未來 7 天的天氣、氣溫、降水機率和每天的散步指數條">
+              <figcaption>一週預報</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-day-detail-zh-hant.webp" srcset="../assets/shot-day-detail-zh-hant-480.webp 480w, ../assets/shot-day-detail-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="某一天的詳情頁面。推薦的散步時間條、每小時的散步指數和狗狗建議">
+              <figcaption>點開某一天，檢視推薦的散步時間和每小時指數</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-outing-zh-hant.webp" srcset="../assets/shot-outing-zh-hant-480.webp 480w, ../assets/shot-outing-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="外出天氣頁面。列出大安森林公園、花博公園、陽明山三個地點的天氣和散步指數">
+              <figcaption>登記的地點一起檢視</figcaption>
+            </figure>
+          </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <span class="feature__mark"></span>
+          <h3>貼合你家的狗狗</h3>
+          <p>登記犬種、年齡和體型後，所有判斷都會隨之調整。支援 141 個犬種，多隻飼養也可以全部登記。</p>
+        </div>
+        <div class="feature__shots" data-carousel>
+          <ul class="shots" aria-label="我的狗狗的頁面">
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-breeds-zh-hant.webp" srcset="../assets/shot-breeds-zh-hant-480.webp 480w, ../assets/shot-breeds-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="選擇犬種的頁面。玩具貴賓犬、吉娃娃、柴犬等犬種配著吉祥物插畫排成一列">
+              <figcaption>從 141 個犬種中選擇</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-dog-detail-zh-hant.webp" srcset="../assets/shot-dog-detail-zh-hant-480.webp 480w, ../assets/shot-dog-detail-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="狗狗的詳情頁面。6.2 kg 的體重圖表、證明與文件、基本資料">
+              <figcaption>體重記錄和基本資料</figcaption>
+            </figure>
+          </li>
+          <li class="shots__item">
+            <figure>
+              <img src="../assets/shot-dogs-zh-hant.webp" srcset="../assets/shot-dogs-zh-hant-480.webp 480w, ../assets/shot-dogs-zh-hant.webp 720w" sizes="(min-width: 769px) 250px, min(260px, 62vw)" width="720" height="1565" loading="lazy" alt="我的狗狗列表。主要狗狗摩卡(諾福克梗)和巴弟(巴哥犬)">
+              <figcaption>多隻狗狗，各有各的判斷</figcaption>
+            </figure>
+          </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 犬種で変わる ---------------------------------------------- -->
+  <section class="breeds">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--grass"><span class="nb">同樣的天氣，</span><span class="nb">每隻狗狗的答案都不一樣。</span></h2>
+      <p>短鼻子的狗狗不容易散熱。貼近地面的小型犬，會直接受到路面的熱氣。厚厚的雙層毛和怕冷的短毛，舒服的一天也完全不同。<span class="nb">散步日和</span>會把這些差別都算進去。</p>
+    </div>
+    <div class="breeds__band">
+      <picture>
+        <source media="(max-width: 640px)" srcset="../assets/breeds-band-narrow.webp">
+        <img src="../assets/breeds-band-wide.webp" width="2048" height="560" loading="lazy"
+             alt="並排的北京犬、迷你臘腸犬、鬆獅犬、吉娃娃、波士頓梗和邊境牧羊犬的插畫">
+      </picture>
+    </div>
+  </section>
+
+  <!-- プレミアム(日本域外で出る6つ・並びと見出しコピーはアプリのペイウォールの中國語訳と同じ) -->
+  <section class="premium">
+    <div class="measure">
+      <h2>散步日和 進階版</h2>
+      <p class="premium__lead"><span class="nb">基本功能保持免費。</span><span class="nb">想要多一點幫助時，</span><span class="nb">進階版會加上這 6 項。</span></p>
+    </div>
+
+    <div class="wide">
+      <ul class="premium__grid">
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>家人共享</h3>
+          <p class="premium__copy"><span class="nb">全家人一起，</span><span class="nb">把狗狗的記錄合而為一</span></p>
+          <img src="../assets/shot-premium-family-zh-hant.webp" width="1068" height="756" loading="lazy"
+               alt="家人共享頁面。成員中有媽媽的 iPhone 和爸爸的 Android，下面是「邀請家人」按鈕">
+          <p>體重、照護記錄和回憶地圖可與家人的裝置同步。只要傳送邀請碼，iPhone 和 Android 之間也能共享。只需 1 台裝置訂閱，受邀家人(最多 5 台裝置)免費加入，還能使用行事曆、回憶地圖和毛色選擇。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>毛色選擇</h3>
+          <p class="premium__copy"><span class="nb">讓吉祥物</span><span class="nb">換上狗狗的毛色</span></p>
+          <img src="../assets/shot-premium-coat.webp" width="1068" height="756" loading="lazy"
+               alt="更換毛色頁面。凱恩梗的吉祥物以小麥色、斑紋、灰色、紅色 4 種毛色排列，紅色處於選中狀態">
+          <p>可以從各犬種準備好的毛色中，選出接近狗狗的顏色。首頁和小工具都會變成所選毛色，參與家人共享的家人畫面上也會顯示同樣的毛色。毛色或耳朵形狀和狗狗不一樣時，還可以提出請求。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>行事曆</h3>
+          <p class="premium__copy"><span class="nb">自家狗狗的行程，</span><span class="nb">隨心記進行事曆</span></p>
+          <img src="../assets/shot-premium-calendar-zh-hant.webp" width="1068" height="756" loading="lazy"
+               alt="行事曆的日記模式。2026 年 10 月的格子裡排滿了狗狗的照片">
+          <p>美容、就診、心絲蟲預防等，自由新增狗狗需要的安排，並用照片和備註記錄下來。疫苗和驅蟲的安排，不訂閱也能使用。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>回憶地圖</h3>
+          <p class="premium__copy"><span class="nb">把散步的回憶，</span><span class="nb">連照片一起留在地圖上</span></p>
+          <img src="../assets/shot-premium-memories-zh-hant.webp" width="1068" height="756" loading="lazy"
+               alt="台北的回憶地圖。留下回憶的公園上立著圖釘">
+          <p>在一起走過的地方留下照片和一句話。圖釘越多，和狗狗的回憶就越會變成一張地圖。免費也能試用 3 筆。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>氣壓圖表</h3>
+          <p class="premium__copy"><span class="nb">氣壓的變化，</span><span class="nb">用圖表看到 3 天後</span></p>
+          <img src="../assets/shot-premium-pressure-zh-hant.webp" width="1068" height="756" loading="lazy"
+               alt="氣壓圖表頁面。狗狗說「預計下午 6 時起氣壓會大幅下降」，下降的時段標上了顏色，還有「晚上10時 1012 hPa」的氣泡和一張皺眉的臉">
+          <p>可以用逐小時的折線檢視今天、明天、後天的氣壓走勢。下降的時段會標上顏色，還能看到「21時起下降」這樣的變化時間點。免費版也能在首頁的卡片上看到目前氣壓的狀態(3 個等級)。</p>
+        </li>
+        <li>
+          <h3><svg class="premium__crown" width="19" height="15" viewBox="0 0 24 18" aria-hidden="true"><use href="#crown-shape"/></svg>每日背景</h3>
+          <p class="premium__copy"><span class="nb">10 張照片和各種狗狗，</span><span class="nb">每天輪流出現在首頁</span></p>
+          <img src="../assets/shot-premium-background.webp" width="1068" height="756" loading="lazy"
+               alt="草地上聚在一起的黃金獵犬、吉娃娃、博美犬、邊境牧羊犬、柴犬、玩具貴賓犬、諾福克梗和柯基的插畫">
+          <p>免費版一直顯示同一張照片。訂閱後，「今天是哪隻狗狗呢？」會成為每天早上的小期待。</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="measure">
+      <p class="premium__price">台灣每月 NT$60<span class="premium__price-note">價格因國家或地區而異，購買前會顯示。iOS 版和 Android 版都能訂閱。</span></p>
+
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064?pt=122698343&amp;ct=lp-zh-hant&amp;mt=8">
+          <img src="../assets/badge-appstore-zh-hant.svg" width="109" height="40" alt="在 App Store 下載">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=zh-TW&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Dzh-hant">
+          <img src="../assets/badge-googleplay-zh-hant.png" width="269" height="80" alt="在 Google Play 下載">
+        </a>
+      </div>
+
+      <p class="premium__note">僅在開始共享的裝置訂閱進階版期間，家人才能使用行事曆、回憶地圖和毛色選擇。在日本國內，進階版還包括即時提醒，以及可看到 15 小時後的降雨預測和雷電雷達。每日背景中出現的是已有插畫的犬種。可選毛色的數量因犬種而異。付款和取消的條件，請見<a href="../tokushoho" lang="ja" hreflang="ja">《基於日本特定商業交易法的標示》</a>(日語)。</p>
+    </div>
+  </section>
+
+  <!-- 安心材料 -------------------------------------------------- -->
+  <section class="trust">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--sky">可以放心使用</h2>
+      <ul class="trust__list">
+        <li>沒有廣告</li>
+        <li>基本功能免費，進階版是可選的</li>
+        <li>不需要註冊帳號</li>
+        <li>狗狗的資訊和登記的地點都儲存在你的手機裡(使用家人共享或即時提醒時除外。詳見<a href="./privacy-policy">隱私權政策</a>)</li>
+        <li>位置資訊只用於取得天氣</li>
+        <li>即使不允許使用位置資訊，登記地點後也能使用全部功能</li>
+        <li>每個指標的依據和出處，都在 App 裡公開</li>
+      </ul>
+    </div>
+  </section>
+
+  <img class="wash" src="../assets/divider-grass.webp" alt="" aria-hidden="true"
+       width="840" height="178" loading="lazy" decoding="async">
+
+  <!-- FAQ ------------------------------------------------------- -->
+  <section class="faq">
+    <div class="measure">
+      <h2>常見問題</h2>
+
+      <div class="faq__item">
+        <h3 class="faq__q">不允許使用位置資訊也能用嗎？</h3>
+        <p class="faq__a">可以。在首頁的地點選單中登記地點後，全部功能都能使用。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">顯示的路面溫度是實測值嗎？</h3>
+        <p class="faq__a">不是。那是根據太陽高度與雲量估算的參考值。出門前請一併做「5 秒檢查」：把手放在地面上停留 5 秒。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">在日本以外也能用嗎？</h3>
+        <p class="faq__a">可以。除了雨雲雷達、即時提醒、氣象警報和實測的目前氣溫以外，所有功能在任何地方都能使用。這幾項使用日本氣象廳的資料，僅覆蓋日本國內的地點。</p>
+      </div>
+
+      <div class="faq__item">
+        <h3 class="faq__q">一直用免費版可以嗎？</h3>
+        <p class="faq__a">可以。散步指數、中暑與路面溫度的判定、一週預報等基本功能都可免費使用。照護行事曆中疫苗、驅蟲等計畫也可免費使用。散步日和 進階版是在此之上增加功能的可選方案。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">散步日和 進階版在 Android 版也能用嗎？</h3>
+        <p class="faq__a">可以。iOS 版與 Android 版都能訂閱。基本功能在兩個平台上也都可免費使用。</p>
+      </div>
+      <div class="faq__item">
+        <h3 class="faq__q">家人共享需要全家人都訂閱嗎？</h3>
+        <p class="faq__a">不需要。只需開始家人共享的那 1 台裝置訂閱散步日和 進階版即可。使用邀請碼加入的家人(最多 5 台裝置)可免費加入，iPhone 和 Android 之間也能共享。</p>
+      </div>
+
+      <p class="faq__more"><a href="./support"><span class="nb">檢視所有問題</span><span class="nb">和聯絡方式</span></a></p>
+    </div>
+  </section>
+
+  <!-- 締め ------------------------------------------------------ -->
+  <section class="cta" id="download">
+    <div class="measure">
+      <h2 class="h2-blob h2-blob--sun"><span class="nb">今天的散步，</span><span class="nb">什麼時候出發好呢？</span></h2>
+      <p>先開啟 App，看一眼今天的散步指數吧。</p>
+      <div class="badges">
+        <a class="badge" href="https://apps.apple.com/app/id6789016064?pt=122698343&amp;ct=lp-zh-hant&amp;mt=8">
+          <img src="../assets/badge-appstore-zh-hant.svg" width="109" height="40" alt="在 App Store 下載">
+        </a>
+        <a class="badge" href="https://play.google.com/store/apps/details?id=com.ryoyahisatomi.osanpoyoho&amp;hl=zh-TW&amp;referrer=utm_source%3Dosanpobiyori.app%26utm_medium%3Dlp%26utm_content%3Dzh-hant">
+          <img src="../assets/badge-googleplay-zh-hant.png" width="269" height="80" alt="在 Google Play 下載">
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wide">
+    <nav class="lang-switch" aria-label="語言">
+      <a href="../" lang="ja" hreflang="ja">日本語</a>
+      <a href="../en/" lang="en" hreflang="en">English</a>
+      <a href="../zh/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+      <span aria-current="page">繁體中文</span>
+      <a href="../ko/" lang="ko" hreflang="ko">한국어</a>
+    </nav>
+    <nav aria-label="頁尾">
+      <a href="./support">支援與常見問題</a>
+      <a href="./privacy-policy">隱私權政策</a>
+      <a href="../tokushoho" lang="ja" hreflang="ja">特定商取引法に基づく表記</a>
+      <a href="mailto:osanpobiyori.app@gmail.com">聯絡我們</a>
+    </nav>
+    <div class="site-foot__legal">
+      <p>天氣資料：Apple Weather / 雨雲雷達：日本氣象廳</p>
+      <p>路面溫度是估算的參考值，並非實測值。本 App 不進行獸醫學診斷。</p>
+      <p>Apple 和 Apple 標誌是 Apple Inc. 在美國和其他國家和地區註冊的商標。App Store 是 Apple Inc. 的服務商標。Google Play 和 Google Play 徽標是 Google LLC 的商標。</p>
+    </div>
+    <p class="site-foot__copy">© 2026 散步日和</p>
+  </div>
+</footer>
+
+<script src="../assets/lp.js?v=8c140686" defer></script>
+</body>
+</html>
